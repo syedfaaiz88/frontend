@@ -1,0 +1,29 @@
+//SignUp
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_PENDING = "SIGNUP_PENDING";
+export const SIGNUP_FAIL = "SIGNUP_FAIL";
+export const RESET_SIGNUP_STATE = 'RESET_SIGNUP_STATE';
+
+//ConfirmSignUp
+export const CONFIRM_SIGNUP_SUCCESS = "CONFIRM_SIGNUP_SUCCESS";
+export const CONFIRM_SIGNUP_PENDING = "CONFIRM_SIGNUP_PENDING";
+export const CONFIRM_SIGNUP_FAIL = "CONFIRM_SIGNUP_FAIL";
+export const RESET_CONFIRM_STATE = 'RESET_CONFIRM_STATE';
+
+// SignIN
+export const SIGNIN_PENDING = 'SIGNIN_PENDING';
+export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
+export const SIGNIN_FAIL = 'SIGNIN_FAIL';
+
+// Logout
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_FAIL = 'LOGOUT_FAIL';
+
+// get Genders
+export const GENDERS_PENDING = 'GENDERS_PENDING';
+export const GENDERS_SUCCESS = 'GENDERS_SUCCESS';
+export const GENDERS_FAIL = 'GENDERS_FAIL';
+
+//messages
+export const SET_MESSAGE = "SET_MESSAGE";
+export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
