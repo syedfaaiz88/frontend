@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { logout } from '../../Redux/Actions/AuthAction/LogoutAction';
-import { VscSignOut } from 'react-icons/vsc';
-import { FaUserCircle } from 'react-icons/fa';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../Redux/Actions/AuthAction/LogoutAction";
+import { VscSignOut } from "react-icons/vsc";
+import { FaUserCircle } from "react-icons/fa";
 
 const Sidebar = ({ items }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -13,11 +13,15 @@ const Sidebar = ({ items }) => {
 
   const handleLogout = () => {
     dispatch(logout(navigate));
-    navigate('/login'); // Redirect to login page after logout
+    navigate("/login"); // Redirect to login page after logout
   };
 
   return (
-    <div className={`h-full ${isCollapsed ? 'w-24' : 'w-40'} flex flex-col bg-gray-100 shadow-lg transition-width duration-300 p-2`}>
+    <div
+      className={`min-h-full ${
+        isCollapsed ? "w-20" : "w-40"
+      } flex flex-col bg-gray-100 shadow-lg transition-width duration-300 p-2`}
+    >
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
         className="p-2 text-gray-600 focus:outline-none text-xl"
@@ -30,11 +34,15 @@ const Sidebar = ({ items }) => {
             <li
               key={index}
               className={`flex items-center p-4 cursor-pointer rounded-full 
-                ${activeIndex === index ? 'bg-gray-200 text-green-600' : 'text-gray-600 hover:bg-gray-200'}
-                ${isCollapsed ? 'justify-center mx-2' : ''}`}
+                ${
+                  activeIndex === index
+                    ? "bg-gray-200 text-green-600"
+                    : "text-gray-600 hover:bg-gray-200"
+                }
+                `}
               onClick={() => {
                 setActiveIndex(index);
-                // navigate(link.route);
+                navigate(link.route);
               }}
             >
               {link.icon && <span className="mr-3 text-2xl">{link.icon}</span>}
@@ -43,18 +51,26 @@ const Sidebar = ({ items }) => {
           ))}
         </ul>
         <div className="mt-auto">
-        <li
-            className={`flex items-center p-4 cursor-pointer rounded-full text-gray-600 hover:bg-gray-200`}
-            onClick={handleLogout}
+          <li
+            className={`flex items-center p-4 cursor-pointer rounded-full
+              ${
+                activeIndex === -1
+                  ? "bg-gray-200 text-green-600"
+                  : "text-gray-600 hover:bg-gray-200"
+              }`}
+            onClick={() => {
+              setActiveIndex(-1);
+              // navigate('/profile');
+            }}
           >
-            <FaUserCircle className="mr-3 text-3xl" />
+            <FaUserCircle className={`text-3xl ${ !isCollapsed ? 'mr-3' : '' } `} />
             {!isCollapsed && <span>Profile</span>}
           </li>
           <li
             className={`flex items-center p-4 cursor-pointer rounded-full text-gray-600 hover:bg-gray-200`}
             onClick={handleLogout}
           >
-            <VscSignOut className="mr-3 text-3xl text-red-700" />
+            <VscSignOut className={`text-3xl text-red-700 ${ !isCollapsed ? 'mr-3' : '' }`} />
             {!isCollapsed && <span>Logout</span>}
           </li>
         </div>
