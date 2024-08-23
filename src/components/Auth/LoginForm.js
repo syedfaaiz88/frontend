@@ -22,7 +22,7 @@ const LoginForm = () => {
     const signInStatus = useSelector((state) => state.signin_reducer.signIn);
     const isLoading = useSelector((state) => state.signin_reducer.isLoading);
     useEffect(() => {
-        signInStatus && !isLoading && signInStatus.status === true && navigate("/dashboard");
+        signInStatus && !isLoading && signInStatus.status === true && navigate("/home");
 
     }, [signInStatus, navigate, isLoading]);
 

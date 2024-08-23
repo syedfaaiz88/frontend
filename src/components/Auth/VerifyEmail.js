@@ -21,7 +21,7 @@ const VerifyEmail = () => {
                     setIsVerified(true);
                     toast.success('Email Verified Successfully!', {
                         position: "top-right",
-                        autoClose: 5000,
+                        autoClose: 3000,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
@@ -37,7 +37,7 @@ const VerifyEmail = () => {
                     const message = data && data.message ? data.message : 'Something Went Wrong';
                     toast.error(message, {
                         position: "top-right",
-                        autoClose: 5000,
+                        autoClose: 3000,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
@@ -49,7 +49,7 @@ const VerifyEmail = () => {
                 const message = error && error.message ? error.message : 'Something Went Wrong';
                 toast.error(message, {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

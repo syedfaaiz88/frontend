@@ -19,7 +19,7 @@ export const signIn = (body) => async (dispatch) => {
             })
             toast.success("Logged in Successfully", {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -33,7 +33,7 @@ export const signIn = (body) => async (dispatch) => {
             });
             toast.success(data.data.message, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -47,7 +47,7 @@ export const signIn = (body) => async (dispatch) => {
             });
             toast.error(data && data.data.message, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -59,7 +59,7 @@ export const signIn = (body) => async (dispatch) => {
         const message = error && error.message ? error.message : 'Something Went Wrong';
         toast.error(message, {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,

@@ -1,19 +1,44 @@
-// src/components/Dashboard.js
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { logout } from '../Redux/Actions/AuthAction/LogoutAction';
+// src/components/Home.js
+import React from "react";
+import { FaBriefcase, FaGraduationCap, FaRunning } from "react-icons/fa";
+import Sidebar from "./UI/Sidebar";
+import { LiaBarsSolid } from "react-icons/lia";
+import { IoShareSocialSharp } from "react-icons/io5";
 
 export const Home = () => {
-    const dispatch = useDispatch();
+  const items = {
+    barsIcon: <LiaBarsSolid />,
+    links: [
+      {
+        text: 'Portfolio',
+        icon: <FaBriefcase />,
+        route: '/portfolio',
+      },
+      {
+        text: 'Fitness',
+        icon: <FaRunning />,
+        route: '/fitness',
+      },
+      {
+        text: 'Education',
+        icon: <FaGraduationCap />,
+        route: '/education',
+      },
+      {
+        text: 'Social',
+        icon: <IoShareSocialSharp />,
+        route: '/social',
+      },
+    ],
+  };
 
-    const handleLogout = () => {
-        dispatch(logout());
-    };
-
-    return (
-        <>
-            <div>Home</div>
-            <button onClick={handleLogout}>Logout</button>
-        </>
-    );
+  return (
+    <div className="flex h-screen">
+      <Sidebar items={items} />
+      <div className="flex-1 p-8 bg-white">
+        <h1 className="text-3xl font-bold mb-6">Home</h1>
+        <p className="text-lg">Welcome to the Home page!</p>
+      </div>
+    </div>
+  );
 };
