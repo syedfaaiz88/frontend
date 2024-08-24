@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../../Redux/Actions/AuthAction/LogoutAction";
 import { VscSignOut } from "react-icons/vsc";
 import { FaUserCircle } from "react-icons/fa";
+import { Tooltip } from "react-tooltip";
 
 const Sidebar = ({ items }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -31,23 +32,30 @@ const Sidebar = ({ items }) => {
       <nav className="flex flex-col flex-grow mt-4">
         <ul className="flex flex-col flex-grow gap-y-2">
           {items.links.map((link, index) => (
-            <li
-              key={index}
-              className={`flex items-center p-4 cursor-pointer rounded-full 
+            <>
+              <Tooltip id="my-tooltip" place="right"/>
+              <li
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={link.text}
+                key={index}
+                className={`flex items-center p-4 cursor-pointer rounded-full 
                 ${
                   activeIndex === index
                     ? "bg-gray-200 text-green-600"
                     : "text-gray-600 hover:bg-gray-200"
                 }
                 `}
-              onClick={() => {
-                setActiveIndex(index);
-                navigate(link.route);
-              }}
-            >
-              {link.icon && <span className="mr-3 text-2xl">{link.icon}</span>}
-              {!isCollapsed && <span>{link.text}</span>}
-            </li>
+                onClick={() => {
+                  setActiveIndex(index);
+                  navigate(link.route);
+                }}
+              >
+                {link.icon && (
+                  <span className="mr-3 text-3xl">{link.icon}</span>
+                )}
+                {!isCollapsed && <span>{link.text}</span>}
+              </li>
+            </>
           ))}
         </ul>
         <div className="mt-auto">
@@ -63,14 +71,18 @@ const Sidebar = ({ items }) => {
               // navigate('/profile');
             }}
           >
-            <FaUserCircle className={`text-3xl ${ !isCollapsed ? 'mr-3' : '' } `} />
+            <span className="mr-3 text-3xl">
+              <FaUserCircle />
+            </span>
             {!isCollapsed && <span>Profile</span>}
           </li>
           <li
             className={`flex items-center p-4 cursor-pointer rounded-full text-gray-600 hover:bg-gray-200`}
             onClick={handleLogout}
           >
-            <VscSignOut className={`text-3xl text-red-700 ${ !isCollapsed ? 'mr-3' : '' }`} />
+            <span className="mr-3 text-3xl text-red-600">
+              <VscSignOut />
+            </span>
             {!isCollapsed && <span>Logout</span>}
           </li>
         </div>

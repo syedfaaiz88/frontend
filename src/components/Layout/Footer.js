@@ -1,18 +1,15 @@
-import React from 'react';
-import { IoLogoFacebook, IoLogoGithub, IoLogoLinkedin, IoLogoInstagram } from 'react-icons/io5';
-import { SiGmail } from 'react-icons/si';
-import { FaMapMarkerAlt } from 'react-icons/fa'; // Map Marker icon
-import { PiLinktreeLogoBold } from 'react-icons/pi';
+import React from "react";
 
 function Footer() {
   return (
     <footer className="bg-gray-900 text-white p-8 mt-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-96 gap-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1">
         {/* About Section */}
         <div>
           <h3 className="text-lg font-semibold mb-4">About Me</h3>
           <p className="text-gray-400">
-            I'm Syed Faaiz, a passionate Software Engineer who do martial arts, weight lifting and calisthenics.
+            I'm Syed Faaiz, a passionate Software Engineer who do martial arts,
+            weight lifting and calisthenics.
           </p>
         </div>
 
@@ -35,7 +32,7 @@ function Footer() {
           </ul>
         </div> */}
 
-        {/* Contact Information & Social Links */}
+        {/* Contact Information & Social Links
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Me</h3>
           <ul className="text-gray-400 space-y-2 mb-4">
@@ -73,7 +70,7 @@ function Footer() {
               <SiGmail className="w-7 h-7" />
             </a>
           </div>
-        </div>
+        </div>*/}
       </div>
 
       {/* Footer Bottom */}

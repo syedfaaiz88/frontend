@@ -7,9 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/Common/PrivateRoute";
 import { Portfolio } from "./components/Portfolio";
 import Layout from "./components/Layout/Layout";
-import { Social } from "./components/Social";
 import { Fitness } from "./components/Fitness";
 import { Education } from "./components/Education";
+import { Connect } from "./components/Connect/Connect";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           
           {/* Grouped Protected Routes */}
           <Route path="/portfolio" element={<PrivateRoute element={<Layout element={<Portfolio/>}/>} />} />
-          <Route path="/social" element={<PrivateRoute element={<Layout element={<Social/>}/>} />} />
+          <Route path="/connect-with-me" element={<PrivateRoute element={<Layout element={<Connect/>}/>} />} />
           <Route path="/fitness" element={<PrivateRoute element={<Layout element={<Fitness/>}/>} />} />
           <Route path="/education" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
 

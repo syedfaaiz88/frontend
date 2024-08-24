@@ -13,13 +13,9 @@ const Button = ({ children, Icon, isLoading = false, ...props }) => {
             {isLoading ? (
                 <AiOutlineLoading3Quarters className="animate-spin mr-2 text-2xl" />
             ) : (
-                <span className="flex items-center">
+                <span className="flex items-center gap-2">
+                    {Icon}
                     <span className="text-base">{children}</span>
-                    {Icon && (
-                        <Icon
-                            className="text-base mr-2"
-                        />
-                    )}
                 </span>
             )}
         </button>

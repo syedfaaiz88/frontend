@@ -25,9 +25,9 @@ function Layout({ element }) {
         route: "/education",
       },
       {
-        text: "Social",
+        text: "Connect",
         icon: <IoShareSocialSharp />,
-        route: "/social",
+        route: "/connect-with-me",
       },
     ],
   };
