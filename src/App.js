@@ -6,10 +6,13 @@ import VerifyEmail from "./components/Auth/VerifyEmail";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/Common/PrivateRoute";
 import Layout from "./components/Layout/Layout";
-import { Fitness } from "./components/Fitness";
 import { Education } from "./components/Education";
 import { Connect } from "./components/Connect/Connect";
 import Personal from "./components/Personal";
+import Fitness from "./components/Fitness/Fitness";
+import Taekwondo from "./components/Fitness/Taekwondo";
+import Bodybuilding from "./components/Fitness/BodyBuilding";
+import Calisthenics from "./components/Fitness/Calisthenics";
 
 function App() {
   return (
@@ -25,7 +28,11 @@ function App() {
           {/* Grouped Protected Routes */}
           <Route path="/personal" element={<PrivateRoute element={<Layout element={<Personal/>}/>} />} />
           <Route path="/connect-with-me" element={<PrivateRoute element={<Layout element={<Connect/>}/>} />} />
-          <Route path="/fitness" element={<PrivateRoute element={<Layout element={<Fitness/>}/>} />} />
+          <Route path="/fitness" element={<PrivateRoute element={<Layout element={<Fitness />} />} />}>
+            <Route path="taekwondo" element={<Taekwondo />} />
+            <Route path="bodybuilding" element={<Bodybuilding />} />
+            <Route path="calisthenics" element={<Calisthenics />} />
+          </Route>
           <Route path="/academics" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
 
         </Routes>
