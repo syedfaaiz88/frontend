@@ -13,7 +13,7 @@ import Fitness from "./components/Fitness/Fitness";
 import Taekwondo from "./components/Fitness/Taekwondo";
 import Bodybuilding from "./components/Fitness/BodyBuilding";
 import Calisthenics from "./components/Fitness/Calisthenics";
-import WeightLifting from "./components/Fitness/WeightLifting";
+import Powerlifting from "./components/Fitness/Powerlifting";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
             <Route path="taekwondo" element={<Taekwondo />} />
             <Route path="bodybuilding" element={<Bodybuilding />} />
             <Route path="calisthenics" element={<Calisthenics />} />
-            <Route path="weightlifting" element={<WeightLifting />} />
+            <Route path="powerlifting" element={<Powerlifting />} />
           </Route>
           <Route path="/academics" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
 
