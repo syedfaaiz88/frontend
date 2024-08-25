@@ -14,6 +14,7 @@ import Taekwondo from "./components/Fitness/Taekwondo";
 import Bodybuilding from "./components/Fitness/BodyBuilding";
 import Calisthenics from "./components/Fitness/Calisthenics";
 import Powerlifting from "./components/Fitness/Powerlifting";
+import Skills from "./components/Skills/Skills";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="powerlifting" element={<Powerlifting />} />
           </Route>
           <Route path="/academics" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
+          <Route path="/skills" element={<PrivateRoute element={<Layout element={<Skills/>}/>} />} />
 
         </Routes>
       </Router>

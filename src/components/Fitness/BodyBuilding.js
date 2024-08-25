@@ -26,7 +26,7 @@ const Bodybuilding = () => {
 
   return (
     <div className="min-h-screen mt-20 min-w-full">
-      <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">
+      <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
         Bodybuilding
       </h1>
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">

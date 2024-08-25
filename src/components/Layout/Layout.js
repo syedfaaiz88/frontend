@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../UI/Sidebar";
-import { FaComments, FaRunning } from "react-icons/fa";
+import { FaComments, FaLaptopCode, FaRunning } from "react-icons/fa";
 import Footer from "./Footer";
 import { FcMenu } from "react-icons/fc";
 import { PiCertificateFill } from "react-icons/pi";
@@ -29,6 +29,11 @@ function Layout({ element }) {
         text: "Connect",
         icon: <FaComments />,
         route: "/connect-with-me",
+      },
+      {
+        text: "Skills",
+        icon: <FaLaptopCode />,
+        route: "/skills",
       },
     ],
   };
