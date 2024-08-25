@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Button from "../UI/Button";
-import { FcContacts, FcHome } from "react-icons/fc";
 import { GiTalk } from "react-icons/gi";
 import { Social } from "./Social";
 import { Contact } from "./Contact";
 import { Location } from "./Location";
+import { MdContactPhone } from "react-icons/md";
+import { TiHome } from "react-icons/ti";
 
 export const Connect = () => {
   const [activeSection, setActiveSection] = useState("socials");
@@ -18,7 +19,7 @@ export const Connect = () => {
               ? "bg-gray-200"
               : ""
           } transition-colors duration-300`}
-          Icon={<GiTalk size={30} className="text-purple-400"/>}          
+          Icon={<GiTalk size={30} className="text-gray-500"/>}          
         >
           Socials
         </Button>
@@ -29,7 +30,7 @@ export const Connect = () => {
               ? "bg-gray-200"
               : ""
           } transition-colors duration-300`}
-          Icon={<FcContacts size={30}/>}
+          Icon={<MdContactPhone className="text-gray-500" size={30}/>}
         >
           Contact
         </Button>
@@ -40,7 +41,7 @@ export const Connect = () => {
               ? "bg-gray-200"
               : ""
           } transition-colors duration-300`}
-          Icon={<FcHome size={30} className="text-red-500"/>}
+          Icon={<TiHome size={30} className="text-gray-500"/>}
         >
           Location
         </Button>
