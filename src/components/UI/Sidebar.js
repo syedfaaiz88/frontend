@@ -32,30 +32,26 @@ const Sidebar = ({ items }) => {
       <nav className="flex flex-col flex-grow mt-4">
         <ul className="flex flex-col flex-grow gap-y-2">
           {items.links.map((link, index) => (
-            <>
-              <Tooltip id="my-tooltip" place="right"/>
-              <li
-                data-tooltip-id="my-tooltip"
-                data-tooltip-content={link.text}
-                key={index}
-                className={`flex items-center p-4 cursor-pointer rounded-full 
+            <li
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={link.text}
+              key={index}
+              className={`flex items-center p-4 cursor-pointer rounded-full 
                 ${
                   activeIndex === index
                     ? "bg-gray-200 text-green-600"
                     : "text-gray-600 hover:bg-gray-200"
                 }
                 `}
-                onClick={() => {
-                  setActiveIndex(index);
-                  navigate(link.route);
-                }}
-              >
-                {link.icon && (
-                  <span className="mr-3 text-3xl">{link.icon}</span>
-                )}
-                {!isCollapsed && <span>{link.text}</span>}
-              </li>
-            </>
+              onClick={() => {
+                setActiveIndex(index);
+                navigate(link.route);
+              }}
+            >
+              <Tooltip id="my-tooltip" place="right" />
+              {link.icon && <span className="mr-3 text-3xl">{link.icon}</span>}
+              {!isCollapsed && <span>{link.text}</span>}
+            </li>
           ))}
         </ul>
         <div className="mt-auto">

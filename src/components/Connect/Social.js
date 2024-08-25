@@ -6,6 +6,8 @@ import {
   FaAt,
   FaYoutube,
   FaFacebook,
+  FaFacebookMessenger,
+  FaWhatsappSquare,
 } from "react-icons/fa";
 import {
   FaSquareEnvelope,
@@ -16,18 +18,16 @@ import { PiLinktreeLogoBold } from "react-icons/pi";
 
 export const Social = () => {
   return (
-    <div className="flex flex-col items-center gap-10">
-      <h2 className="text-4xl font-bold text-gray-800 text-center">
-        Connect with Syed Faaiz on Social Media!
+    <div className="flex flex-col items-center gap-4">
+      <h2 className="text-3xl font-bold text-gray-800 text-center">
+        Connect on Social Media!
       </h2>
       <p className="text-lg text-gray-600 text-center">
-        Syed Faaiz is so cool that he has the same username everywhere! Follow
-        me with the username
-        <span className="text-gray-500 flex gap-1 items-center justify-center mt-2">
+        I am so cool that I have same username everywhere!
+        <span className="text-gray-500 flex gap-1 items-center justify-center mt-4 mb-4">
           <FaAt className="text-lg" />
           syedfaaiz88
         </span>
-        or click the links below.
       </p>
       {/* <div className="flex justify-center gap-3 text-fuchsia-900 text-3xl animate-bounce">
       <FaRegHandPointDown />
@@ -51,15 +51,6 @@ export const Social = () => {
           aria-label="GitHub"
         >
           <FaGithub size={30} />
-        </a>
-        <a
-          href="https://twitter.com/yourprofile"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"
-          aria-label="Twitter"
-        >
-          <FaTwitter size={30} />
         </a>
         <a
           href="https://linktr.ee/yourprofile"
@@ -112,6 +103,24 @@ export const Social = () => {
           aria-label="Facebook"
         >
           <FaFacebook size={30} />
+        </a>
+        <a
+          href="https://www.facebook.com/yourprofile"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"
+          aria-label="Messenger"
+        >
+          <FaFacebookMessenger size={30} />
+        </a>
+        <a
+          href="https://www.facebook.com/yourprofile"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-green-600 hover:text-green-500 transition-colors duration-300 flex items-center justify-center"
+          aria-label="Whatsapp"
+        >
+          <FaWhatsappSquare size={30} />
         </a>
       </div>
     </div>

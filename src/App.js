@@ -5,11 +5,11 @@ import LoginForm from "./components/Auth/LoginForm";
 import VerifyEmail from "./components/Auth/VerifyEmail";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/Common/PrivateRoute";
-import { Portfolio } from "./components/Portfolio";
 import Layout from "./components/Layout/Layout";
 import { Fitness } from "./components/Fitness";
 import { Education } from "./components/Education";
 import { Connect } from "./components/Connect/Connect";
+import Personal from "./components/Personal";
 
 function App() {
   return (
@@ -23,10 +23,10 @@ function App() {
           <Route path="/verify-email/:token" element={<VerifyEmail />} />
           
           {/* Grouped Protected Routes */}
-          <Route path="/portfolio" element={<PrivateRoute element={<Layout element={<Portfolio/>}/>} />} />
+          <Route path="/personal" element={<PrivateRoute element={<Layout element={<Personal/>}/>} />} />
           <Route path="/connect-with-me" element={<PrivateRoute element={<Layout element={<Connect/>}/>} />} />
           <Route path="/fitness" element={<PrivateRoute element={<Layout element={<Fitness/>}/>} />} />
-          <Route path="/education" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
+          <Route path="/academics" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
 
         </Routes>
       </Router>

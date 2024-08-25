@@ -1,18 +1,19 @@
 import React from "react";
 import Sidebar from "../UI/Sidebar";
-import { LiaBarsSolid } from "react-icons/lia";
-import { FaBriefcase, FaGraduationCap, FaRunning } from "react-icons/fa";
-import { IoShareSocialSharp } from "react-icons/io5";
+import { FaComments, FaRunning } from "react-icons/fa";
 import Footer from "./Footer";
+import { FcMenu } from "react-icons/fc";
+import { PiCertificateFill } from "react-icons/pi";
+import { BsPersonVcardFill } from "react-icons/bs";
 
 function Layout({ element }) {
   const items = {
-    barsIcon: <LiaBarsSolid />,
+    barsIcon: <FcMenu />,
     links: [
       {
-        text: "Portfolio",
-        icon: <FaBriefcase />,
-        route: "/portfolio",
+        text: "Personal",
+        icon: <BsPersonVcardFill />,
+        route: "/personal",
       },
       {
         text: "Fitness",
@@ -20,13 +21,13 @@ function Layout({ element }) {
         route: "/fitness",
       },
       {
-        text: "Education",
-        icon: <FaGraduationCap />,
-        route: "/education",
+        text: "Academics",
+        icon: <PiCertificateFill />,
+        route: "/academics",
       },
       {
         text: "Connect",
-        icon: <IoShareSocialSharp />,
+        icon: <FaComments />,
         route: "/connect-with-me",
       },
     ],
