@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../../Redux/Actions/AuthAction/LogoutAction";
 import { VscSignOut } from "react-icons/vsc";
 import { FaUserCircle } from "react-icons/fa";
-import { Tooltip } from "react-tooltip";
+import Tippy from "@tippyjs/react";
 
 const Sidebar = ({ items }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -19,7 +19,7 @@ const Sidebar = ({ items }) => {
 
   return (
     <div
-      className={`min-h-full ${
+      className={`${
         isCollapsed ? "w-20" : "w-40"
       } flex flex-col bg-gray-100 shadow-lg transition-width duration-300 p-2`}
     >
@@ -32,9 +32,8 @@ const Sidebar = ({ items }) => {
       <nav className="flex flex-col flex-grow mt-4">
         <ul className="flex flex-col flex-grow gap-y-2">
           {items.links.map((link, index) => (
-            <li
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content={link.text}
+            <Tippy content={link.text} placement="right" arrow={false} key={index}>
+              <li
               key={index}
               className={`flex items-center p-4 cursor-pointer rounded-full 
                 ${
@@ -48,10 +47,10 @@ const Sidebar = ({ items }) => {
                 navigate(link.route);
               }}
             >
-              <Tooltip id="my-tooltip" place="right" />
               {link.icon && <span className="mr-3 text-3xl">{link.icon}</span>}
               {!isCollapsed && <span>{link.text}</span>}
             </li>
+            </Tippy>
           ))}
         </ul>
         <div className="mt-auto">
@@ -64,7 +63,7 @@ const Sidebar = ({ items }) => {
               }`}
             onClick={() => {
               setActiveIndex(-1);
-              // navigate('/profile');
+              navigate('/user-profile');
             }}
           >
             <span className="mr-3 text-3xl">

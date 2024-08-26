@@ -8,13 +8,14 @@ import PrivateRoute from "./components/Common/PrivateRoute";
 import Layout from "./components/Layout/Layout";
 import { Education } from "./components/Education";
 import { Connect } from "./components/Connect/Connect";
-import Personal from "./components/Personal";
 import Fitness from "./components/Fitness/Fitness";
 import Taekwondo from "./components/Fitness/Taekwondo";
 import Bodybuilding from "./components/Fitness/BodyBuilding";
 import Calisthenics from "./components/Fitness/Calisthenics";
 import Powerlifting from "./components/Fitness/Powerlifting";
 import Skills from "./components/Skills/Skills";
+import UserProfile from "./components/UserProfile";
+import Personal from "./components/Personal/Personal";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           </Route>
           <Route path="/academics" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
           <Route path="/skills" element={<PrivateRoute element={<Layout element={<Skills/>}/>} />} />
+          <Route path="/user-profile" element={<PrivateRoute element={<Layout element={<UserProfile/>}/>} />} />
 
         </Routes>
       </Router>

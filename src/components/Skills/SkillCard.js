@@ -1,3 +1,4 @@
+import Tippy from '@tippyjs/react';
 import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
 
@@ -17,8 +18,9 @@ const SkillCard = ({ skill, Icon }) => {
   const latestMilestone = getLatestMilestone(skill.milestones);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-      <div className="flex items-center mb-4">
+    <Tippy content={skill.name} placement='top' arrow={false}>
+      <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+      <div className="flex items-center mb-4 justify-center">
         {Icon}
       </div>
       {latestMilestone ? (
@@ -30,6 +32,7 @@ const SkillCard = ({ skill, Icon }) => {
         <div className="text-gray-600">No milestones achieved</div>
       )}
     </div>
+    </Tippy>
   );
 };
 

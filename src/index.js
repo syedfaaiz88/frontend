@@ -6,6 +6,7 @@ import './index.css'
 import store from './Redux/store';
 import 'react-tooltip/dist/react-tooltip.css'
 import 'leaflet/dist/leaflet.css';
+import 'tippy.js/dist/tippy.css'; // Import the CSS
 
 const root = createRoot(document.getElementById('root'));
 

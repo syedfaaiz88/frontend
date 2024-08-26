@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import { FcMenu } from "react-icons/fc";
 import { PiCertificateFill } from "react-icons/pi";
 import { BsPersonVcardFill } from "react-icons/bs";
+import Header from "./Header";
 
 function Layout({ element }) {
   const items = {
@@ -37,16 +38,26 @@ function Layout({ element }) {
       },
     ],
   };
-  return (
-    <div className="flex flex-row max-h-screen">
-      {/* Sidebar (Hidden by default on mobile) */}
-      <Sidebar items={items} />
 
-      {/* Main Content Area */}
-      <div className="flex-1 min-h-screen overflow-y-scroll">
-        <div className="flex flex-col justify-between min-h-screen">
-          <main className="p-6 overflow-auto">{element}</main>
-          <Footer />
+  return (
+    <div className="flex flex-col h-screen">
+      {/* Header */}
+      <Header />
+
+      {/* Main layout with sidebar and content */}
+      <div className="flex flex-row h-full overflow-hidden">
+        {/* Sidebar */}
+        <Sidebar items={items} />
+
+        {/* Content area */}
+        <div className="flex-1 overflow-y-auto">
+          <div className="flex flex-col justify-between min-h-full">
+            {/* Main content */}
+            <main className="p-6">{element}</main>
+
+            {/* Footer */}
+            <Footer />
+          </div>
         </div>
       </div>
     </div>

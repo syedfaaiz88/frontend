@@ -14,18 +14,7 @@ import {
 import { GiBodyHeight, GiWeightScale } from "react-icons/gi";
 import { IoMdMale } from "react-icons/io";
 import { MdFlag } from "react-icons/md";
-import { Tooltip } from "react-tooltip";
-
-const TooltipedIcon = ({ id, icon: Icon, tooltip }) => (
-  <div>
-    <Icon
-      className="text-2xl text-gray-500 mr-2"
-      data-tooltip-id={id}
-      data-tooltip-content={tooltip}
-    />
-    <Tooltip id={id} place="left" />
-  </div>
-);
+import TippyIcon from "./TippyIcon";
 
 const Personal = () => {
   return (
@@ -40,64 +29,56 @@ const Personal = () => {
       </div>
       <div className="space-y-4 grid grid-cols-1 md:grid-cols-3">
         <div className="flex items-center">
-          <TooltipedIcon id="dob" icon={FaBirthdayCake} tooltip="Birthday" />
+          <TippyIcon id icon={FaBirthdayCake} tooltip="Birthday" />
           <span>March 29, 2002</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon id="gender" icon={IoMdMale} tooltip="Gender" />
+          <TippyIcon icon={IoMdMale} tooltip="Gender" />
           <span>Male</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon id="height" icon={GiBodyHeight} tooltip="Height" />
+          <TippyIcon icon={GiBodyHeight} tooltip="Height" />
           <span>5'6''</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon id="eye-color" icon={BsEyeFill} tooltip="Eye Color" />
+          <TippyIcon icon={BsEyeFill} tooltip="Eye Color" />
           <span>Black</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon
-            id="body-weight"
-            icon={GiWeightScale}
-            tooltip="Body Weight"
-          />
+          <TippyIcon icon={GiWeightScale} tooltip="Body Weight" />
           <span>55 kg</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon id="cnic" icon={FaIdCard} tooltip="CNIC" />
+          <TippyIcon icon={FaIdCard} tooltip="CNIC" />
           <span>35202-0563375-1</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon
-            id="religion"
-            icon={FaHandHoldingHeart}
-            tooltip="Religion"
-          />
+          <TippyIcon icon={FaHandHoldingHeart} tooltip="Religion" />
           <span>Muslim</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon id="nationality" icon={MdFlag} tooltip="Nationality" />
+          <TippyIcon icon={MdFlag} tooltip="Nationality" />
           <span>Pakistani</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon id="status" icon={FaHeart} tooltip="Marital Status" />
+          <TippyIcon icon={FaHeart} tooltip="Marital Status" />
           <span>Single</span>
         </div>
-                {/* New Fields */}
-                <div className="flex items-center">
-          <TooltipedIcon id="occupation" icon={FaBriefcase} tooltip="Occupation" />
+        {/* New Fields */}
+        <div className="flex items-center">
+          <TippyIcon icon={FaBriefcase} tooltip="Occupation" />
           <span>Software Engineer</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon id="languages" icon={FaLanguage} tooltip="Languages Spoken" />
+          <TippyIcon icon={FaLanguage} tooltip="Languages Spoken" />
           <span>English, Urdu</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon id="education" icon={FaGraduationCap} tooltip="Education Level" />
+          <TippyIcon icon={FaGraduationCap} tooltip="Education Level" />
           <span>Bachelor's Degree</span>
         </div>
         <div className="flex items-center">
-          <TooltipedIcon id="address" icon={FaHome} tooltip="Address" />
+          <TippyIcon icon={FaHome} tooltip="Address" />
           <span>Lahore, Pakistan</span>
         </div>
       </div>
