@@ -16,6 +16,7 @@ import Powerlifting from "./components/Fitness/Powerlifting";
 import Skills from "./components/Skills/Skills";
 import UserProfile from "./components/UserProfile";
 import Personal from "./components/Personal/Personal";
+import { LandingPage } from "./components/LandingPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/verify-email/:token" element={<VerifyEmail />} />
+          <Route path="/" element={<LandingPage />} />
           
           {/* Grouped Protected Routes */}
           <Route path="/personal" element={<PrivateRoute element={<Layout element={<Personal/>}/>} />} />
