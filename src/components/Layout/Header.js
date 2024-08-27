@@ -6,9 +6,29 @@ import "tippy.js/themes/light.css";
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { isAuthenticated } from "../../Services/Auth/TokenService";
+import authServices from "../../Services/Auth/AuthServices";
 
 const Header = () => {
   const [user, setUser] = useState({});
+  const [authStatus, setAuthStatus] = useState(null);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      if (!isAuthenticated()) {
+        try {
+          const tokens = JSON.parse(localStorage.getItem("tokens"));
+          await authServices.refreshAccessToken(tokens.refresh); // Try to refresh the token
+          setAuthStatus(true);
+        } catch {
+          setAuthStatus(false);
+        }
+      } else {
+        setAuthStatus(true);
+      }
+    };
+
+    checkAuth();
+  }, []);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -90,7 +110,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-2xl font-semibold text-gray-800">Syed Faaiz</h1>
         <div className="flex items-center space-x-3">
-          {isAuthenticated()
+          {authStatus
             ? renderAuthenticatedUser()
             : renderUnauthenticatedUserLinks()}
         </div>

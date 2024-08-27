@@ -5,16 +5,24 @@ const Calisthenics = () => {
   // List of achievements with their completion status for different categories
   const achievements = {
     skills: [
+      { name: "Pistol Squat", completed: true }, // Added important skill
+      { name: "Elbow Lever", completed: false }, // Added important skill
       { name: "Handstand Push-Ups", completed: true },
+      { name: "Back Lever", completed: true },
       { name: "Muscle-Ups", completed: true },
       { name: "Front Lever", completed: false },
+      { name: "One Arm Handstand", completed: false },
+      { name: "Human Flag", completed: false },
       { name: "Planche", completed: false },
     ],
     strengthGoals: [
-      { name: "One Arm Pull-Up", completed: false },
       { name: "Freestanding Handstand", completed: true },
-      { name: "Full Human Flag", completed: false },
+      { name: "One Arm Push-Up", completed: true },
       { name: "Weighted Dips (100kg)", completed: true },
+      { name: "One Arm Pull-Up", completed: false },
+      { name: "Single Arm L-Sit", completed: false },
+      { name: "Full Human Flag", completed: false },
+      { name: "Full Planche Push-Up", completed: false },
     ],
   };
 
@@ -34,13 +42,17 @@ const Calisthenics = () => {
             My Calisthenics Journey
           </h2>
           <p className="text-gray-700 mb-10">
-            Detailed description of my calisthenics experience, achievements, and skills.
+            Detailed description of my calisthenics experience, achievements,
+            and skills.
           </p>
 
           {/* Achievements Sections */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Object.entries(achievements).map(([category, items]) => (
-              <div key={category} className="bg-gray-50 p-6 rounded-lg shadow-md">
+              <div
+                key={category}
+                className="bg-gray-50 p-6 rounded-lg shadow-md"
+              >
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4 capitalize">
                   {category.charAt(0).toUpperCase() + category.slice(1)}
                 </h3>
@@ -52,9 +64,7 @@ const Calisthenics = () => {
                       ) : (
                         <FaCircle className="text-gray-400 mr-3 text-xl" />
                       )}
-                      <span>
-                        {achievement.name}
-                      </span>
+                      <span>{achievement.name}</span>
                     </li>
                   ))}
                 </ul>

@@ -14,18 +14,22 @@ import {
 import { GiBodyHeight, GiWeightScale } from "react-icons/gi";
 import { IoMdMale } from "react-icons/io";
 import { MdFlag } from "react-icons/md";
+import { PiSealCheckFill } from "react-icons/pi";
 import TippyIcon from "./TippyIcon";
 
 const Personal = () => {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <div className="flex flex-col items-center mb-6">
+      <div className="flex flex-col mb-6">
         <img
           src="https://via.placeholder.com/150"
           alt="Personal"
           className="w-32 h-32 rounded-full object-cover mb-4"
         />
-        <h1 className="text-2xl font-semibold mb-2">Syed Faaiz</h1>
+        <h1 className="text-2xl font-semibold mb-2 flex flex-row items-center gap-2">
+          Syed Faaiz 
+          <TippyIcon icon={PiSealCheckFill} placement='right' color='text-green-600' tooltip="Owner of this website."/>
+        </h1>
       </div>
       <div className="space-y-4 grid grid-cols-1 md:grid-cols-3">
         <div className="flex items-center">

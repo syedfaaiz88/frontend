@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import Header from "./Layout/Header";
 
 export const LandingPage = () => {
   return (
-    <div>LandingPage</div>
-  )
-}
+    <>
+      <Header />
+      <div>LandingPage</div>
+    </>
+  );
+};
