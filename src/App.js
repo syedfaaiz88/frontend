@@ -6,7 +6,6 @@ import VerifyEmail from "./components/Auth/VerifyEmail";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/Common/PrivateRoute";
 import Layout from "./components/Layout/Layout";
-import { Education } from "./components/Education";
 import { Connect } from "./components/Connect/Connect";
 import Fitness from "./components/Fitness/Fitness";
 import Taekwondo from "./components/Fitness/Taekwondo";
@@ -17,6 +16,7 @@ import Skills from "./components/Skills/Skills";
 import UserProfile from "./components/UserProfile";
 import Personal from "./components/Personal/Personal";
 import { LandingPage } from "./components/LandingPage";
+import Education from "./components/Education/Education";
 
 function App() {
   return (
