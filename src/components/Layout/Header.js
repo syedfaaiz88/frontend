@@ -108,7 +108,7 @@ const Header = () => {
   return (
     <header className="bg-gray-100 border-b border-gray-300 p-2">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-semibold text-gray-800">Syed Faaiz</h1>
+        <Link to='/' className="text-2xl font-semibold text-gray-800">Syed Faaiz</Link>
         <div className="flex items-center space-x-3">
           {authStatus
             ? renderAuthenticatedUser()

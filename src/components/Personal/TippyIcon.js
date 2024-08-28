@@ -6,7 +6,7 @@ const TippyIcon = ({ placement, icon: Icon, tooltip, color }) => {
     return (
       <Tippy content={tooltip} placement={placement ? placement : 'left'} arrow>
         <div>
-          <Icon className={`text-2xl text-gray-500 mr-2 cursor-pointer ${color ? color : ''} `} />
+          <Icon className={`text-2xl  mr-2 cursor-pointer ${color ? color : 'text-gray-500'} `} />
         </div>
       </Tippy>
     );
