@@ -26,7 +26,15 @@ const PrivateRoute = ({ element }) => {
     }, []);
 
     if (authStatus === null) {
-        return <div>Loading...</div>; // Optionally, show a loading indicator
+        return (
+            <div className="flex h-screen w-screen bg-gray-200 p-4 gap-4">
+                <div className="w-1/12 bg-gray-300 animate-pulse"></div>
+                <div className="flex-1 flex flex-col">
+                    <div className="h-16 bg-gray-300 animate-pulse mb-4"></div>
+                    <div className="flex-1 bg-gray-300 animate-pulse"></div>
+                </div>
+            </div>
+        );
     }
 
     return authStatus ? (
