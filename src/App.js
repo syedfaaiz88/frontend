@@ -9,7 +9,6 @@ import Layout from "./components/Layout/Layout";
 import { Connect } from "./components/Connect/Connect";
 import Fitness from "./components/Fitness/Fitness";
 import Taekwondo from "./components/Fitness/Taekwondo";
-import Bodybuilding from "./components/Fitness/BodyBuilding";
 import Calisthenics from "./components/Fitness/Calisthenics";
 import Powerlifting from "./components/Fitness/Powerlifting";
 import Skills from "./components/Skills/Skills";
@@ -17,6 +16,7 @@ import UserProfile from "./components/UserProfile";
 import Personal from "./components/Personal/Personal";
 import { LandingPage } from "./components/LandingPage";
 import Education from "./components/Education/Education";
+import Bodybuilding from "./components/Fitness/Bodybuilding/BodyBuilding";
 
 function App() {
   return (

@@ -1,11 +1,16 @@
-// src/components/Personal.js
-import React from "react";
+import React, { useState } from "react";
 import { PiSealCheckFill } from "react-icons/pi";
 import TippyIcon from "./TippyIcon";
 import { PersonalInfo } from "./PersonalInfo";
 import { Link } from "react-router-dom";
+import Modal from "../UI/Modal";
 
 const Personal = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
   return (
     <div className="w-5/6 min-h-screen mx-auto p-6 bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Background Image Section */}
@@ -21,7 +26,8 @@ const Personal = () => {
           <img
             src="profile.JPG"
             alt="Profile"
-            className="w-44 h-44 rounded-full border-4 border-white shadow-md -mb-16"
+            className="w-44 h-44 rounded-full border-4 border-white shadow-md -mb-16 cursor-pointer"
+            onClick={openModal}
           />
         </div>
       </div>
@@ -34,7 +40,7 @@ const Personal = () => {
             icon={PiSealCheckFill}
             placement="right"
             color="text-blue-500"
-            tooltip="Actually I dont have this on other plateforms but on this website I am the boss I can have everything I love."
+            tooltip="Actually I don't have this on other platforms but on this website I am the boss I can have everything I love."
           />
         </h1>
         <p className="text-gray-600 mb-4">
@@ -50,6 +56,17 @@ const Personal = () => {
 
       {/* Personal Information */}
       <PersonalInfo />
+
+      {/* Modal */}
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <div className="w-96 h-96">
+          <img
+            src="profile.JPG"
+            alt="Profile Enlarged"
+            className="w-full h-auto rounded-lg"
+          />
+        </div>
+      </Modal>
     </div>
   );
 };
