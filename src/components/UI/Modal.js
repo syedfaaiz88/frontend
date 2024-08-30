@@ -14,18 +14,18 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return ReactDOM.createPortal(
     <div
-      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black bg-opacity-65 flex items-center justify-center z-50"
       onClick={handleOverlayClick}
     >
       <div
-        className="relative rounded-lg shadow-lg mx-auto"
+        className="rounded-lg shadow-lg mx-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+          className="absolute top-7 right-7 text-gray-300 hover:text-white"
         >
-          <CgClose size={30} />
+          <CgClose size={35} />
         </button>
         {children}
       </div>
