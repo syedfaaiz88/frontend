@@ -19,7 +19,7 @@ const SkillCard = ({ skill, Icon }) => {
 
   return (
     <Tippy content={skill.name} placement='top' arrow={false}>
-      <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+      <div className="bg-white p-6 rounded-lg border border-b-2">
       <div className="flex items-center mb-4 justify-center">
         {Icon}
       </div>

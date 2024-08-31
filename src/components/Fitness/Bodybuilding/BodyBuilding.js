@@ -31,7 +31,7 @@ const Bodybuilding = () => {
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
         Bodybuilding
       </h1>
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg border border-b-2 overflow-hidden">
         <img
           className="w-full h-64 object-cover"
           src="/path-to-bodybuilding-image.jpg"

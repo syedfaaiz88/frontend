@@ -10,7 +10,7 @@ import { TiHome } from "react-icons/ti";
 export const Connect = () => {
   const [activeSection, setActiveSection] = useState("socials");
   return (
-    <div className="flex flex-col items-center space-y-6 p-6 bg-white rounded-lg shadow-lg max-w-4xl mx-auto">
+    <div className="flex flex-col items-center space-y-6 p-6 bg-white rounded-lg border border-b-2 max-w-4xl mx-auto">
       <div className="flex flex-col justify-center items-center gap-3 space-x-4 mb-6 md:flex-row md:gap-0">
         <Button
           onClick={() => setActiveSection("socials")}

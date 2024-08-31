@@ -43,7 +43,7 @@ const Powerlifting = () => {
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
         Power Lifting
       </h1>
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg border border-b-2 overflow-hidden">
         <img
           className="w-full h-64 object-cover"
           src="/path-to-weightlifting-image.jpg"
@@ -64,7 +64,7 @@ const Powerlifting = () => {
               {achievements.map((achievement, index) => (
                 <div
                   key={index}
-                  className="bg-gray-50 p-4 rounded-lg shadow-md flex flex-col items-center"
+                  className="bg-gray-50 p-4 rounded-lg border border-b-2 flex flex-col items-center"
                 >
                   <FaCheckCircle className="text-green-500 text-2xl mb-2" />
                   <p className="text-xl font-semibold text-gray-700 mb-2">

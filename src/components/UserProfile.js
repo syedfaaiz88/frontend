@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt, FaBirthdayCake, FaTransgender, FaPen, FaUserTag, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import {
+  FaUser,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaBirthdayCake,
+  FaTransgender,
+  FaUserTag,
+  FaCheckCircle,
+  FaExclamationCircle,
+} from "react-icons/fa";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css"; // Import Tippy.js styles
 import moment from "moment"; // For formatting date
@@ -14,13 +24,17 @@ const UserProfile = () => {
   }, []);
 
   return (
-    <div className="max-w-xl mx-auto bg-white shadow-lg rounded-lg border border-gray-300 overflow-hidden mt-10">
-      <div className="relative bg-gradient-to-r from-green-50 to-green-100 p-6 flex items-center">
+    <div className="max-w-xl mx-auto bg-white border border-b-2 rounded-lg overflow-hidden mt-10">
+      <div className="relative p-6 flex items-center">
         <div className="flex-shrink-0 w-24 h-24">
           {user.profile_image ? (
-            <img src={user.profile_image} alt="Profile" className="w-full h-full rounded-full object-cover border-4 border-white shadow-md" />
+            <img
+              src={user.profile_image}
+              alt="Profile"
+              className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
+            />
           ) : (
-            <FaUser size={96} className="text-green-500" />
+            <FaUser size={96} className="text-gray-500" />
           )}
         </div>
         <div className="ml-6">
@@ -34,8 +48,17 @@ const UserProfile = () => {
         </div>
         <div className="absolute top-6 right-6">
           {user.is_verified ? (
-            <Tippy content={<div className="flex items-center gap-2">Email is verified <FaCheckCircle className="text-green-500" /></div>} theme="light" placement="top" arrow={true}>
-              <span className="flex items-center bg-green-200 text-green-800 px-3 py-1 rounded-full text-xs font-semibold shadow-md">
+            <Tippy
+              content={
+                <div className="flex items-center gap-2">
+                  Email is verified <FaCheckCircle className="text-green-500" />
+                </div>
+              }
+              theme="light"
+              placement="top"
+              arrow={true}
+            >
+              <span className="flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold shadow-md cursor-pointer">
                 <FaCheckCircle className="mr-1" /> Verified
               </span>
             </Tippy>
@@ -62,7 +85,8 @@ const UserProfile = () => {
         <div className="flex items-center text-gray-700 mb-4">
           <FaPhone className="text-gray-500 mr-3" />
           <p className="font-medium">
-            <strong className="text-gray-900">Phone:</strong> {user.phone_number}
+            <strong className="text-gray-900">Phone:</strong>{" "}
+            {user.phone_number}
           </p>
         </div>
         <div className="flex items-center text-gray-700 mb-4">
@@ -74,33 +98,17 @@ const UserProfile = () => {
         <div className="flex items-center text-gray-700 mb-4">
           <FaBirthdayCake className="text-gray-500 mr-3" />
           <p className="font-medium">
-            <strong className="text-gray-900">Date of Birth:</strong> {moment(user.date_of_birth).format("MMMM Do, YYYY")}
+            <strong className="text-gray-900">Date of Birth:</strong>{" "}
+            {moment(user.date_of_birth).format("MMMM Do, YYYY")}
           </p>
         </div>
         <div className="flex items-center text-gray-700">
           <FaTransgender className="text-gray-500 mr-3" />
           <p className="font-medium">
-            <strong className="text-gray-900">Gender:</strong> {user.gender === 1 ? "Male" : "Female"}
+            <strong className="text-gray-900">Gender:</strong>{" "}
+            {user.gender === 1 ? "Male" : "Female"}
           </p>
         </div>
-      </div>
-      <div className="bg-gray-100 p-6 text-center">
-        {user.is_verified ? (
-          <Tippy content="Edit Profile" placement="top" arrow={true}>
-            <button className="px-6 py-3 bg-green-500 text-white rounded-full shadow-md hover:bg-green-600 transition duration-300">
-              <FaPen className="inline-block mr-2" /> Edit Profile
-            </button>
-          </Tippy>
-        ) : (
-          <div>
-            <p className="text-red-600 text-sm mb-2">
-              Verify your email to unlock full profile features.
-            </p>
-            <button className="px-6 py-3 bg-red-500 text-white rounded-full shadow-md hover:bg-red-600 transition duration-300">
-              Verify Email Now
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

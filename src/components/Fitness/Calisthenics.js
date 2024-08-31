@@ -31,7 +31,7 @@ const Calisthenics = () => {
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
         Calisthenics
       </h1>
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg border border-b-2 overflow-hidden">
         <img
           className="w-full h-64 object-cover"
           src="/path-to-calisthenics-image.jpg"
@@ -51,7 +51,7 @@ const Calisthenics = () => {
             {Object.entries(achievements).map(([category, items]) => (
               <div
                 key={category}
-                className="bg-gray-50 p-6 rounded-lg shadow-md"
+                className="bg-gray-50 p-6 rounded-lg border border-b-2"
               >
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4 capitalize">
                   {category.charAt(0).toUpperCase() + category.slice(1)}

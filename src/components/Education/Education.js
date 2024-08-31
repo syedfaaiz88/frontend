@@ -24,7 +24,7 @@ const Education = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg">
+    <div className="max-w-4xl mx-auto p-6 rounded-lg border border-b-2">
       <h2 className="text-3xl font-bold mb-8 flex items-center justify-center">
         <FcReading size={40} className="mr-3" />
         Academics & Education

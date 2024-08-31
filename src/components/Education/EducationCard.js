@@ -6,7 +6,7 @@ const EducationCard = ({ title, institution, duration, details }) => {
 
   return (
     <div
-      className="p-4 bg-white rounded-lg shadow-md cursor-pointer transition-all duration-300"
+      className="p-4 bg-white rounded-lg border border-b-2 cursor-pointer transition-all duration-300"
       onClick={() => setIsExpanded(!isExpanded)}
     >
       <div className="flex items-center justify-between space-x-4">

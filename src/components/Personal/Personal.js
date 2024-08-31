@@ -12,7 +12,7 @@ const Personal = () => {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <div className="w-5/6 min-h-screen mx-auto p-6 bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-5/6 min-h-screen mx-auto p-6 bg-white border border-b-2 rounded-lg overflow-hidden">
       {/* Background Image Section */}
       <div className="relative">
         <div

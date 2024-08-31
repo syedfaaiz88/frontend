@@ -30,7 +30,7 @@ export const Social = () => {
           href="https://www.linkedin.com/in/yourprofile"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-800 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-blue-800 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="LinkedIn"
         >
           <BsLinkedin size={36} />
@@ -39,7 +39,7 @@ export const Social = () => {
           href="https://github.com/yourprofile"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-800 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-gray-800 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="GitHub"
         >
           <FaGithub size={36} />
@@ -48,7 +48,7 @@ export const Social = () => {
           href="https://www.threads.net/yourprofile"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-purple-700 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-purple-700 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="Threads"
         >
           <FaSquareThreads size={36} />
@@ -57,7 +57,7 @@ export const Social = () => {
           href="https://www.instagram.com/yourprofile"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-pink-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-pink-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="Instagram"
         >
           <FaSquareInstagram size={36} />
@@ -66,7 +66,7 @@ export const Social = () => {
           href="https://www.youtube.com/c/yourchannel"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-red-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-red-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="YouTube"
         >
           <FaYoutube size={36} />
@@ -75,7 +75,7 @@ export const Social = () => {
           href="https://www.facebook.com/yourprofile"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-blue-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="Facebook"
         >
           <FaFacebook size={36} />
@@ -84,7 +84,7 @@ export const Social = () => {
           href="https://www.facebook.com/yourprofile"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-blue-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="Messenger"
         >
           <FaFacebookMessenger size={36} />
@@ -93,7 +93,7 @@ export const Social = () => {
           href="https://www.facebook.com/yourprofile"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-green-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-green-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="WhatsApp"
         >
           <FaWhatsappSquare size={36} />
@@ -102,14 +102,14 @@ export const Social = () => {
           href="https://linktr.ee/yourprofile"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-green-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-green-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="Linktree"
         >
           <PiLinktreeLogoBold size={36} />
         </a>
         <a
           href="mailto:your-email@example.com"
-          className="text-red-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg shadow-lg hover:shadow-xl"
+          className="text-red-600 hover:scale-105 transition-colors duration-300 flex items-center justify-center p-4 rounded-lg border border-b-2"
           aria-label="Email"
         >
           <FaSquareEnvelope size={36} />
