@@ -17,6 +17,7 @@ import Personal from "./components/Personal/Personal";
 import { LandingPage } from "./components/LandingPage";
 import Education from "./components/Education/Education";
 import Bodybuilding from "./components/Fitness/Bodybuilding/BodyBuilding";
+import Timeline from "./components/Timeline/Timeline";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/academics" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
           <Route path="/skills" element={<PrivateRoute element={<Layout element={<Skills/>}/>} />} />
           <Route path="/user-profile" element={<PrivateRoute element={<Layout element={<UserProfile/>}/>} />} />
+          <Route path="/timeline" element={<PrivateRoute element={<Layout element={<Timeline/>}/>} />} />
 
         </Routes>
       </Router>

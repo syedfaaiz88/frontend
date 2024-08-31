@@ -6,6 +6,7 @@ import { FcMenu } from "react-icons/fc";
 import { PiCertificateFill } from "react-icons/pi";
 import { BsPersonVcardFill } from "react-icons/bs";
 import Header from "./Header";
+import { TbTimelineEventText } from "react-icons/tb";
 
 function Layout({ element }) {
   const items = {
@@ -15,6 +16,11 @@ function Layout({ element }) {
         text: "Personal",
         icon: <BsPersonVcardFill />,
         route: "/personal",
+      },
+      {
+        text: "Timeline",
+        icon: <TbTimelineEventText />,
+        route: "/timeline",
       },
       {
         text: "Fitness",
