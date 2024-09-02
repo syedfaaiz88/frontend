@@ -9,7 +9,7 @@ import Layout from "./components/Layout/Layout";
 import { Connect } from "./components/Connect/Connect";
 import Fitness from "./components/Fitness/Fitness";
 import Taekwondo from "./components/Fitness/Taekwondo";
-import Calisthenics from "./components/Fitness/Calisthenics";
+import Calisthenics from "./components/Fitness/Calisthenics/Calisthenics";
 import Powerlifting from "./components/Fitness/Powerlifting";
 import Skills from "./components/Skills/Skills";
 import UserProfile from "./components/UserProfile";

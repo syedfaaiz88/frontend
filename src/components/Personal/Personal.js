@@ -16,7 +16,7 @@ const Personal = () => {
       {/* Background Image Section */}
       <div className="relative">
         <div
-          className="h-72 bg-cover bg-center rounded-t-lg"
+          className="relative bg-cover bg-center rounded-t-lg pt-[30.1%]"
           style={{ backgroundImage: "url('https://via.placeholder.com/1500')" }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
@@ -26,7 +26,7 @@ const Personal = () => {
           <img
             src="profile.JPG"
             alt="Profile"
-            className="w-44 h-44 rounded-full border-4 border-white shadow-md -mb-16 cursor-pointer"
+            className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full border-4 border-white shadow-md -mb-16 cursor-pointer"
             onClick={openModal}
           />
         </div>
@@ -34,7 +34,7 @@ const Personal = () => {
 
       {/* Profile Information */}
       <div className="text-center mt-20 mb-6">
-        <h1 className="text-3xl font-semibold mb-2 flex flex-row items-center justify-center gap-2">
+        <h1 className="text-2xl md:text-3xl font-semibold mb-2 flex flex-row items-center justify-center gap-2">
           Syed Faaiz
           <TippyIcon
             icon={PiSealCheckFill}
