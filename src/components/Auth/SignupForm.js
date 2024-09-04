@@ -7,13 +7,14 @@ import {
   FaUser,
   FaEnvelope,
   FaLock,
-  FaPhone,
   FaHome,
   FaBirthdayCake,
   FaVenusMars,
   FaPen,
 } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const SignupForm = () => {
   const initialState = {
@@ -43,6 +44,11 @@ const SignupForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+  };
+
+  const handlePhoneChange = (value) => {
+    setFormData({ ...formData, phone_number: value });
+    setErrors((prevErrors) => ({ ...prevErrors, phone_number: "" }));
   };
 
   const handleSubmit = (e) => {
@@ -98,14 +104,26 @@ const SignupForm = () => {
           error={errors?.password}
           Icon={<FaLock />}
         />
-        <InputField
-          label="Phone Number"
-          name="phone_number"
-          placeholder="Phone Number"
-          onChange={handleChange}
-          error={errors?.phone_number}
-          Icon={<FaPhone />}
-        />
+        <div className="relative">
+          <label className="block text-gray-900 font-semibold mb-2">
+            Phone Number
+          </label>
+          <div className="flex items-center">
+            <PhoneInput
+              country={"us"}
+              value={formData.phone_number}
+              onChange={handlePhoneChange}
+              inputClass={`w-full px-3 py-2 border-0 focus:ring-0 ${
+                errors?.phone_number ? "border-red-500" : "border-gray-300"
+              }`}
+              containerClass="flex items-center"
+              buttonClass="bg-gray-200"
+            />
+          </div>
+          {errors?.phone_number && (
+            <p className="text-red-500 text-sm mt-2">{errors.phone_number}</p>
+          )}
+        </div>
         <InputField
           label="Address"
           name="address"
@@ -137,7 +155,7 @@ const SignupForm = () => {
           ]}
           onChange={handleChange}
           error={errors?.gender}
-          Icon={<FaVenusMars/>}
+          Icon={<FaVenusMars />}
         />
         <InputField
           label="Bio"
@@ -146,7 +164,7 @@ const SignupForm = () => {
           placeholder="Bio"
           onChange={handleChange}
           error={errors?.bio}
-          Icon={<FaPen/>}
+          Icon={<FaPen />}
         />
       </div>
       <Button type="submit" isLoading={isLoading}>

@@ -18,10 +18,6 @@ const Fitness = () => {
           <div className="p-6 flex flex-col items-center">
             <GiHighKick className="text-5xl mb-4 text-gray-500" />
             <h2 className="text-2xl font-bold text-gray-800 mb-2">Taekwondo</h2>
-            <p className="text-gray-600 text-center">
-              Achieved Red Belt in Taekwondo, showcasing advanced techniques and
-              skills.
-            </p>
           </div>
         </Link>
         <Link
@@ -33,10 +29,6 @@ const Fitness = () => {
             <h2 className="text-2xl font-bold text-gray-800 mb-2">
               Calisthenics
             </h2>
-            <p className="text-gray-600 text-center">
-              Excelled in bodyweight exercises, including advanced moves and
-              routines.
-            </p>
           </div>
         </Link>
         <Link
@@ -48,10 +40,6 @@ const Fitness = () => {
             <h2 className="text-2xl font-bold text-gray-800 mb-2">
               Bodybuilding
             </h2>
-            <p className="text-gray-600 text-center">
-              Achieved a strong physique through dedicated bodybuilding routines
-              and nutrition.
-            </p>
           </div>
         </Link>
         <Link
@@ -63,10 +51,6 @@ const Fitness = () => {
             <h2 className="text-2xl font-bold text-gray-800 mb-2">
               Powerlifting
             </h2>
-            <p className="text-gray-600 text-center">
-              Excelled in Power lifting exercises, including advanced moves and
-              routines.
-            </p>
           </div>
         </Link>
       </div>
