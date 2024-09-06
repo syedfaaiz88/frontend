@@ -1,222 +1,217 @@
 import React from "react";
 import { Achievement } from "./Achievement";
 
-const achievements = {
-  "Basic Skills": [
-    {
-      name: "PushUp",
-      completed: true,
-      details: {
-        time: 0,
-        reps: 20,
-        notes: "Full-range push-ups, good form.",
+const achievements = [
+  {
+    name: "Basic Skills",
+    items: [
+      {
+        name: "PushUp",
+        completed: true,
+        details: {
+          time: 0,
+          reps: 20,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "PullUp",
-      completed: true,
-      details: {
-        time: 0,
-        reps: 10,
-        notes: "Full-body pull-ups, complete range of motion.",
+      {
+        name: "PullUp",
+        completed: true,
+        details: {
+          time: 0,
+          reps: 10,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "ChinUp",
-      completed: true,
-      details: {
-        time: 0,
-        reps: 15,
-        notes: "Chin-ups with good form.",
+      {
+        name: "ChinUp",
+        completed: true,
+        details: {
+          time: 0,
+          reps: 15,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Dips",
-      completed: true,
-      details: {
-        time: 0,
-        reps: 15,
-        notes: "Can perform standard dips with good depth.",
+      {
+        name: "Dips",
+        completed: true,
+        details: {
+          time: 0,
+          reps: 15,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Leg Raise",
-      completed: true,
-      details: {
-        time: 0,
-        reps: 15,
-        notes: "Hanging leg raises with proper form.",
+      {
+        name: "Leg Raise",
+        completed: true,
+        details: {
+          time: 0,
+          reps: 15,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-  ],
+    ],
+  },
 
-  "Intermediate Skills": [
-    {
-      name: "Handstand",
-      completed: true,
-      details: {
-        time: 10,
-        reps: 0,
-        notes: "Stable handstand.",
+  {
+    name: "Intermediate Skills",
+    items: [
+      {
+        name: "Handstand",
+        completed: true,
+        details: {
+          time: 10,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Pistol Squat",
-      completed: true,
-      details: {
-        time: 0,
-        reps: 8,
-        notes: "Full pistol squat with control.",
+      {
+        name: "Pistol Squat",
+        completed: true,
+        details: {
+          time: 0,
+          reps: 8,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "LSit",
-      completed: true,
-      details: {
-        time: 15,
-        reps: 0,
-        notes: "Solid L-sit hold.",
+      {
+        name: "LSit",
+        completed: true,
+        details: {
+          time: 15,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Skin The Cat",
-      completed: true,
-      details: {
-        time: 0,
-        reps: 5,
-        notes: "Executed with good technique.",
+      {
+        name: "Skin The Cat",
+        completed: true,
+        details: {
+          time: 0,
+          reps: 5,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Pseudo Planche PushUp",
-      completed: true,
-      details: {
-        time: 0,
-        reps: 10,
-        notes: "Good form with body leaning forward.",
+      {
+        name: "Pseudo Planche PushUp",
+        completed: true,
+        details: {
+          time: 0,
+          reps: 10,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-  ],
+    ],
+  },
 
-  "Advanced Skills": [
-    {
-      name: "MuscleUp",
-      completed: false,
-      details: {
-        time: 0,
-        reps: 0,
-        notes: "Working on strength and technique.",
+  {
+    name: "Advanced Skills",
+    items: [
+      {
+        name: "MuscleUp",
+        completed: false,
+        details: {
+          time: 0,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Handstand PushUp",
-      completed: true,
-      details: {
-        time: 5,
-        reps: 1,
-        notes: "Requires advanced shoulder strength.",
+      {
+        name: "Handstand PushUp",
+        completed: true,
+        details: {
+          time: 5,
+          reps: 1,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Planche",
-      completed: false,
-      details: {
-        time: 0,
-        reps: 0,
-        notes: "Long-term goal, focusing on strength and technique.",
+      {
+        name: "Planche",
+        completed: false,
+        details: {
+          time: 0,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Front Lever",
-      completed: true,
-      details: {
-        time: 1,
-        reps: 0,
-        notes: "Requires advanced core and back strength.",
+      {
+        name: "Front Lever",
+        completed: true,
+        details: {
+          time: 1,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Dragon Flag",
-      completed: false,
-      details: {
-        time: 0,
-        reps: 0,
-        notes: "Ultimate core strength exercise.",
+      {
+        name: "Dragon Flag",
+        completed: false,
+        details: {
+          time: 0,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-  ],
+    ],
+  },
 
-  "Static Holds": [
-    {
-      name: "Planche Lean",
-      completed: true,
-      details: {
-        time: 10,
-        reps: 0,
-        notes: "Progression towards full planche.",
+  {
+    name: "Static Holds",
+    items: [
+      {
+        name: "Planche Lean",
+        completed: true,
+        details: {
+          time: 10,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Ring Support Hold",
-      completed: true,
-      details: {
-        time: 20,
-        reps: 0,
-        notes: "Stable ring support hold.",
+      {
+        name: "Ring Support Hold",
+        completed: true,
+        details: {
+          time: 20,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "Maltese",
-      completed: false,
-      details: {
-        time: 0,
-        reps: 0,
-        notes: "Advanced name, working on wrist flexibility.",
+      {
+        name: "Maltese",
+        completed: false,
+        details: {
+          time: 0,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-  ],
+    ],
+  },
 
-  "Dynamic Moves": [
-    {
-      name: "Handstand Walk",
-      completed: false,
-      details: {
-        time: 0,
-        reps: 0,
-        notes: "Practicing balance and coordination.",
+  {
+    name: "Dynamic Moves",
+    items: [
+      {
+        name: "Handstand Walk",
+        completed: false,
+        details: {
+          time: 0,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-    {
-      name: "MuscleUp",
-      completed: false,
-      details: {
-        time: 0,
-        reps: 0,
-        notes: "Dynamic movement, working on technique.",
+      {
+        name: "MuscleUp",
+        completed: false,
+        details: {
+          time: 0,
+          reps: 0,
+        },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
-    },
-  ],
-};
+    ],
+  },
+];
 
 const Calisthenics = () => {
   return (
@@ -230,7 +225,7 @@ const Calisthenics = () => {
         </p>
       </header>
 
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Achievement achievements={achievements} />
       </div>
       <section className="mt-16">

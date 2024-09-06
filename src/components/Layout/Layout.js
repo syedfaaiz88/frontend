@@ -1,12 +1,12 @@
 import React from "react";
 import Sidebar from "../UI/Sidebar";
-import { FaComments, FaLaptopCode, FaRunning } from "react-icons/fa";
+import { FaGraduationCap, FaLaptopCode, FaRunning } from "react-icons/fa";
 import Footer from "./Footer";
 import { FcMenu } from "react-icons/fc";
-import { PiCertificateFill } from "react-icons/pi";
 import { BsPersonVcardFill } from "react-icons/bs";
 import Header from "./Header";
 import { TbTimelineEventText } from "react-icons/tb";
+import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
 
 function Layout({ element }) {
   const items = {
@@ -29,12 +29,12 @@ function Layout({ element }) {
       },
       {
         text: "Academics",
-        icon: <PiCertificateFill />,
+        icon: <FaGraduationCap />,
         route: "/academics",
       },
       {
         text: "Connect",
-        icon: <FaComments />,
+        icon: <HiChatBubbleBottomCenterText />,
         route: "/connect-with-me",
       },
       {

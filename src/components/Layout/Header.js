@@ -5,8 +5,6 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { isAuthenticated } from "../../Services/Auth/TokenService";
-import authServices from "../../Services/Auth/AuthServices";
 
 const Header = () => {
   const [user, setUser] = useState({});
@@ -14,14 +12,8 @@ const Header = () => {
 
   useEffect(() => {
     const checkAuth = async () => {
-      if (!isAuthenticated()) {
-        try {
-          const tokens = JSON.parse(localStorage.getItem("tokens"));
-          await authServices.refreshAccessToken(tokens.refresh); // Try to refresh the token
-          setAuthStatus(true);
-        } catch {
-          setAuthStatus(false);
-        }
+      if (!localStorage.getItem("user") && !localStorage.getItem("tokens")) {
+        setAuthStatus(false);
       } else {
         setAuthStatus(true);
       }
@@ -29,6 +21,7 @@ const Header = () => {
 
     checkAuth();
   }, []);
+
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -82,14 +75,12 @@ const Header = () => {
           {user.first_name}
         </span>
       </Tippy>
-      {user.profile_image ? (
+      {user.profile_image && (
         <img
           src={user.profile_image}
           alt="Profile"
           className="w-10 h-10 rounded-full object-cover"
         />
-      ) : (
-        <FaUser size={20} />
       )}
     </>
   );

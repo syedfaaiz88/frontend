@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { FaArrowLeft, FaArrowRight, FaDownload, FaUndo, FaRedo } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaUndo, FaRedo } from 'react-icons/fa';
+import { MdDownload } from 'react-icons/md';
 
 const Carousel = ({ photos, initialIndex }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
@@ -65,10 +66,10 @@ const Carousel = ({ photos, initialIndex }) => {
       {/* Control Buttons */}
       <div className="absolute flex space-x-2 bottom-4">
         <button
-          className="p-2 bg-gray-700 bg-opacity-50 text-white rounded-full hover:bg-opacity-75"
+          className="p-2 bg-white text-gray-800 rounded-full hover:bg-opacity-75"
           onClick={downloadImage}
         >
-          <FaDownload size={20} />
+          <MdDownload size={25} />
         </button>
         <button
           className="p-2 bg-gray-700 bg-opacity-50 text-white rounded-full hover:bg-opacity-75"

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../Redux/Actions/AuthAction/LogoutAction";
-import { VscSignOut } from "react-icons/vsc";
 import { FaUserCircle } from "react-icons/fa";
 import Tippy from "@tippyjs/react";
+import { VscSignOut } from "react-icons/vsc";
 
 const Sidebar = ({ items }) => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  // const [isCollapsed, setIsCollapsed] = useState(true);
   const [activeIndex, setActiveIndex] = useState(null); // To track active link
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,16 +19,17 @@ const Sidebar = ({ items }) => {
 
   return (
     <div
-      className={`${
-        isCollapsed ? "w-20" : "w-40"
-      } flex flex-col bg-gray-100 shadow-lg transition-width duration-300 p-2`}
+    className='flex flex-col bg-gray-100 shadow-lg transition-width duration-300 p-2 w-20'
+      // className={`${
+      //   isCollapsed ? "w-20" : "w-40"
+      // } flex flex-col bg-gray-100 shadow-lg transition-width duration-300 p-2`}
     >
-      <button
+      {/* <button
         onClick={() => setIsCollapsed(!isCollapsed)}
         className="p-2 text-gray-600 focus:outline-none text-xl"
       >
         {items.barsIcon}
-      </button>
+      </button> */}
       <nav className="flex flex-col flex-grow mt-4">
         <ul className="flex flex-col flex-grow gap-y-2">
           {items.links.map((link, index) => (
@@ -48,7 +49,7 @@ const Sidebar = ({ items }) => {
               }}
             >
               {link.icon && <span className="mr-3 text-3xl">{link.icon}</span>}
-              {!isCollapsed && <span>{link.text}</span>}
+              {/* {!isCollapsed && <span>{link.text}</span>} */}
             </li>
             </Tippy>
           ))}
@@ -69,7 +70,7 @@ const Sidebar = ({ items }) => {
             <span className="mr-3 text-3xl">
               <FaUserCircle />
             </span>
-            {!isCollapsed && <span>Profile</span>}
+            {/* {!isCollapsed && <span>Profile</span>} */}
           </li>
           <li
             className={`flex items-center p-4 cursor-pointer rounded-full text-gray-600 hover:bg-gray-200`}
@@ -78,7 +79,7 @@ const Sidebar = ({ items }) => {
             <span className="mr-3 text-3xl text-red-600">
               <VscSignOut />
             </span>
-            {!isCollapsed && <span>Logout</span>}
+            {/* {!isCollapsed && <span>Logout</span>} */}
           </li>
         </div>
       </nav>

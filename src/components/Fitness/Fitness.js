@@ -1,8 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FaFistRaised } from "react-icons/fa";
-import { GiHighKick, GiWeightLiftingUp } from "react-icons/gi";
-import { LuDumbbell } from "react-icons/lu";
+import { GiBiceps, GiHighKick, GiWeightLiftingUp } from "react-icons/gi";
 
 const Fitness = () => {
   return (
@@ -27,7 +26,7 @@ const Fitness = () => {
             to="bodybuilding"
             className="flex flex-col items-center text-center p-2 md:p-4 hover:text-green-500 transition duration-300"
           >
-            <LuDumbbell className="text-3xl md:text-4xl mb-2" />
+            <GiBiceps className="text-3xl md:text-4xl mb-2" />
             <h2 className="text-sm md:text-lg font-semibold">Bodybuilding</h2>
           </Link>
           <Link

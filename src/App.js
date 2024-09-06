@@ -15,9 +15,9 @@ import UserProfile from "./components/UserProfile";
 import Personal from "./components/Personal/Personal";
 import { LandingPage } from "./components/LandingPage";
 import Education from "./components/Education/Education";
-import Bodybuilding from "./components/Fitness/Bodybuilding/BodyBuilding";
 import Timeline from "./components/Timeline/Timeline";
 import Calisthenics from "./components/Fitness/Calisthenics";
+import Bodybuilding from "./components/Fitness/BodyBuilding";
 
 function App() {
   return (

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { isAuthenticated } from "../../Services/Auth/TokenService";
-import authServices from "../../Services/Auth/AuthServices";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -11,14 +9,8 @@ const PrivateRoute = ({ element }) => {
 
   useEffect(() => {
     const checkAuth = async () => {
-      if (!isAuthenticated()) {
-        try {
-          const tokens = JSON.parse(localStorage.getItem("tokens"));
-          await authServices.refreshAccessToken(tokens.refresh); // Try to refresh the token
-          setAuthStatus(true);
-        } catch {
-          setAuthStatus(false);
-        }
+      if (!localStorage.getItem("user") && !localStorage.getItem("tokens")) {
+        setAuthStatus(false);
       } else {
         setAuthStatus(true);
       }

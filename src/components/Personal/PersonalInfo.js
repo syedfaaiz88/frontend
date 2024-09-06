@@ -6,7 +6,6 @@ import {
   FaBriefcase,
   FaGraduationCap,
   FaHandHoldingHeart,
-  FaHeart,
   FaHome,
   FaIdCard,
   FaLanguage,
@@ -14,6 +13,7 @@ import {
 import { GiBodyHeight, GiWeightScale } from "react-icons/gi";
 import { IoMdMale } from "react-icons/io";
 import { MdFlag } from "react-icons/md";
+import { ImManWoman } from "react-icons/im";
 
 export const PersonalInfo = () => {
   return (
@@ -51,7 +51,7 @@ export const PersonalInfo = () => {
         <span>Pakistani</span>
       </div>
       <div className="flex items-center">
-        <TippyIcon icon={FaHeart} tooltip="Marital Status" />
+        <TippyIcon icon={ImManWoman} tooltip="Marital Status" />
         <span>Single</span>
       </div>
       {/* New Fields */}
