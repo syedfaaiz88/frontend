@@ -59,7 +59,7 @@ function Layout({ element }) {
         <div className="flex-1 overflow-y-auto">
           <div className="flex flex-col justify-between min-h-full">
             {/* Main content */}
-            <main className="p-6">{element}</main>
+            <main>{element}</main>
 
             {/* Footer */}
             <Footer />

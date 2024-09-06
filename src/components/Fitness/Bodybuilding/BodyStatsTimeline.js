@@ -5,12 +5,9 @@ const BodyStatsTimeline = ({ stats }) => {
 
 
   return (
-    <div className="mt-20 min-w-full">
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
-        Body Stats Timeline
-      </h1>
-      <div className="max-w-6xl mx-auto bg-white rounded-lg border border-b-2 overflow-hidden">
-        <div className="p-8"> 
+    <div className="min-w-full">
+      <div className="grid grid-cols-1 xl:grid-cols-2 mx-auto overflow-hidden">
+        <div className=""> 
           {stats.map((entry, index) => (
             <BodyStats key={index} index={index} photos={entry.photos} measurements={entry.measurements} date={entry.date}/>
             ))}

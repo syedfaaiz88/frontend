@@ -35,7 +35,7 @@ const TimelineItem = ({ date, title, description, icon, media }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5  gap-4">
         {media &&
           media.map((m, index) => (
-            <div onClick={() => openModal(index)} className="relative overflow-hidden cursor-pointer">
+            <div key={index} onClick={() => openModal(index)} className="relative overflow-hidden cursor-pointer">
               <TimelineContent media={m} key={index} />
             </div>
           ))}

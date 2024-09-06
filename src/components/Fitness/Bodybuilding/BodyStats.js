@@ -17,15 +17,14 @@ export const BodyStats = ({ index, photos, measurements, date }) => {
   };
 
   return (
-    <div key={index} className="mb-10 border-t border-gray-300 pt-6">
+    <div key={index} className="mb-10 p-8 border rounded-lg">
       <h2 className="text-3xl font-semibold text-gray-800 mb-4">{date}</h2>
-      <div className="flex items-start space-x-6">
-        <div className="flex-1">
-          <div className="flex flex-wrap gap-4">
+      <div className="flex flex-col gap-10 md:flex-row items-start space-x-6">
+          <div className="grid grid-cols-2 gap-4">
             {photos.map((photo, idx) => (
               <div
                 key={idx}
-                className="relative flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden shadow-md cursor-pointer"
+                className="relative w-18 h-18 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-lg overflow-hidden shadow-md cursor-pointer"
                 onClick={() => openModal(idx)}
               >
                 <img
@@ -36,8 +35,6 @@ export const BodyStats = ({ index, photos, measurements, date }) => {
               </div>
             ))}
           </div>
-        </div>
-        <div className="flex-1">
           <ul className="space-y-2">
             {Object.entries(measurements).map(([key, value]) => (
               <li key={key} className="text-gray-800">
@@ -45,7 +42,6 @@ export const BodyStats = ({ index, photos, measurements, date }) => {
               </li>
             ))}
           </ul>
-        </div>
       </div>
 
       {/* Modal with Carousel */}
