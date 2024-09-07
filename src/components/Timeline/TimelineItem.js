@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import TimelineContent from "./TimelineContent";
 import Carousel from "../UI/Carousel";
 import Modal from "../UI/Modal";
+import { HiPhoto } from "react-icons/hi2";
 
-const TimelineItem = ({ date, title, description, icon, media }) => {
+const TimelineItem = ({ date, title, description, icon, photos }) => {
   const [expandedPhotoIndex, setExpandedPhotoIndex] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -32,21 +32,43 @@ const TimelineItem = ({ date, title, description, icon, media }) => {
       <p className="mb-2 text-base font-normal text-gray-600 dark:text-gray-300">
         {description}
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5  gap-4">
-        {media &&
-          media.map((m, index) => (
-            <div key={index} onClick={() => openModal(index)} className="relative overflow-hidden cursor-pointer">
-              <TimelineContent media={m} key={index} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {photos && (
+          <div
+            key={0}
+            onClick={() => openModal(0)}
+            className="relative overflow-hidden cursor-pointer max-h-28"
+          >
+            <img
+              src={photos[0]}
+              alt="Event media"
+              className="object-cover w-full h-full rounded-lg shadow-md"
+            />
+          </div>
+        )}
+        {photos.length >= 2 && (
+          <div
+            key={1}
+            onClick={() => openModal(1)}
+            className="relative overflow-hidden cursor-pointer max-h-28 group rounded-lg"
+          >
+            <img
+              src={photos[1]}
+              alt="See All Photos"
+              className="object-cover w-full h-full rounded-lg shadow-md transition-transform duration-300 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold bg-black bg-opacity-50 rounded-lg transition-opacity duration-300">
+              <HiPhoto size={30} />
+              <span className="mt-2">See All Photos</span>
             </div>
-          ))}
+          </div>
+        )}
       </div>
+
       <Modal isOpen={showModal} onClose={closeModal}>
         {expandedPhotoIndex !== null && (
           <div className="w-80 sm:w-96 md:w-[450px] lg:w-[700px] xl:w-[900px] h-60 sm:h-72 md:h-80 lg:h-[550px]">
-            <Carousel
-              photos={media.map((m) => m.src)}
-              initialIndex={expandedPhotoIndex}
-            />
+            <Carousel photos={photos} initialIndex={expandedPhotoIndex} />
           </div>
         )}
       </Modal>

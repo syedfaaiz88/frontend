@@ -3,7 +3,7 @@ import Sidebar from "../UI/Sidebar";
 import { FaGraduationCap, FaLaptopCode, FaRunning } from "react-icons/fa";
 import Footer from "./Footer";
 import { FcMenu } from "react-icons/fc";
-import { BsPersonVcardFill } from "react-icons/bs";
+import { BsPersonRaisedHand } from "react-icons/bs";
 import Header from "./Header";
 import { TbTimelineEventText } from "react-icons/tb";
 import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
@@ -14,7 +14,7 @@ function Layout({ element }) {
     links: [
       {
         text: "Personal",
-        icon: <BsPersonVcardFill />,
+        icon: <BsPersonRaisedHand />,
         route: "/personal",
       },
       {

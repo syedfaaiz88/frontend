@@ -71,7 +71,7 @@ const Header = () => {
         interactive={true}
         theme="light"
       >
-        <span className="text-lg text-gray-700 cursor-pointer">
+        <span className="text-lg text-gray-100 cursor-pointer">
           {user.first_name}
         </span>
       </Tippy>
@@ -87,19 +87,19 @@ const Header = () => {
 
   const renderUnauthenticatedUserLinks = () => (
     <div className="flex space-x-4">
-      <Link to="/signup" className="text-lg text-gray-700 hover:text-blue-500">
+      <Link to="/signup" className="text-lg text-gray-100 hover:text-blue-500">
         Sign Up
       </Link>
-      <Link to="/login" className="text-lg text-gray-700 hover:text-blue-500">
+      <Link to="/login" className="text-lg text-gray-100 hover:text-blue-500">
         Login
       </Link>
     </div>
   );
 
   return (
-    <header className="bg-gray-100 border-b border-gray-300 p-2">
+    <header className="bg-gray-700 p-3 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to='/' className="text-2xl font-semibold text-gray-800">Syed Faaiz</Link>
+        <Link to='/' className="text-xl font-semibold text-gray-100">Syed Faaiz</Link>
         <div className="flex items-center space-x-3">
           {authStatus
             ? renderAuthenticatedUser()
