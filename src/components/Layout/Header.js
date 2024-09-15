@@ -22,7 +22,6 @@ const Header = () => {
     checkAuth();
   }, []);
 
-
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser || {});
@@ -97,9 +96,17 @@ const Header = () => {
   );
 
   return (
-    <header className="bg-gray-700 p-3 shadow-lg">
+    <header className="bg-gray-700 py-2 text-xl px-8">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to='/' className="text-xl font-semibold text-gray-100">Syed Faaiz</Link>
+        <div className="flex items-center space-x-2">
+          <img src="logo_white.png" alt="Syed Faaiz" className="w-10 h-10" />
+          <Link
+            to="/"
+            className="text-xl font-semibold text-white"
+          >
+            Syed Faaiz
+          </Link>
+        </div>
         <div className="flex items-center space-x-3">
           {authStatus
             ? renderAuthenticatedUser()

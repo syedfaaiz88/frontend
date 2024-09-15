@@ -13,19 +13,19 @@ import {
   FaSquareInstagram,
   FaSquareThreads,
 } from "react-icons/fa6";
-import { PiLinktreeLogoBold } from "react-icons/pi";
+import { PiLinktreeLogoFill } from "react-icons/pi";
 
 export const Social = () => {
   return (
     <div className="flex flex-col items-center justify-center p-2">
-      <p className="text-xl text-gray-600 text-center mb-6">
+      <p className="text-sm text-gray-600 text-center">
         I am so cool that I have same username on all platforms!
         <span className="text-gray-500 flex items-center justify-center mt-4">
-          <FaAt className="text-lg mr-2" />
+          <FaAt className="text-sm mr-1" />
           <span className="font-semibold">syedfaaiz88</span>
         </span>
       </p>
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 max-w-4xl">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-6 mt-24">
         <a
           href="https://www.linkedin.com/in/yourprofile"
           target="_blank"
@@ -105,7 +105,7 @@ export const Social = () => {
           className="text-green-600 flex items-center justify-center"
           aria-label="Linktree"
         >
-          <PiLinktreeLogoBold size={36} />
+          <PiLinktreeLogoFill size={36} />
         </a>
         <a
           href="mailto:your-email@example.com"

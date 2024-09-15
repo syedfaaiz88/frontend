@@ -10,16 +10,16 @@ import { TiHome } from "react-icons/ti";
 export const Connect = () => {
   const [activeSection, setActiveSection] = useState("socials");
   return (
-    <div className="flex flex-col items-center space-y-6 p-6 bg-white rounded-lg border border-b-2 max-w-4xl mx-auto">
-      <div className="flex flex-col justify-center items-center gap-3 space-x-4 mb-6 md:flex-row md:gap-0">
+    <div className="flex flex-col items-center space-y-6 p-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3 space-x-4 mb-6">
         <Button
           onClick={() => setActiveSection("socials")}
           className={`py-2 px-4 rounded ${
             activeSection === "socials"
               ? "bg-gray-200"
               : ""
-          } transition-colors duration-300`}
-          Icon={<GiTalk size={30} className="text-gray-500"/>}          
+          } transition-colors duration-300 md:text-lg text-sm`}
+          Icon={<GiTalk size={24} className="text-gray-500"/>}          
         >
           Socials
         </Button>
@@ -29,8 +29,8 @@ export const Connect = () => {
             activeSection === "contact"
               ? "bg-gray-200"
               : ""
-          } transition-colors duration-300`}
-          Icon={<MdContactPhone className="text-gray-500" size={30}/>}
+          } transition-colors duration-300 md:text-lg text-sm`}
+          Icon={<MdContactPhone className="text-gray-500" size={24}/>}
         >
           Contact
         </Button>
@@ -40,8 +40,8 @@ export const Connect = () => {
             activeSection === "location"
               ? "bg-gray-200"
               : ""
-          } transition-colors duration-300`}
-          Icon={<TiHome size={30} className="text-gray-500"/>}
+          } transition-colors duration-300 md:text-lg text-sm`}
+          Icon={<TiHome size={24} className="text-gray-500"/>}
         >
           Location
         </Button>

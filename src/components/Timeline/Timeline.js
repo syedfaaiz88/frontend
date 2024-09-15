@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGraduationCap, FaBriefcase, FaGlassCheers } from "react-icons/fa"; // Example icons
-import TimelineItem from "./TimelineItem";
+import TimelineItem from './TimelineItem'
 
 const timelineData = [
   {

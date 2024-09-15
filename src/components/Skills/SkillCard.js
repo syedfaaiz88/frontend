@@ -24,7 +24,7 @@ const SkillCard = ({ skill, Icon }) => {
         {Icon}
       </div>
       {latestMilestone ? (
-        <div className={`flex items-center p-2 rounded ${levelColors[latestMilestone.level]}`}>
+        <div className={`flex items-center p-2 rounded text-xs ${levelColors[latestMilestone.level]}`}>
           <FaCheckCircle className="mr-2" />
           <span>{latestMilestone.level}</span>
         </div>

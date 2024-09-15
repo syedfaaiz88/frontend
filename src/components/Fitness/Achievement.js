@@ -23,24 +23,24 @@ export const Achievement = ({ achievements }) => {
 
   return achievements.map((category, categoryIndex) => (
     <section key={categoryIndex} className="mb-12">
-      <h2 className="text-xl font-bold text-gray-800 mb-6  flex flex-col items-center">{category.name}</h2>
+      <h2 className="text-lg font-bold text-gray-800 mb-6  flex flex-col items-center">{category.name}</h2>
       <div className="grid grid-cols-1 gap-2">
         {category.items.map(
           ({ name, completed, details, youtube_url, photos }, itemIndex) => (
             <div
               key={`${categoryIndex}-${itemIndex}`}
-              className="bg-white p-4 border border-gray-200 rounded-lg"
+              className="bg-white p-3 border border-gray-200 rounded-lg"
             >
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg text-gray-800 font-semibold">{name}</h3>
                 {completed ? (
-                  <FaCheckCircle size={20} className="text-green-500" />
+                  <FaCheckCircle size={18} className="text-green-500" />
                 ) : (
-                  <FaCheckCircle size={20} className="text-gray-500" />
+                  <FaCheckCircle size={18} className="text-gray-500" />
                 )}
               </div>
               {details && (
-                <div className="mt-2 space-y-1">
+                <div className="mt-2 space-y-1 text-sm">
                   {Object.entries(details).map(([key, value]) => (
                     <div key={key} className="flex items-center">
                       <span className="text-gray-700 capitalize font-semibold">

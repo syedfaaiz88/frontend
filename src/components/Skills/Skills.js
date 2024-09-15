@@ -10,7 +10,7 @@ import {
 import { BiLogoJavascript } from "react-icons/bi";
 import { SiCplusplus, SiCsharp, SiDjango, SiDotnet, SiKubernetes } from "react-icons/si";
 
-const iconStyle = "text-5xl"; // Tailwind class for icon size
+const iconStyle = "text-4xl"; // Tailwind class for icon size
 
 // Define the skillsData object with icons and Tailwind styling
 const skillsData = {

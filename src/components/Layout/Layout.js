@@ -7,6 +7,7 @@ import { BsPersonRaisedHand } from "react-icons/bs";
 import Header from "./Header";
 import { TbTimelineEventText } from "react-icons/tb";
 import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
+import { GiFeather } from "react-icons/gi";
 
 function Layout({ element }) {
   const items = {
@@ -41,6 +42,11 @@ function Layout({ element }) {
         text: "Skills",
         icon: <FaLaptopCode />,
         route: "/skills",
+      },
+      {
+        text: "Poem",
+        icon: <GiFeather />,
+        route: "/poem",
       },
     ],
   };

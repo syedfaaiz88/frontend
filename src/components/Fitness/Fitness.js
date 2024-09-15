@@ -12,15 +12,15 @@ const Fitness = () => {
             to="taekwondo"
             className="flex flex-col items-center text-center p-2 md:p-4 hover:text-green-500 transition duration-300"
           >
-            <GiHighKick className="text-3xl md:text-4xl mb-2" />
-            <h2 className="text-sm md:text-lg font-semibold">Taekwondo</h2>
+            <GiHighKick className="text-3xl md:text-3xl mb-2" />
+            <h3 className="text-sm md:text-sm font-semibold">Taekwondo</h3>
           </Link>
           <Link
             to="calisthenics"
             className="flex flex-col items-center text-center p-2 md:p-4 hover:text-green-500 transition duration-300"
           >
-            <FaFistRaised className="text-3xl md:text-4xl mb-2" />
-            <h2 className="text-sm md:text-lg font-semibold">Calisthenics</h2>
+            <FaFistRaised className="text-3xl md:text-3xl mb-2" />
+            <h3 className="text-xs md:text-sm font-semibold">Calisthenics</h3>
           </Link>
           <Link
             to="bodybuilding"
@@ -29,8 +29,8 @@ const Fitness = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              width="43"
-              height="43"
+              width="35"
+              height="35"
               color="#000000"
               fill="none"      
               className="group-hover:text-green-500 transition duration-300"
@@ -43,14 +43,14 @@ const Fitness = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <h2 className="text-sm md:text-lg font-semibold">Bodybuilding</h2>
+            <h3 className="text-xs md:text-sm font-semibold">Bodybuilding</h3>
           </Link>
           <Link
             to="powerlifting"
             className="flex flex-col items-center text-center p-2 md:p-4 hover:text-green-500 transition duration-300"
           >
-            <GiWeightLiftingUp className="text-3xl md:text-4xl mb-2" />
-            <h2 className="text-sm md:text-lg font-semibold">Powerlifting</h2>
+            <GiWeightLiftingUp className="text-3xl md:text-3xl mb-2" />
+            <h3 className="text-xs md:text-sm font-semibold">Powerlifting</h3>
           </Link>
         </div>
       </header>

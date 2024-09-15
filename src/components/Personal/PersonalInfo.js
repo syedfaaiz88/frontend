@@ -17,7 +17,7 @@ import { ImManWoman } from "react-icons/im";
 
 export const PersonalInfo = () => {
   return (
-    <div className="space-y-4 grid frid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+    <div className="text-xs md:text-sm space-y-4 grid frid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
       <div className="flex items-center">
         <TippyIcon id icon={FaBirthdayCake} tooltip="Birthday" />
         <span>March 29, 2002</span>
