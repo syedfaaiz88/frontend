@@ -85,7 +85,7 @@ export const Achievement = ({ achievements }) => {
                   >
                     <span>
                       <HiPhoto
-                        size={25}
+                        size={30}
                         onClick={() => openModal(0)}
                         className="cursor-pointer text-blue-500 hover:text-blue-600 transition-colors duration-300"
                       />
@@ -107,7 +107,7 @@ export const Achievement = ({ achievements }) => {
                       theme="light"
                     >
                       <span>
-                        <FaYoutube size={25} />
+                        <FaYoutube size={30} />
                       </span>
                     </Tippy>
                   </a>

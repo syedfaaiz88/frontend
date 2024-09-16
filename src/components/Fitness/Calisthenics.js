@@ -9,7 +9,6 @@ const achievements = [
         name: "PushUp",
         completed: true,
         details: {
-          time: 0,
           reps: 20,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
@@ -18,7 +17,6 @@ const achievements = [
         name: "PullUp",
         completed: true,
         details: {
-          time: 0,
           reps: 10,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
@@ -27,7 +25,6 @@ const achievements = [
         name: "ChinUp",
         completed: true,
         details: {
-          time: 0,
           reps: 15,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
@@ -36,7 +33,6 @@ const achievements = [
         name: "Dips",
         completed: true,
         details: {
-          time: 0,
           reps: 15,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
@@ -45,7 +41,6 @@ const achievements = [
         name: "Leg Raise",
         completed: true,
         details: {
-          time: 0,
           reps: 15,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
@@ -61,7 +56,6 @@ const achievements = [
         completed: true,
         details: {
           time: 10,
-          reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -69,7 +63,6 @@ const achievements = [
         name: "Pistol Squat",
         completed: true,
         details: {
-          time: 0,
           reps: 8,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
@@ -79,7 +72,6 @@ const achievements = [
         completed: true,
         details: {
           time: 15,
-          reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -87,7 +79,6 @@ const achievements = [
         name: "Skin The Cat",
         completed: true,
         details: {
-          time: 0,
           reps: 5,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
@@ -96,7 +87,6 @@ const achievements = [
         name: "Pseudo Planche PushUp",
         completed: true,
         details: {
-          time: 0,
           reps: 10,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
@@ -111,7 +101,6 @@ const achievements = [
         name: "MuscleUp",
         completed: false,
         details: {
-          time: 0,
           reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
@@ -120,8 +109,7 @@ const achievements = [
         name: "Handstand PushUp",
         completed: true,
         details: {
-          time: 5,
-          reps: 1,
+          reps: 2,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -130,7 +118,6 @@ const achievements = [
         completed: false,
         details: {
           time: 0,
-          reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -139,7 +126,6 @@ const achievements = [
         completed: true,
         details: {
           time: 1,
-          reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -148,7 +134,6 @@ const achievements = [
         completed: false,
         details: {
           time: 0,
-          reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -163,7 +148,6 @@ const achievements = [
         completed: true,
         details: {
           time: 10,
-          reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -172,7 +156,6 @@ const achievements = [
         completed: true,
         details: {
           time: 20,
-          reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -181,7 +164,6 @@ const achievements = [
         completed: false,
         details: {
           time: 0,
-          reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -196,7 +178,6 @@ const achievements = [
         completed: false,
         details: {
           time: 0,
-          reps: 0,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },
@@ -204,8 +185,7 @@ const achievements = [
         name: "MuscleUp",
         completed: false,
         details: {
-          time: 0,
-          reps: 0,
+          reps: 1,
         },
         youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o",
       },

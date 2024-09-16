@@ -34,26 +34,13 @@ const TimelineItem = React.memo(({ date, title, description, icon, photos }) => 
         {description}
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        {photos && photos.length > 0 && (
-          <div
-            onClick={() => openModal(0)}
-            className="relative overflow-hidden cursor-pointer max-h-28"
-          >
-            <img
-              src={photos[0]}
-              alt="Event media"
-              className="object-cover w-full h-full rounded-lg shadow-md"
-              loading="lazy"
-            />
-          </div>
-        )}
-        {photos.length >= 2 && (
+        {photos.length > 0 && (
           <div
             onClick={() => openModal(1)}
             className="relative overflow-hidden cursor-pointer max-h-28 group rounded-lg"
           >
             <img
-              src={photos[1]}
+              src={photos[0]}
               alt="See All Photos"
               className="object-cover w-full h-full rounded-lg shadow-md transition-transform duration-300 group-hover:scale-110"
               loading="lazy"

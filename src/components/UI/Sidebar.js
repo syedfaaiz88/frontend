@@ -21,7 +21,7 @@ const Sidebar = ({ items }) => {
       <nav className="flex flex-col flex-grow mt-4">
         <ul className="flex flex-col flex-grow gap-y-4">
           {items.links.map((link, index) => (
-            <Tippy content={<p className="text-xs">{link.text}</p>} placement="right" arrow={false}>
+            <Tippy content={<p className="text-xs">{link.text}</p>} placement="right" arrow={false} key={index}>
               <li
                 className={`flex items-center justify-center p-3 cursor-pointer rounded-full 
                   ${
