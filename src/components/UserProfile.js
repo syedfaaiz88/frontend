@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  FaUser,
   FaEnvelope,
   FaPhone,
   FaMapMarkerAlt,
@@ -33,8 +32,26 @@ const UserProfile = () => {
               alt="Profile"
               className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
             />
+          ) : user.gender ? (
+            user.gender === 1 ? (
+              <img
+                src="images/male_profile.svg"
+                alt="Profile"
+                className="w-full h-full rounded-full object-cover border-2 border-white shadow-md"
+              />
+            ) : (
+              <img
+                src="images/female_profile.svg"
+                alt="Profile"
+                className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
+              />
+            )
           ) : (
-            <FaUser size={96} className="text-gray-500" />
+            <img
+              src="images/male_profile.svg"
+              alt="Profile"
+              className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
+            />
           )}
         </div>
         <div className="ml-6">

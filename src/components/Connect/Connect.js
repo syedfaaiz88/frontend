@@ -4,7 +4,7 @@ import { GiTalk } from "react-icons/gi";
 import { Social } from "./Social";
 import { Contact } from "./Contact";
 import { Location } from "./Location";
-import { MdContactPhone } from "react-icons/md";
+import { MdPermContactCalendar } from "react-icons/md";
 import { TiHome } from "react-icons/ti";
 
 export const Connect = () => {
@@ -30,7 +30,7 @@ export const Connect = () => {
               ? "bg-gray-200"
               : ""
           } transition-colors duration-300 md:text-lg text-sm`}
-          Icon={<MdContactPhone className="text-gray-500" size={24}/>}
+          Icon={<MdPermContactCalendar className="text-gray-500" size={24}/>}
         >
           Contact
         </Button>

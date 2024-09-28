@@ -24,7 +24,7 @@ const RecenterMap = ({ lat, lng }) => {
   const map = useMap();
 
   const recenterMap = () => {
-    map.setView([lat, lng], 40);
+    map.setView([lat, lng], 10);
   };
 
   return (
@@ -39,9 +39,9 @@ const RecenterMap = ({ lat, lng }) => {
 
 export const Location = () => {
   const place = {
-    name: "New Shalimar Road, Gulshan-e-Ravi, Lahore, Punjab, 54500, Pakistan",
-    longitude: 74.279139,
-    latitude: 31.5434824,
+    name: "Lahore, Punjab, 54500, Pakistan",
+    longitude: 74.3587,
+    latitude: 31.5204,
   };
 
   return (
@@ -49,7 +49,7 @@ export const Location = () => {
       <p className="text-lg font-semibold mb-7">{place.name}</p>
       <MapContainer
         center={[place.latitude, place.longitude]}
-        zoom={40}
+        zoom={10}
         scrollWheelZoom
         className="h-5/6"
       >

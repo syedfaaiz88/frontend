@@ -25,11 +25,10 @@ export const Achievement = ({ achievements }) => {
     <section key={categoryIndex} className="mb-12">
       <h2 className="text-lg font-bold text-gray-800 mb-6  flex flex-col items-center">{category.name}</h2>
       <div className="grid grid-cols-1 gap-2">
-        {category.items.map(
-          ({ name, completed, details, youtube_url, photos }, itemIndex) => (
+        {category.items.map(({ name, completed, details, youtube_url, photos }, itemIndex) => (
             <div
               key={`${categoryIndex}-${itemIndex}`}
-              className="bg-white p-3 border border-gray-200 rounded-lg"
+              className="bg-gray-50 p-3 border border-gray-200 rounded-sm"
             >
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg text-gray-800 font-semibold">{name}</h3>
