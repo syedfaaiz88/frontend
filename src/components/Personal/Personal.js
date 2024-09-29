@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { PiSealCheckFill } from "react-icons/pi";
 import TippyIcon from "./TippyIcon";
 import { PersonalInfo } from "./PersonalInfo";
 import { Link } from "react-router-dom";
 import Modal from "../UI/Modal";
+import { MdVerified } from "react-icons/md";
 
 const Personal = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -37,7 +37,7 @@ const Personal = () => {
         <h1 className="text-xs md:text-lg lg:text-xl font-semibold mb-2 flex flex-row items-center justify-center gap-2">
           Syed Faaiz
           <TippyIcon
-            icon={PiSealCheckFill}
+            icon={MdVerified}
             placement="right"
             color="text-blue-500"
             tooltip="Actually I don't have this on other platforms but on this website I am the boss I can have everything I love."

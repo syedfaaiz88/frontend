@@ -8,6 +8,7 @@ import Header from "./Header";
 import { TbTimelineEventText } from "react-icons/tb";
 import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
 import { GiFeather } from "react-icons/gi";
+import { MdSportsEsports } from "react-icons/md";
 
 function Layout({ element }) {
   const items = {
@@ -27,6 +28,11 @@ function Layout({ element }) {
         text: "Fitness",
         icon: <FaRunning />,
         route: "/fitness",
+      },
+      {
+        text: "E-Sports",
+        icon: <MdSportsEsports />,
+        route: "/esports",
       },
       {
         text: "Academics",

@@ -1,12 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Import Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif; /* Change Montserrat to Open Sans */
 }
-
 /* WebKit-based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
   width: 8px; /* Adjust the width of the scrollbar */

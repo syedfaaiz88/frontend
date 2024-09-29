@@ -19,6 +19,8 @@ import Timeline from "./components/Timeline/Timeline";
 import Calisthenics from "./components/Fitness/Calisthenics";
 import Bodybuilding from "./components/Fitness/BodyBuilding";
 import Poem from "./components/Poem";
+import Esports from "./components/Esports/Esports";
+import EightBallPool from "./components/Esports/EightBallPool";
 
 function App() {
   return (
@@ -46,7 +48,9 @@ function App() {
           <Route path="/user-profile" element={<PrivateRoute element={<Layout element={<UserProfile/>}/>} />} />
           <Route path="/timeline" element={<PrivateRoute element={<Layout element={<Timeline/>}/>} />} />
           <Route path="/poem" element={<PrivateRoute element={<Layout element={<Poem/>}/>} />} />
-
+          <Route path="/esports" element={<PrivateRoute element={<Layout element={<Esports />} />} />}>
+            <Route path="8ballpool" element={<EightBallPool />} />
+          </Route>
         </Routes>
       </Router>
       <ToastContainer

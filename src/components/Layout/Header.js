@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { FaUser } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../Redux/Actions/AuthAction/LogoutAction";
+import { VscSignOut } from "react-icons/vsc";
+import { BiSolidUserRectangle } from "react-icons/bi";
 
 const Header = () => {
   const [user, setUser] = useState({});
   const [authStatus, setAuthStatus] = useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -27,6 +33,11 @@ const Header = () => {
     setUser(storedUser || {});
   }, []);
 
+  const handleLogout = () => {
+    dispatch(logout(navigate));
+    navigate("/login"); // Redirect to login page after logout
+  };
+  
   const renderUserProfileContent = () => (
     <div className="flex flex-col justify-center items-center p-5 bg-white">
       <div className="flex items-center justify-center mb-3">
@@ -37,7 +48,7 @@ const Header = () => {
             className="w-20 h-20 rounded-full object-cover border-4 border-blue-500"
           />
         ) : (
-          <FaUser size={60} className="text-gray-500" />
+          <FaUserCircle size={60} className="text-gray-500" />
         )}
       </div>
       <div className="text-center">
@@ -47,20 +58,30 @@ const Header = () => {
         <p className="text-lg text-gray-600 mb-1">
           <AiOutlineUser className="inline mr-1" />@{user.username}
         </p>
-        <p className="text-md text-gray-500">
+        <p className="text-md text-gray-500 mb-4">
           <AiOutlineMail className="inline mr-1" />
           {user.email}
         </p>
-        <Link
-          to="/user-profile"
-          className="inline-flex items-center px-4 py-2 mt-4 text-white bg-green-500 hover:bg-green-600 rounded-lg font-medium shadow-md transition-colors duration-300"
-        >
-          View Full Profile
-        </Link>
+        <div className="flex flex-col space-y-4">
+          <Link
+            to="/user-profile"
+            className="flex items-center justify-center p-3 w-full text-white bg-green-500 border border-gray-300 rounded-lg hover:bg-green-600 shadow-md transition-colors duration-300"
+          >
+            <BiSolidUserRectangle className="text-2xl" />
+            <span className="ml-2">View Profile</span>
+          </Link>
+          <button
+            className="flex items-center justify-center p-3 w-full text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 shadow-md transition-colors duration-300"
+            onClick={handleLogout}
+          >
+            <VscSignOut className="text-2xl text-red-600" />
+            <span className="ml-2">Logout</span>
+          </button>
+        </div>
       </div>
     </div>
   );
-
+  
   const renderAuthenticatedUser = () => (
     <>
       <Tippy
@@ -100,10 +121,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img src="logo_white.png" alt="Syed Faaiz" className="w-10 h-10" />
-          <Link
-            to="/"
-            className="text-xl font-semibold text-white"
-          >
+          <Link to="/" className="text-xl font-semibold text-white">
             Syed Faaiz
           </Link>
         </div>
