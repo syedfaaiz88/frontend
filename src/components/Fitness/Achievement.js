@@ -23,15 +23,28 @@ export const Achievement = ({ achievements }) => {
 
   return achievements.map((category, categoryIndex) => (
     <section key={categoryIndex} className="mb-12">
-      <h2 className="text-lg font-bold text-gray-800 mb-6  flex flex-col items-center">{category.name}</h2>
-      <div className="grid grid-cols-1 gap-2">
-        {category.items.map(({ name, completed, details, youtube_url, photos }, itemIndex) => (
+      <h2 className="text-2xl font-bold text-gray-800 mb-6  flex flex-col items-center">
+        {category.name}
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+        {category.items.map(
+          (
+            { name, second_name, completed, details, youtube_url, photos },
+            itemIndex
+          ) => (
             <div
               key={`${categoryIndex}-${itemIndex}`}
               className="bg-gray-50 p-3 border border-gray-200 rounded-sm"
             >
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-lg text-gray-800 font-semibold">{name}</h3>
+                <div className="flex flex-col">
+                  <h3 className="text-lg text-gray-800 font-semibold">
+                    {name}
+                  </h3>
+                  <h4 className="text-md text-gray-500 font-semibold">
+                    {second_name}
+                  </h4>
+                </div>
                 {completed ? (
                   <FaCheckCircle size={18} className="text-green-500" />
                 ) : (
@@ -56,7 +69,7 @@ export const Achievement = ({ achievements }) => {
                     content={
                       <div className="flex flex-col justify-center p-2">
                         <div className="grid grid-cols-2 gap-4">
-                          {photos.slice(0,4).map((photo, idx) => (
+                          {photos.slice(0, 4).map((photo, idx) => (
                             <div
                               key={idx}
                               className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"

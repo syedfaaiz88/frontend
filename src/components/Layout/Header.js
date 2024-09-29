@@ -120,7 +120,6 @@ const Header = () => {
     <header className="bg-gray-700 py-2 text-xl px-8">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <img src="logo_white.png" alt="Syed Faaiz" className="w-10 h-10" />
           <Link to="/" className="text-xl font-semibold text-white">
             Syed Faaiz
           </Link>

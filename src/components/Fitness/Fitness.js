@@ -55,7 +55,7 @@ const Fitness = () => {
         </div>
       </header>
       <main className="flex-grow py-8">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-16">
           <Outlet />
         </div>
       </main>

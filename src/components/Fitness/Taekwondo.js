@@ -7,14 +7,14 @@ const Taekwondo = () => {
     {
       name: "Poomsae",
       items : [
-      { name: "Taegeuk Il Jang", completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o"}, // 태극 1장
-      { name: "Taegeuk Ee Jang", completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 2장
-      { name: "Taegeuk Sam Jang", completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 3장
-      { name: "Taegeuk Sa Jang", completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 4장
-      { name: "Taegeuk Oh Jang", completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 5장
-      { name: "Taegeuk Yuk Jang", completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 6장
-      { name: "Taegeuk Chil Jang", completed: false, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 7장
-      { name: "Taegeuk Pal Jang", completed: false, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 8장
+      { name: "Taegeuk Il Jang", second_name: "태극 1장" , completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o"}, // 태극 1장
+      { name: "Taegeuk Ee Jang", second_name: "태극 2장" , completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 2장
+      { name: "Taegeuk Sam Jang", second_name: "태극 3장" , completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 3장
+      { name: "Taegeuk Sa Jang", second_name: "태극 4장" , completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 4장
+      { name: "Taegeuk Oh Jang", second_name: "태극 5장" , completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 5장
+      { name: "Taegeuk Yuk Jang", second_name: "태극 6장" , completed: true, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 6장
+      { name: "Taegeuk Chil Jang", second_name: "태극 7장" , completed: false, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 7장
+      { name: "Taegeuk Pal Jang", second_name: "태극 8장" , completed: false, youtube_url: "https://www.youtube.com/watch?v=iHL7DhFu2-o" }, // 태극 8장
     ]
   },
     {
@@ -51,7 +51,7 @@ const Taekwondo = () => {
         </p>
       </header>
 
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className=" grid grid-cols-1">
         <Achievement achievements={achievements} />
       </div>
 
