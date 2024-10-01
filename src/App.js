@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/Common/PrivateRoute";
 import Layout from "./components/Layout/Layout";
 import { Connect } from "./components/Connect/Connect";
-import Fitness from "./components/Fitness/Fitness";
 import Taekwondo from "./components/Fitness/Taekwondo";
 import Powerlifting from "./components/Fitness/Powerlifting";
 import Skills from "./components/Skills/Skills";
@@ -19,7 +18,6 @@ import Timeline from "./components/Timeline/Timeline";
 import Calisthenics from "./components/Fitness/Calisthenics";
 import Bodybuilding from "./components/Fitness/BodyBuilding";
 import Poem from "./components/Poem";
-import Esports from "./components/Esports/Esports";
 import EightBallPool from "./components/Esports/EightBallPool";
 
 function App() {
@@ -37,20 +35,16 @@ function App() {
           {/* Grouped Protected Routes */}
           <Route path="/personal" element={<PrivateRoute element={<Layout element={<Personal/>}/>} />} />
           <Route path="/connect-with-me" element={<PrivateRoute element={<Layout element={<Connect/>}/>} />} />
-          <Route path="/fitness" element={<PrivateRoute element={<Layout element={<Fitness />} />} />}>
-            <Route path="taekwondo" element={<Taekwondo />} />
-            <Route path="bodybuilding" element={<Bodybuilding />} />
-            <Route path="calisthenics" element={<Calisthenics />} />
-            <Route path="powerlifting" element={<Powerlifting />} />
-          </Route>
+          <Route path="taekwondo" element={<PrivateRoute element={<Layout element={<Taekwondo/>}/>} />} />
+          <Route path="bodybuilding" element={<PrivateRoute element={<Layout element={<Bodybuilding/>}/>} />} />
+          <Route path="calisthenics" element={<PrivateRoute element={<Layout element={<Calisthenics/>}/>} />} />
+          <Route path="powerlifting" element={<PrivateRoute element={<Layout element={<Powerlifting/>}/>} />} />
           <Route path="/academics" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
           <Route path="/skills" element={<PrivateRoute element={<Layout element={<Skills/>}/>} />} />
           <Route path="/user-profile" element={<PrivateRoute element={<Layout element={<UserProfile/>}/>} />} />
           <Route path="/timeline" element={<PrivateRoute element={<Layout element={<Timeline/>}/>} />} />
           <Route path="/poem" element={<PrivateRoute element={<Layout element={<Poem/>}/>} />} />
-          <Route path="/esports" element={<PrivateRoute element={<Layout element={<Esports />} />} />}>
-            <Route path="8ballpool" element={<EightBallPool />} />
-          </Route>
+          <Route path="/8ballpool" element={<PrivateRoute element={<Layout element={<EightBallPool />} />} />} />
         </Routes>
       </Router>
       <ToastContainer

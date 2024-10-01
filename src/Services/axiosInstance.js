@@ -1,6 +1,9 @@
 // src/Services/AxiosInstance.js
 import axios from 'axios';
 import authServices from './Auth/AuthServices';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logout } from '../Redux/Actions/AuthAction/LogoutAction';
 
 const axiosInstance = axios.create({
     baseURL: 'http://127.0.0.1:8000/api/', // Base URL
@@ -22,6 +25,8 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
     (response) => response,
     async (error) => {
+        const dispatch = useDispatch();
+        const navigate = useNavigate();
         const { response } = error;
         if (response && response.status === 401) { // Unauthorized
             try {
@@ -41,8 +46,8 @@ axiosInstance.interceptors.response.use(
                 error.config.headers['Authorization'] = `Bearer ${newAccessToken}`;
                 return axiosInstance.request(error.config);
             } catch (refreshError) {
+                dispatch(logout(navigate));
                 console.error('Token refresh failed', refreshError);
-                window.location.href = '/login'; // Redirect to login
             }
         }
         return Promise.reject(error);
