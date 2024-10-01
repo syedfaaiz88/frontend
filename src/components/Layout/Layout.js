@@ -7,9 +7,10 @@ import { BsPersonRaisedHand } from "react-icons/bs";
 import Header from "./Header";
 import { TbTimelineEventText } from "react-icons/tb";
 import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
-import { GiFeather, GiHighKick, GiWeightLiftingUp } from "react-icons/gi";
-import { MdSportsEsports } from "react-icons/md";
+import { GiFeather, GiHighKick, GiTalk, GiWeightLiftingUp } from "react-icons/gi";
+import { MdPermContactCalendar, MdSportsEsports } from "react-icons/md";
 import { RiBilliardsFill } from "react-icons/ri";
+import { TiHome } from "react-icons/ti";
 
 function Layout({ element }) {
   const items = {
@@ -87,7 +88,23 @@ function Layout({ element }) {
       {
         text: "Connect",
         icon: <HiChatBubbleBottomCenterText />,
-        route: "/connect-with-me",
+        links: [
+          {
+            text: "Socials",
+            icon: <GiTalk />,
+            route: "/socials",
+          },
+          {            
+            text: "Contact",
+            icon: <MdPermContactCalendar />,
+            route: "/contact",
+          },
+          {
+            text: "Location",
+            icon: <TiHome />,
+            route: "/location",
+          },
+        ]
       },
       {
         text: "Skills",

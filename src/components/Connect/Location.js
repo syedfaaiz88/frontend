@@ -45,24 +45,27 @@ export const Location = () => {
   };
 
   return (
-    <div style={{ height: "75vh", width: "100%", position: "relative" }}>
-      <p className="text-lg font-semibold mb-7">{place.name}</p>
-      <MapContainer
-        center={[place.latitude, place.longitude]}
-        zoom={10}
-        scrollWheelZoom
-        className="h-5/6"
-      >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <Marker position={[place.latitude, place.longitude]}>
-          <Tooltip>
-            <strong>Syed Faaiz</strong>
-            <br />
-            {place.name}
-          </Tooltip>
-        </Marker>
-        <RecenterMap lat={place.latitude} lng={place.longitude} />
-      </MapContainer>
+    <div className="flex flex-col items-center p-2 mt-10">
+      <h1 className="text-xl text-gray-600 text-center mb-4 ">Location</h1>
+      <div style={{ height: "75vh", width: "80%", position: "relative" }}>
+        <p className="text-lg font-semibold mb-7">{place.name}</p>
+        <MapContainer
+          center={[place.latitude, place.longitude]}
+          zoom={10}
+          scrollWheelZoom
+          className="h-5/6"
+        >
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <Marker position={[place.latitude, place.longitude]}>
+            <Tooltip>
+              <strong>Syed Faaiz</strong>
+              <br />
+              {place.name}
+            </Tooltip>
+          </Marker>
+          <RecenterMap lat={place.latitude} lng={place.longitude} />
+        </MapContainer>
+      </div>
     </div>
   );
 };

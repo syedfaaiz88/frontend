@@ -6,7 +6,6 @@ import VerifyEmail from "./components/Auth/VerifyEmail";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/Common/PrivateRoute";
 import Layout from "./components/Layout/Layout";
-import { Connect } from "./components/Connect/Connect";
 import Taekwondo from "./components/Fitness/Taekwondo";
 import Powerlifting from "./components/Fitness/Powerlifting";
 import Skills from "./components/Skills/Skills";
@@ -19,6 +18,9 @@ import Calisthenics from "./components/Fitness/Calisthenics";
 import Bodybuilding from "./components/Fitness/BodyBuilding";
 import Poem from "./components/Poem";
 import EightBallPool from "./components/Esports/EightBallPool";
+import { Social } from "./components/Connect/Social";
+import { Contact } from "./components/Connect/Contact";
+import { Location } from "./components/Connect/Location";
 
 function App() {
   return (
@@ -34,7 +36,9 @@ function App() {
           
           {/* Grouped Protected Routes */}
           <Route path="/personal" element={<PrivateRoute element={<Layout element={<Personal/>}/>} />} />
-          <Route path="/connect-with-me" element={<PrivateRoute element={<Layout element={<Connect/>}/>} />} />
+          <Route path="/socials" element={<PrivateRoute element={<Layout element={<Social/>}/>} />} />
+          <Route path="/contact" element={<PrivateRoute element={<Layout element={<Contact/>}/>} />} />
+          <Route path="/location" element={<PrivateRoute element={<Layout element={<Location/>}/>} />} />
           <Route path="taekwondo" element={<PrivateRoute element={<Layout element={<Taekwondo/>}/>} />} />
           <Route path="bodybuilding" element={<PrivateRoute element={<Layout element={<Bodybuilding/>}/>} />} />
           <Route path="calisthenics" element={<PrivateRoute element={<Layout element={<Calisthenics/>}/>} />} />
