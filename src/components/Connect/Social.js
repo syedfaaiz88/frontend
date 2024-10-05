@@ -32,13 +32,13 @@ const SocialIcon = ({ icon: Icon, link, label, color, size }) => {
 const socialLinks = [
   { icon: AiFillLinkedin, link: 'https://www.linkedin.com/in/syedfaaiz88', label: 'LinkedIn', color: 'text-blue-800', size: 36 },
   { icon: FaGithub, link: 'https://github.com/syedfaaiz88', label: 'GitHub', color: 'text-gray-800', size: 30 },
-  { icon: FaSquareThreads, link: 'https://www.threads.net/syedfaaiz88', label: 'Threads', color: 'text-purple-700', size: 28 },
+  { icon: FaSquareThreads, link: 'https://www.threads.net/syedfaaiz88', label: 'Threads', color: 'text-purple-700', size: 32 },
   { icon: FaSquareInstagram, link: 'https://www.instagram.com/syedfaaiz88', label: 'Instagram', color: 'text-pink-600', size: 32 },
-  { icon: FaYoutube, link: 'https://www.youtube.com/@syedfaaiz88', label: 'YouTube', color: 'text-red-600', size: 36 },
+  { icon: FaYoutube, link: 'https://www.youtube.com/@syedfaaiz88', label: 'YouTube', color: 'text-red-600', size: 34 },
   { icon: FaFacebook, link: 'https://www.facebook.com/syedfaaiz88', label: 'Facebook', color: 'text-blue-600', size: 34 },
   { icon: FaWhatsappSquare, link: 'https://wa.me/03211170210', label: 'WhatsApp', color: 'text-green-600', size: 32 },
-  { icon: PiLinktreeLogoFill, link: 'https://linktr.ee/syedfaaiz88', label: 'Linktree', color: 'text-green-600', size: 30 },
-  { icon: FaSquareEnvelope, link: 'mailto:faaiz290302@gmail.com', label: 'Email', color: 'text-red-600', size: 30 },
+  { icon: PiLinktreeLogoFill, link: 'https://linktr.ee/syedfaaiz88', label: 'Linktree', color: 'text-green-600', size: 36 },
+  { icon: FaSquareEnvelope, link: 'mailto:faaiz290302@gmail.com', label: 'Email', color: 'text-red-600', size: 34 },
   { icon: AiFillTikTok, link: 'https://www.tiktok.com/@syedfaaiz88', label: 'TikTok', color: 'text-gray-900', size: 36 },
 ];
 

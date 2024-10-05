@@ -1,16 +1,26 @@
 import React from "react";
 import Sidebar from "../UI/SidebarV2";
-import { FaFistRaised, FaGraduationCap, FaLaptopCode, FaRunning } from "react-icons/fa";
+import {
+  FaComments,
+  FaFistRaised,
+  FaGraduationCap,
+  FaLaptopCode,
+  FaRunning,
+} from "react-icons/fa";
 import Footer from "./Footer";
 import { FcMenu } from "react-icons/fc";
 import { BsPersonRaisedHand } from "react-icons/bs";
 import Header from "./Header";
 import { TbTimelineEventText } from "react-icons/tb";
 import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
-import { GiFeather, GiHighKick, GiTalk, GiWeightLiftingUp } from "react-icons/gi";
+import {
+  GiFeather,
+  GiHighKick,
+  GiWeightLiftingUp,
+} from "react-icons/gi";
 import { MdPermContactCalendar, MdSportsEsports } from "react-icons/md";
 import { RiBilliardsFill } from "react-icons/ri";
-import { TiHome } from "react-icons/ti";
+import { TiLocation } from "react-icons/ti";
 
 function Layout({ element }) {
   const items = {
@@ -44,7 +54,8 @@ function Layout({ element }) {
             text: "Powerlifting",
             icon: <GiWeightLiftingUp />,
             route: "/powerlifting",
-          },          {
+          },
+          {
             text: "Bodybuilding",
             icon: (
               <svg
@@ -78,7 +89,7 @@ function Layout({ element }) {
             icon: <RiBilliardsFill />,
             route: "/8ballpool",
           },
-        ]
+        ],
       },
       {
         text: "Academics",
@@ -91,20 +102,20 @@ function Layout({ element }) {
         links: [
           {
             text: "Socials",
-            icon: <GiTalk />,
+            icon: <FaComments />,
             route: "/socials",
           },
-          {            
+          {
             text: "Contact",
             icon: <MdPermContactCalendar />,
             route: "/contact",
           },
           {
             text: "Location",
-            icon: <TiHome />,
+            icon: <TiLocation />,
             route: "/location",
           },
-        ]
+        ],
       },
       {
         text: "Skills",
@@ -127,7 +138,9 @@ function Layout({ element }) {
       {/* Main layout with sidebar and content */}
       <div className="flex flex-row h-full overflow-hidden">
         {/* Sidebar */}
-        <Sidebar items={items} />
+        <div className="hidden md:block">
+          <Sidebar items={items} />
+        </div>
 
         {/* Content area */}
         <div className="flex-1 overflow-y-auto">
