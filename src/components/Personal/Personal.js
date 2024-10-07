@@ -4,21 +4,12 @@ import { PersonalInfo } from "./PersonalInfo";
 import { Link } from "react-router-dom";
 import Modal from "../UI/Modal";
 import { MdVerified } from "react-icons/md";
-import EmojiPicker, { Emoji } from "emoji-picker-react";
-import { RiEmojiStickerFill } from "react-icons/ri";
 
 const Personal = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [chosenEmoji, setChosenEmoji] = useState(null);
-  const [isEmojiPickerOpen, setEmojiPickerOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
-
-  const onEmojiClick = (emojiData, event) => {
-    setChosenEmoji(emojiData);
-    setEmojiPickerOpen(false); // Close the emoji picker after selection
-  };
 
   return (
     <div className="relative w-5/6 md:w-9/12 min-h-screen mx-auto py-4 overflow-hidden">
@@ -52,42 +43,6 @@ const Personal = () => {
             tooltip="Actually I don't have this on other platforms but on this website I am the boss I can have everything I love."
           />
         </h1>
-        {/* Emoji Selection */}
-        <div className="relative flex flex-col items-center mb-4">
-          <div
-            className="group cursor-pointer"
-            onClick={() => setEmojiPickerOpen(!isEmojiPickerOpen)}
-          >
-            <div className="cursor-pointer">
-              <div className="relative flex items-center">
-                {/* Icon */}
-                {chosenEmoji ? (
-                  <div className="text-gray-700 transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:-translate-x-16">
-                    <Emoji unified={chosenEmoji.unified} size={30} />
-                  </div>
-                ) : (
-                  <RiEmojiStickerFill
-                    className="text-gray-700 transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:-translate-x-16"
-                    size={30}
-                  />
-                )}
-                {/* Sliding Text */}
-                <span className="text-gray-700 absolute left-8 transition-transform duration-300 ease-in-out transform translate-x-0 opacity-0 group-hover:-translate-x-14 group-hover:opacity-100 whitespace-nowrap">
-                  {chosenEmoji ? "Change emoji" : "Send me a emoji"}
-                </span>
-              </div>
-            </div>
-
-            {isEmojiPickerOpen && (
-              <div
-                className="absolute top-full z-50"
-                style={{ position: "absolute", zIndex: 9999 }}
-              >
-                <EmojiPicker onEmojiClick={onEmojiClick} />
-              </div>
-            )}
-          </div>
-        </div>
         <p className="text-gray-600 mb-4 text-xs md:text-sm">
           Software Engineer | Fitness enthusiast
         </p>

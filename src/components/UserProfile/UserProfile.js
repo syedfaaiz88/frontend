@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from "react";
 import {
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaBirthdayCake,
-  FaTransgender,
-  FaUserTag,
+  FaUser,
+  FaCog,
   FaCheckCircle,
   FaExclamationCircle,
 } from "react-icons/fa";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css"; // Import Tippy.js styles
 import moment from "moment"; // For formatting date
+import HorizontalTabBar from "../UI/HorizontalTabBar";
+import { Outlet } from "react-router-dom";
+import { storedUser } from "../../utils/getUser";
 
 const UserProfile = () => {
   const [user, setUser] = useState({});
+  const [activeTab, setActiveTab] = useState("ProfileDetails");
 
   useEffect(() => {
-    // Fetch user data from localStorage
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    setUser(storedUser || {}); // Default to an empty object if no user data found
+    setUser(storedUser);
   }, []);
-
+  const tabs = [
+    { label: "Profile", icon: <FaUser />, path: "/user-profile/details" },
+    { label: "Settings", icon: <FaCog />, path: "/user-profile/settings" },
+  ];
   return (
-    <div className="max-w-xl mx-auto bg-white border border-b-2 rounded-lg overflow-hidden mt-10">
+    <div className="max-w-full min-h-screen mx-10 bg-white border border-b-2 rounded-lg overflow-hidden mt-10">
+      {/* Profile Header */}
       <div className="relative p-6 flex items-center">
         <div className="flex-shrink-0 w-24 h-24">
           {user.profile_image ? (
@@ -86,46 +88,15 @@ const UserProfile = () => {
           )}
         </div>
       </div>
-      <div className="p-6">
-        <div className="flex items-center text-gray-700 mb-4">
-          <FaUserTag className="text-gray-500 mr-3" />
-          <p className="font-medium">
-            <strong className="text-gray-900">Username:</strong> {user.username}
-          </p>
-        </div>
-        <div className="flex items-center text-gray-700 mb-4">
-          <FaEnvelope className="text-gray-500 mr-3" />
-          <p className="font-medium">
-            <strong className="text-gray-900">Email:</strong> {user.email}
-          </p>
-        </div>
-        <div className="flex items-center text-gray-700 mb-4">
-          <FaPhone className="text-gray-500 mr-3" />
-          <p className="font-medium">
-            <strong className="text-gray-900">Phone:</strong>{" "}
-            {user.phone_number}
-          </p>
-        </div>
-        <div className="flex items-center text-gray-700 mb-4">
-          <FaMapMarkerAlt className="text-gray-500 mr-3" />
-          <p className="font-medium">
-            <strong className="text-gray-900">Address:</strong> {user.address}
-          </p>
-        </div>
-        <div className="flex items-center text-gray-700 mb-4">
-          <FaBirthdayCake className="text-gray-500 mr-3" />
-          <p className="font-medium">
-            <strong className="text-gray-900">Date of Birth:</strong>{" "}
-            {moment(user.date_of_birth).format("MMMM Do, YYYY")}
-          </p>
-        </div>
-        <div className="flex items-center text-gray-700">
-          <FaTransgender className="text-gray-500 mr-3" />
-          <p className="font-medium">
-            <strong className="text-gray-900">Gender:</strong>{" "}
-            {user.gender === 1 ? "Male" : "Female"}
-          </p>
-        </div>
+      {/* Horizontal Navigation Bar */}
+      <HorizontalTabBar
+        items={tabs}
+        activeTab={activeTab}
+        onTabClick={(item) => setActiveTab(item.label)}
+      />
+      {/* Render Selected Section */}
+      <div className="px-6 py-2">
+        <Outlet />
       </div>
     </div>
   );
