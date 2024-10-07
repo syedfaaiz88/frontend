@@ -3,7 +3,7 @@ import Header from "./Layout/Header"; // Adjust the path as needed
 import { Link } from "react-router-dom";
 import Footer from "./Layout/Footer";
 
-export const LandingPage = () => {
+const LandingPage = () => {
   return (
     <div className="font-sans antialiased bg-gray-100 min-h-screen flex flex-col">
       <Header />
@@ -32,3 +32,5 @@ export const LandingPage = () => {
     </div>
   );
 };
+
+export default LandingPage;

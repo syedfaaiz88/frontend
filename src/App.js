@@ -3,24 +3,24 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import SignupForm from "./components/Auth/SignupForm";
 import LoginForm from "./components/Auth/LoginForm";
 import VerifyEmail from "./components/Auth/VerifyEmail";
-import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/Common/PrivateRoute";
 import Layout from "./components/Layout/Layout";
 import Taekwondo from "./components/Fitness/Taekwondo";
 import Powerlifting from "./components/Fitness/Powerlifting";
 import Skills from "./components/Skills/Skills";
-import UserProfile from "./components/UserProfile";
+import UserProfile from "./components/UserProfile/UserProfile";
 import Personal from "./components/Personal/Personal";
-import { LandingPage } from "./components/LandingPage";
+import LandingPage from "./components/LandingPage";
 import Education from "./components/Education/Education";
 import Timeline from "./components/Timeline/Timeline";
 import Calisthenics from "./components/Fitness/Calisthenics";
 import Bodybuilding from "./components/Fitness/BodyBuilding";
 import Poem from "./components/Poem";
 import EightBallPool from "./components/Esports/EightBallPool";
-import { Social } from "./components/Connect/Social";
-import { Contact } from "./components/Connect/Contact";
-import { Location } from "./components/Connect/Location";
+import Social from "./components/Connect/Social";
+import Contact from "./components/Connect/Contact";
+import Location from "./components/Connect/Location";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (

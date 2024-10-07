@@ -37,7 +37,7 @@ const RecenterMap = ({ lat, lng }) => {
   );
 };
 
-export const Location = () => {
+const Location = () => {
   const place = {
     name: "Lahore, Punjab, 54500, Pakistan",
     longitude: 74.3587,
@@ -69,3 +69,5 @@ export const Location = () => {
     </div>
   );
 };
+
+export default Location;

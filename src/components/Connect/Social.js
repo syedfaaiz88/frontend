@@ -42,7 +42,7 @@ const socialLinks = [
   { icon: AiFillTikTok, link: 'https://www.tiktok.com/@syedfaaiz88', label: 'TikTok', color: 'text-gray-900', size: 36 },
 ];
 
-export const Social = () => {
+const Social = () => {
   return (
     <div className="flex flex-col items-center justify-center p-2 mt-10">
       <h1 className='text-xl text-gray-600 text-center mb-4 '>Socials Links</h1>
@@ -61,3 +61,5 @@ export const Social = () => {
     </div>
   );
 };
+
+export default Social;

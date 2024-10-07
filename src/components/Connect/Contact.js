@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPhoneSquare } from "react-icons/fa";
 
-export const Contact = () => {
+const Contact = () => {
   return (
     <div className="flex flex-col items-center p-2 mt-10">
       <h1 className='text-xl text-gray-600 text-center mb-4 '>Contact Numbers</h1>
@@ -31,3 +31,5 @@ export const Contact = () => {
     </div>
   );
 };
+
+export default Contact;

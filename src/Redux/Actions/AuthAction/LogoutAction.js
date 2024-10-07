@@ -10,11 +10,11 @@ export const logout = (navigate) => async (dispatch) => {
     const { refresh } = tokens;
 
     try {
-      const response = await AuthServices.logout(refresh); // Call logout API
+      localStorage.removeItem("user");
+      localStorage.removeItem("tokens");     
+      const response = await AuthServices.logout(refresh);
 
       if (response.data.status === true) {
-        localStorage.removeItem("user"); // Clear user data from localStorage
-        localStorage.removeItem("tokens"); // Clear tokens from localStorage
         dispatch({
           type: LOGOUT_SUCCESS,
         });
