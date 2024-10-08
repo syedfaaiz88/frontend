@@ -1,4 +1,4 @@
-import { GENDERS_FAIL, GENDERS_PENDING, GENDERS_SUCCESS, SET_MESSAGE } from "./Types"
+import { CHANGE_PASSWORD_FAIL, CHANGE_PASSWORD_PENDING, CHANGE_PASSWORD_SUCCESS, GENDERS_FAIL, GENDERS_PENDING, GENDERS_SUCCESS, SET_MESSAGE } from "./Types"
 import UserServices from "../../Services/UserServices"
 import { toast } from "react-toastify"
 
@@ -56,3 +56,58 @@ export const getGenders = () => async (dispatch) => {
             console.log(error);
         });
 };
+
+export const changePassword = (body) => async (dispatch) => {
+    dispatch({
+        type: CHANGE_PASSWORD_PENDING,
+        payload: { changePassword: "isLoading" },
+    });
+    return await UserServices.changePassword(body)
+        .then(
+            (data) => {
+                if (data.data.status === true) {
+                    dispatch({
+                        type: CHANGE_PASSWORD_SUCCESS,
+                        payload: { changePassword: data.data },
+                    })
+                    toast.success(data.data.message, {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });                    
+                }
+                else {
+                    dispatch({
+                        type: CHANGE_PASSWORD_FAIL,
+                        payload: { errors: data.data.errors },
+                    });
+                    toast.error(data.data.message, {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }
+                return Promise.resolve();
+            },
+            (error) => {                
+                console.log("error ", error);
+                dispatch({
+                    type: CHANGE_PASSWORD_FAIL,
+                });
+                return Promise.reject();
+            }
+        )
+        .catch((error) => {
+            if(error)
+                console.log(error);
+        });
+};
+

@@ -22,7 +22,8 @@ import Contact from "./components/Connect/Contact";
 import Location from "./components/Connect/Location";
 import "react-toastify/dist/ReactToastify.css";
 import ProfileDetails from "./components/UserProfile/ProfileDetails";
-import Settings from "./components/UserProfile/Settings";
+import Settings from "./components/UserProfile/Settings/Settings";
+import Feedback from "./components/UserProfile/Feedback";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/user-profile" element={<PrivateRoute element={<Layout element={<UserProfile/>}/>} />} >
             <Route path="details" element={<PrivateRoute element={<ProfileDetails/>}/>} />
             <Route path="settings" element={<PrivateRoute element={<Settings/>}/>} />
+            <Route path="give-feedback" element={<PrivateRoute element={<Feedback/>}/>} />
           </Route>
           <Route path="/timeline" element={<PrivateRoute element={<Layout element={<Timeline/>}/>} />} />
           <Route path="/poem" element={<PrivateRoute element={<Layout element={<Poem/>}/>} />} />

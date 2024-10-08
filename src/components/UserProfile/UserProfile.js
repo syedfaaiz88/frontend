@@ -11,10 +11,11 @@ import moment from "moment"; // For formatting date
 import HorizontalTabBar from "../UI/HorizontalTabBar";
 import { Outlet } from "react-router-dom";
 import { storedUser } from "../../utils/getUser";
+import { MdFeedback } from "react-icons/md";
 
 const UserProfile = () => {
   const [user, setUser] = useState({});
-  const [activeTab, setActiveTab] = useState("ProfileDetails");
+  const [activeTab, setActiveTab] = useState("Profile");
 
   useEffect(() => {
     setUser(storedUser);
@@ -22,6 +23,7 @@ const UserProfile = () => {
   const tabs = [
     { label: "Profile", icon: <FaUser />, path: "/user-profile/details" },
     { label: "Settings", icon: <FaCog />, path: "/user-profile/settings" },
+    { label: "Give Feedback", icon: <MdFeedback />, path: "/user-profile/give-feedback" },
   ];
   return (
     <div className="max-w-full min-h-screen mx-10 bg-white border border-b-2 rounded-lg overflow-hidden mt-10">
@@ -37,13 +39,13 @@ const UserProfile = () => {
           ) : user.gender ? (
             user.gender === 1 ? (
               <img
-                src="images/male_profile.svg"
+                src="/images/male_profile.svg"
                 alt="Profile"
                 className="w-full h-full rounded-full object-cover border-2 border-white shadow-md"
               />
             ) : (
               <img
-                src="images/female_profile.svg"
+                src="/images/female_profile.svg"
                 alt="Profile"
                 className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
               />

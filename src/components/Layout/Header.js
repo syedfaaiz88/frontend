@@ -64,7 +64,7 @@ const Header = () => {
         </p>
         <div className="flex flex-col space-y-4">
           <Link
-            to="/user-profile"
+            to="/user-profile/details"
             className="flex items-center justify-center p-3 w-full text-white bg-green-500 border border-gray-300 rounded-lg hover:bg-green-600 shadow-md transition-colors duration-300"
           >
             <BiSolidUserRectangle className="text-2xl" />

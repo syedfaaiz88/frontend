@@ -6,7 +6,7 @@ const HorizontalTabBar = ({ items }) => {
 
   return (
     <div className="w-full overflow-x-auto">
-      <div className="flex flex-nowrap items-center justify-start space-x-6 py-3 px-4">
+      <div className="flex flex-nowrap items-center justify-start space-x-10 py-3 px-4">
         {items.map((item, index) => (
           <Link
             key={index}

@@ -59,7 +59,7 @@ const Sidebar = ({ items }) => {
               onClick={() => handleLinkClick(item)}
             >
               <div className="flex items-center space-x-2">
-                <span className="text-xl">{item.icon}</span>
+                <span className="text-xl text-gray-700">{item.icon}</span>
                 {/* Conditionally render the text based on sidebar collapse state */}
                 {!isCollapsed && (
                   <span className="text-gray-800 text-sm">{item.text}</span>
@@ -95,7 +95,7 @@ const Sidebar = ({ items }) => {
                     }`}
                     onClick={() => navigate(subLink.route)}
                   >
-                    <span className="text-xl">{subLink.icon}</span>
+                    <span className="text-xl text-gray-700">{subLink.icon}</span>
                     {!isCollapsed && (
                       <span className="text-gray-800 text-sm">
                         {subLink.text}

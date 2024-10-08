@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
 const InputField = ({ label, error, Icon, type = 'text', options = [], ...props }) => {
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <div className="mb-4">
             <label htmlFor={props.name} className="block text-gray-900 font-semibold mb-2">
                 {label}
             </label>
-            <div className={`flex items-center border ${error ? 'border-red-500' : 'border-gray-300'} focus-within:border-black`}>
+            <div className={`flex items-center border ${error ? 'border-red-500' : 'border-gray-300'} focus-within:border-black relative`}>
                 {Icon && (
                     <div className="px-3 text-gray-500">
                         {Icon}
@@ -33,12 +40,22 @@ const InputField = ({ label, error, Icon, type = 'text', options = [], ...props 
                         ))}
                     </select>
                 ) : (
-                    <input
-                        id={props.name}
-                        type={type}
-                        className="w-full px-1 py-2 border-0 focus:ring-0 focus:outline-none"
-                        {...props}
-                    />
+                    <div className="relative w-full">
+                        <input
+                            id={props.name}
+                            type={type === 'password' && showPassword ? 'text' : type}
+                            className="w-full px-1 py-2 border-0 focus:ring-0 focus:outline-none"
+                            {...props}
+                        />
+                        {type === 'password' && (
+                            <div
+                                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                                onClick={togglePasswordVisibility}
+                            >
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            </div>
+                        )}
+                    </div>
                 )}
             </div>
             {error && (
