@@ -4,6 +4,7 @@ import {
   FaCog,
   FaCheckCircle,
   FaExclamationCircle,
+  FaCamera,
 } from "react-icons/fa";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css"; // Import Tippy.js styles
@@ -23,40 +24,31 @@ const UserProfile = () => {
   const tabs = [
     { label: "Profile", icon: <FaUser />, path: "/user-profile/details" },
     { label: "Settings", icon: <FaCog />, path: "/user-profile/settings" },
-    { label: "Give Feedback", icon: <MdFeedback />, path: "/user-profile/give-feedback" },
+    { label: "Feedback", icon: <MdFeedback />, path: "/user-profile/give-feedback" },
   ];
   return (
-    <div className="max-w-full min-h-screen mx-10 bg-white border border-b-2 rounded-lg overflow-hidden mt-10">
+    <div className="max-w-full min-h-screen mx-10 bg-white border rounded-lg overflow-hidden mt-10">
       {/* Profile Header */}
-      <div className="relative p-6 flex items-center">
-        <div className="flex-shrink-0 w-24 h-24">
-          {user.profile_image ? (
-            <img
-              src={user.profile_image}
-              alt="Profile"
-              className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
-            />
-          ) : user.gender ? (
-            user.gender === 1 ? (
-              <img
-                src="/images/male_profile.svg"
-                alt="Profile"
-                className="w-full h-full rounded-full object-cover border-2 border-white shadow-md"
-              />
-            ) : (
-              <img
-                src="/images/female_profile.svg"
-                alt="Profile"
-                className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
-              />
-            )
-          ) : (
-            <img
-              src="images/male_profile.svg"
-              alt="Profile"
-              className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
-            />
-          )}
+      <div className="relative p-6 flex items-center mb-4">
+        <div className="relative flex-shrink-0 w-24 h-24 cursor-pointer group">
+          <img
+            src={
+              user.profile_image
+                ? user.profile_image
+                : user.gender
+                ? user.gender === 1
+                  ? "/images/male_profile.svg"
+                  : "/images/female_profile.svg"
+                : "images/male_profile.svg"
+            }
+            alt="Profile"
+            className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
+          />
+
+          {/* Icon that appears on hover */}
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <FaCamera className="text-white text-2xl" />
+          </div>
         </div>
         <div className="ml-6">
           <h1 className="text-2xl font-semibold text-gray-900">
@@ -95,9 +87,9 @@ const UserProfile = () => {
         items={tabs}
         activeTab={activeTab}
         onTabClick={(item) => setActiveTab(item.label)}
-      />
+      />      
       {/* Render Selected Section */}
-      <div className="px-6 py-2">
+      <div className="pb-10">
         <Outlet />
       </div>
     </div>

@@ -1,28 +1,32 @@
 // Settings.js
-import React, { useState } from "react";
-import Modal from "../../UI/Modal";
-import ChangePasswordForm from "./ChangePasswordForm";
-import { MdLockReset } from "react-icons/md";
+import React from "react";
+import { FaUserEdit } from "react-icons/fa";
+import { Outlet } from "react-router-dom";
+import HorizontalTabBar from "../../UI/HorizontalTabBar";
+import { RiRotateLockFill } from "react-icons/ri";
 
 const Settings = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
-
+  const items = [
+      {
+        label: "Change Password",
+        icon: <RiRotateLockFill />,
+        path: "change-password",
+      },
+      {
+        label: "Edit Profile Details",
+        icon: <FaUserEdit />,
+        path: "edit-profile-details",
+      }
+    ]
   return (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <div
-          onClick={() => setModalOpen(true)}
-          className="flex flex-row items-center gap-2 p-2 cursor-pointer rounded-md hover:bg-gray-100"
-        >
-          <MdLockReset size={30} className="text-gray-600" /> <span className="text-sm">Change Password</span>
-        </div>
+    <div className="flex flex-col h-auto gap-6">
+      {/* Sidebar */}
+      <HorizontalTabBar items={items}/>
+      {/* Main Content (Outlet) */}
+      <div>
+        <Outlet />
       </div>
-
-      {/* Modal for Change Password */}
-      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-        <ChangePasswordForm onClose={() => setModalOpen(false)} />
-      </Modal>
-    </>
+    </div>
   );
 };
 

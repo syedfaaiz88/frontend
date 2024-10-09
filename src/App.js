@@ -24,6 +24,8 @@ import "react-toastify/dist/ReactToastify.css";
 import ProfileDetails from "./components/UserProfile/ProfileDetails";
 import Settings from "./components/UserProfile/Settings/Settings";
 import Feedback from "./components/UserProfile/Feedback";
+import ChangePasswordForm from "./components/UserProfile/Settings/ChangePasswordForm";
+import EditProfileDetailsForm from "./components/UserProfile/Settings/EditProfileDetailsForm";
 
 function App() {
   return (
@@ -50,7 +52,10 @@ function App() {
           <Route path="/skills" element={<PrivateRoute element={<Layout element={<Skills/>}/>} />} />
           <Route path="/user-profile" element={<PrivateRoute element={<Layout element={<UserProfile/>}/>} />} >
             <Route path="details" element={<PrivateRoute element={<ProfileDetails/>}/>} />
-            <Route path="settings" element={<PrivateRoute element={<Settings/>}/>} />
+            <Route path="settings" element={<PrivateRoute element={<Settings/>}/>} >
+              <Route path="change-password" element={<PrivateRoute element={<ChangePasswordForm/>}/>} />
+              <Route path="edit-profile-details" element={<PrivateRoute element={<EditProfileDetailsForm/>}/>} />
+            </Route>
             <Route path="give-feedback" element={<PrivateRoute element={<Feedback/>}/>} />
           </Route>
           <Route path="/timeline" element={<PrivateRoute element={<Layout element={<Timeline/>}/>} />} />

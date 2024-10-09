@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
+import { PiEyeClosedDuotone, PiEyeDuotone } from 'react-icons/pi';
 
 const InputField = ({ label, error, Icon, type = 'text', options = [], ...props }) => {
     const [showPassword, setShowPassword] = useState(false);
@@ -52,7 +52,7 @@ const InputField = ({ label, error, Icon, type = 'text', options = [], ...props 
                                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
                                 onClick={togglePasswordVisibility}
                             >
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                {showPassword ? <PiEyeClosedDuotone size={20} /> : <PiEyeDuotone size={20} />}
                             </div>
                         )}
                     </div>

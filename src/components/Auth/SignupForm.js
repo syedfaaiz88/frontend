@@ -110,7 +110,7 @@ const SignupForm = () => {
           </label>
           <div className="flex items-center">
             <PhoneInput
-              country={"us"}
+              country={"pk"}
               value={formData.phone_number}
               onChange={handlePhoneChange}
               inputClass={`w-full px-3 py-2 border-0 focus:ring-0 ${

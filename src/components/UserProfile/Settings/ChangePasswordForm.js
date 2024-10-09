@@ -6,7 +6,7 @@ import Button from "../../UI/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { changePassword } from "../../../Redux/Actions/UserActions";
 
-const ChangePasswordForm = ({ onClose }) => {
+const ChangePasswordForm = () => {
   const [old_password, setCurrentPassword] = useState("");
   const [new_password, setNewPassword] = useState("");
   const [again_new_password, setConfirmPassword] = useState("");
@@ -22,7 +22,6 @@ const ChangePasswordForm = ({ onClose }) => {
 
   useEffect(() => {
     setErrors(changePasswordErrors);
-    console.log(changePasswordErrors);
   }, [changePasswordErrors]);
 
   const handleChangePassword = (e) => {
@@ -37,53 +36,53 @@ const ChangePasswordForm = ({ onClose }) => {
     setNewPassword("");
     setConfirmPassword("");
   };
-
   return (
-    <div className="bg-white p-16 rounded-xl">
-      <form onSubmit={handleChangePassword}>
-        <InputField
-          label="Current Password"
-          type="password"
-          name="old_password"
-          value={old_password}
-          onChange={(e) => {
-            setCurrentPassword(e.target.value);
-            setErrors((prevErrors) => ({ ...prevErrors, old_password: "" }));
-          }}
-          error={errors?.old_password}
-          required
-          Icon={<FaLock />} // Add the icon for current password
-        />
-        <InputField
-          label="New Password"
-          type="password"
-          name="new_password"
-          value={new_password}
-          onChange={(e) => {
-            setNewPassword(e.target.value);
-            setErrors((prevErrors) => ({ ...prevErrors, new_password: "" }));
-          }}          
-          error={errors?.new_password}
-          required
-          Icon={<FaLock />} // Add the icon for new password
-        />
-        <InputField
-          label="Confirm New Password"
-          type="password"
-          name="again_new_password"
-          value={again_new_password}
-          onChange={(e) => {
-            setConfirmPassword(e.target.value);
-            setErrors((prevErrors) => ({ ...prevErrors, again_new_password: "" }));
-          }}          required
-          error={errors?.again_new_password}
-          Icon={<FaLock />} // Add the icon for confirm password
-        />
-        <Button type="submit" isLoading={isLoading}>
-          Change Password
-        </Button>
-      </form>
-    </div>
+      <div className="bg-white p-16 rounded-xl">
+        <form onSubmit={handleChangePassword}>
+          <InputField
+            label="Current Password"
+            type="password"
+            name="old_password"
+            value={old_password}
+            onChange={(e) => {
+              setCurrentPassword(e.target.value);
+              setErrors((prevErrors) => ({ ...prevErrors, old_password: "" }));
+            }}
+            error={errors?.old_password}
+            required
+            Icon={<FaLock />}
+          />
+          <InputField
+            label="New Password"
+            type="password"
+            name="new_password"
+            value={new_password}
+            onChange={(e) => {
+              setNewPassword(e.target.value);
+              setErrors((prevErrors) => ({ ...prevErrors, new_password: "" }));
+            }}
+            error={errors?.new_password}
+            required
+            Icon={<FaLock />}
+          />
+          <InputField
+            label="Confirm New Password"
+            type="password"
+            name="again_new_password"
+            value={again_new_password}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+              setErrors((prevErrors) => ({ ...prevErrors, again_new_password: "" }));
+            }}
+            required
+            error={errors?.again_new_password}
+            Icon={<FaLock />}
+          />
+          <Button type="submit" isLoading={isLoading}>
+            Change Password
+          </Button>
+        </form>
+      </div>
   );
 };
 

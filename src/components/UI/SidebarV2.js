@@ -3,7 +3,7 @@ import { FaChevronDown, FaBars } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaBarsStaggered } from "react-icons/fa6";
 
-const Sidebar = ({ items }) => {
+const Sidebar = ({ items, collapsable, bgColor }) => {
   const [openSections, setOpenSections] = useState({});
   const [isCollapsed, setIsCollapsed] = useState(false); // State to track sidebar collapse
   const [sidebar, setSidebar] = useState("");
@@ -39,23 +39,24 @@ const Sidebar = ({ items }) => {
     <div
       className={`flex h-screen transition-width duration-300 ${
         isCollapsed ? "w-28" : "w-52"
-      } bg-gray-100`}
+      } ${bgColor}`}
     >
       <div className="p-4 w-full space-y-1">
         {/* Toggle button for the sidebar */}
-        <button
+        { collapsable &&
+          <button
           onClick={toggleSidebar}
           className="p-2 rounded-md hover:bg-gray-200"
         >
           {isCollapsed ? <FaBars /> : <FaBarsStaggered />}
-        </button>
+        </button>}
 
         {items.links.map((item) => (
           <div key={item.text}>
             <div
               className={`flex items-center justify-between cursor-pointer hover:bg-gray-200 p-2 rounded-md ${
                 openSections[item.text] ? "bg-gray-200" : ""
-              } ${item.route && sidebar === item.route ? "bg-gray-200" : ""}`}
+              } ${item.route && sidebar.includes(item.route) ? "bg-gray-200" : ""}`}
               onClick={() => handleLinkClick(item)}
             >
               <div className="flex items-center space-x-2">
@@ -91,7 +92,7 @@ const Sidebar = ({ items }) => {
                   <div
                     key={subLink.text}
                     className={`flex items-center space-x-2 cursor-pointer hover:bg-gray-200 p-2 rounded-md ${
-                      sidebar === subLink.route ? "bg-gray-200" : ""
+                      sidebar.includes(subLink.route) ? "bg-gray-200" : ""
                     }`}
                     onClick={() => navigate(subLink.route)}
                   >

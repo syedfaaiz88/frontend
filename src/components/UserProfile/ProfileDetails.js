@@ -17,7 +17,7 @@ const ProfileDetails = () => {
     setUser(storedUser);
   }, []);
   return (
-    <>
+    <div className="m-10">
       <div className="flex items-center text-gray-700 mb-4">
         <FaUserTag className="text-gray-500 mr-3" />
         <p className="font-medium">
@@ -56,7 +56,7 @@ const ProfileDetails = () => {
           {user.gender === 1 ? "Male" : "Female"}
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

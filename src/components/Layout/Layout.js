@@ -139,7 +139,7 @@ function Layout({ element }) {
       <div className="flex flex-row h-full overflow-hidden">
         {/* Sidebar */}
         <div className="hidden md:block">
-          <Sidebar items={items} />
+          <Sidebar items={items} bgColor={'bg-gray-100'}/>
         </div>
 
         {/* Content area */}
