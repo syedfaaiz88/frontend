@@ -1,9 +1,10 @@
+import { ImSpinner2 } from 'react-icons/im'; // Importing a spinner icon
 import classNames from 'classnames';
 
-function Button({ children, primary, secondary, success, warning, danger, outline, rounded, ...rest }) {
+function Button({ children, primary, secondary, success, warning, danger, outline, rounded, isLoading, ...rest }) {
   const classes = classNames(
     rest.className,
-    'flex items-center px-3 py-1.5 border',
+    `flex items-center border ${isLoading ? 'rounded-full p-2': 'px-3 py-1.5'}`,
     {
       'border-blue-500 bg-blue-500 text-white': primary && !outline,
       'border-gray-900 bg-gray-900 text-white': secondary && !outline,
@@ -20,8 +21,12 @@ function Button({ children, primary, secondary, success, warning, danger, outlin
   );
 
   return (
-    <button {...rest} className={classes}>
-      {children}
+    <button {...rest} className={classes} disabled={isLoading}>
+      {isLoading ? (
+        <ImSpinner2 className="animate-spin" /> // Display the spinner when loading
+      ) : (
+        children
+      )}
     </button>
   );
 }

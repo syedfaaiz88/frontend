@@ -8,12 +8,12 @@ import {
   FaTransgender,
   FaUserTag,
 } from "react-icons/fa";
-import { storedUser } from "../../utils/getUser";
 
 const ProfileDetails = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
+ const storedUser = JSON.parse(localStorage.getItem("user")) || {}
     setUser(storedUser);
   }, []);
   return (

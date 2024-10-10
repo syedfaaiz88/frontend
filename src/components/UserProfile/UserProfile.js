@@ -11,7 +11,6 @@ import "tippy.js/dist/tippy.css"; // Import Tippy.js styles
 import moment from "moment"; // For formatting date
 import HorizontalTabBar from "../UI/HorizontalTabBar";
 import { Outlet } from "react-router-dom";
-import { storedUser } from "../../utils/getUser";
 import { MdFeedback } from "react-icons/md";
 
 const UserProfile = () => {
@@ -19,6 +18,7 @@ const UserProfile = () => {
   const [activeTab, setActiveTab] = useState("Profile");
 
   useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user")) || {}
     setUser(storedUser);
   }, []);
   const tabs = [

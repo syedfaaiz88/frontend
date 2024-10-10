@@ -19,7 +19,7 @@ const Settings = () => {
       }
     ]
   return (
-    <div className="flex flex-col h-auto gap-6">
+    <div className="flex flex-col h-auto gap-2">
       {/* Sidebar */}
       <HorizontalTabBar items={items}/>
       {/* Main Content (Outlet) */}
