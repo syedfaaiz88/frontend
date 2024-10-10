@@ -4,7 +4,9 @@ import { FaUser, FaMapMarkerAlt, FaInfoCircle } from "react-icons/fa"; // Import
 import InputField from "../../UI/InputField";
 import Button from "../../UI/Button";
 import { AiOutlineUser } from "react-icons/ai";
-import { editProfileDetails } from "../../../Redux/Actions/UserActions";
+import {
+  editProfileDetails,
+} from "../../../Redux/Actions/UserActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const EditProfileDetailsForm = () => {
@@ -30,17 +32,15 @@ const EditProfileDetailsForm = () => {
   useEffect(() => {
     setErrors(profileErrors);
   }, [profileErrors]);
+
   useEffect(() => {
-    if (updatedUser) {
-      localStorage.setItem("user", JSON.stringify(updatedUser.result));
-    }
-    const user = JSON.parse(localStorage.getItem("user")) || {}
+    const user = JSON.parse(localStorage.getItem("user")) || {};
     setFirstName(user.first_name);
     setLastName(user.last_name);
     setUsername(user.username);
     setAddress(user.address);
     setBio(user.bio);
-  }, [updatedUser]);
+  }, [updatedUser, isLoading]);
   const handleUpdateProfile = (e) => {
     e.preventDefault();
     const body = {};

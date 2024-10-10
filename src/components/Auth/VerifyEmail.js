@@ -23,15 +23,7 @@ const VerifyEmail = () => {
         const data = await response.json();
         if (data.status === true) {
           setIsVerified(true);
-          toast.success("Email Verified Successfully!", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          toast.success("Email Verified Successfully!");
           setTimeout(() => {
             navigate("/login");
           }, 5000);
@@ -39,28 +31,12 @@ const VerifyEmail = () => {
           setIsVerified(false);
           const message =
             data && data.message ? data.message : "Something Went Wrong";
-          toast.error(message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          toast.error(message);
         }
       } catch (error) {
         const message =
           error && error.message ? error.message : "Something Went Wrong";
-        toast.error(message, {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.error(message);
         setError(message);
         setIsVerified(false);
         setLoading(false);

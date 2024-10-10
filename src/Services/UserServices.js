@@ -14,6 +14,9 @@ class UserServices {
   async editProfileDetails(body) {
     return axiosInstance.post(API_URL + "edit-profile-details/", body);
   }
+  async getProfileDetails() {
+    return axiosInstance.get(API_URL + "get-profile-details/");
+  }
 }
 
 const userServicesInstance = new UserServices();

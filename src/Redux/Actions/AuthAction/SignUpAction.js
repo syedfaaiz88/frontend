@@ -15,41 +15,17 @@ export const signUp = (body) => async (dispatch) => {
                 type: SIGNUP_SUCCESS,
                 payload: data.data,
             });
-            toast.success(data.data.message, {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            toast.success(data.data.message);
         } else {
             dispatch({
                 type: SIGNUP_FAIL,
                 payload: { errors: data.data.errors },
             });
-            toast.error(data.data.message, {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            toast.error(data.data.message);
         }
     } catch (error) {
         const message = error && error.message ? error.message : 'Something Went Wrong';
-        toast.error(message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
+        toast.error(message);
         dispatch({
             type: SIGNUP_FAIL,
             payload: { errors: error.message ? error.message : null },

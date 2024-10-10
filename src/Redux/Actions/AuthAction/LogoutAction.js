@@ -18,58 +18,25 @@ export const logout = (navigate) => async (dispatch) => {
         dispatch({
           type: LOGOUT_SUCCESS,
         });
-        toast.success("Logged out successfully", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.success("Logged out successfully");
         navigate('/login'); // Use navigate to redirect to the login page
       } else {
         toast.error(
           response.data.message.detail
             ? response.data.message.detail
-            : response.data.message,
-          {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          }
+            : response.data.message
         );
         dispatch({
           type: LOGOUT_FAIL,
         });
       }
     } catch (error) {
-      toast.error("Logout failed", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error("Logout failed");
       dispatch({
         type: LOGOUT_FAIL,
       });
     }
   } else {
-    toast.error("No active session found", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    toast.error("No active session found");
   }
 };

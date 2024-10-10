@@ -2,6 +2,9 @@ import {
   EDIT_PROFILE_DETAILS_FAIL,
   EDIT_PROFILE_DETAILS_PENDING,
   EDIT_PROFILE_DETAILS_SUCCESS,
+  GET_PROFILE_DETAILS_FAIL,
+  GET_PROFILE_DETAILS_PENDING,
+  GET_PROFILE_DETAILS_SUCCESS,
   CHANGE_PASSWORD_FAIL,
   CHANGE_PASSWORD_PENDING,
   CHANGE_PASSWORD_SUCCESS,
@@ -30,15 +33,7 @@ export const getGenders = () => async (dispatch) => {
           dispatch({
             type: GENDERS_FAIL,
           });
-          toast.error(data.data.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          toast.error(data.data.message);
         }
         return Promise.resolve();
       },
@@ -78,29 +73,13 @@ export const changePassword = (body) => async (dispatch) => {
             type: CHANGE_PASSWORD_SUCCESS,
             payload: { changePassword: data.data },
           });
-          toast.success(data.data.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          toast.success(data.data.message);
         } else {
           dispatch({
             type: CHANGE_PASSWORD_FAIL,
             payload: { errors: data.data.errors },
           });
-          toast.error(data.data.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          toast.error(data.data.message);
         }
         return Promise.resolve();
       },
@@ -126,34 +105,18 @@ export const editProfileDetails = (body) => async (dispatch) => {
     .then(
       (data) => {
         if (data.data.status === true) {
-            console.log(data.data)
           dispatch({
             type: EDIT_PROFILE_DETAILS_SUCCESS,
             payload: { editProfileDetails: data.data },
           });
-          toast.success(data.data.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          dispatch(getProfileDetails());
+          toast.success(data.data.message);
         } else {
           dispatch({
             type: EDIT_PROFILE_DETAILS_FAIL,
             payload: { errors: data.data.errors },
           });
-          toast.error(data.data.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          toast.error(data.data.message);
         }
         return Promise.resolve();
       },
@@ -161,6 +124,43 @@ export const editProfileDetails = (body) => async (dispatch) => {
         console.log("error ", error);
         dispatch({
           type: EDIT_PROFILE_DETAILS_FAIL,
+        });
+        return Promise.reject();
+      }
+    )
+    .catch((error) => {
+      if (error) console.log(error);
+    });
+};
+
+export const getProfileDetails = () => async (dispatch) => {
+  dispatch({
+    type: GET_PROFILE_DETAILS_PENDING,
+    payload: { isLoading: true },
+  });
+  return await UserServices.getProfileDetails()
+    .then(
+      (data) => {
+        if (data.data.status === true) {
+          dispatch({
+            type: GET_PROFILE_DETAILS_SUCCESS,
+            payload: { getProfileDetails: data.data },
+          });
+          localStorage.setItem("user", JSON.stringify(data.data.result));
+          // toast.success(data.data.message);
+        } else {
+          dispatch({
+            type: GET_PROFILE_DETAILS_FAIL,
+            payload: { errors: data.data.errors },
+          });
+          toast.error(data.data.message);
+        }
+        return Promise.resolve();
+      },
+      (error) => {
+        console.log("error ", error);
+        dispatch({
+          type: GET_PROFILE_DETAILS_FAIL,
         });
         return Promise.reject();
       }
