@@ -2,6 +2,9 @@ import {
   EDIT_PROFILE_DETAILS_FAIL,
   EDIT_PROFILE_DETAILS_PENDING,
   EDIT_PROFILE_DETAILS_SUCCESS,
+  EDIT_PROFILE_PICTURE_FAIL,
+  EDIT_PROFILE_PICTURE_PENDING,
+  EDIT_PROFILE_PICTURE_SUCCESS,
   GET_PROFILE_DETAILS_FAIL,
   GET_PROFILE_DETAILS_PENDING,
   GET_PROFILE_DETAILS_SUCCESS,
@@ -161,6 +164,43 @@ export const getProfileDetails = () => async (dispatch) => {
         console.log("error ", error);
         dispatch({
           type: GET_PROFILE_DETAILS_FAIL,
+        });
+        return Promise.reject();
+      }
+    )
+    .catch((error) => {
+      if (error) console.log(error);
+    });
+};
+
+export const editProfilePicture = (body) => async (dispatch) => {
+  dispatch({
+    type: EDIT_PROFILE_PICTURE_PENDING,
+    payload: { isLoading: true },
+  });
+  return await UserServices.editProfilePicture(body)
+    .then(
+      (data) => {
+        if (data.data.status === true) {
+          dispatch({
+            type: EDIT_PROFILE_PICTURE_SUCCESS,
+            payload: { editProfilePicture: data.data },
+          });
+          dispatch(getProfileDetails());
+          toast.success(data.data.message);
+        } else {
+          dispatch({
+            type: EDIT_PROFILE_PICTURE_FAIL,
+            payload: { errors: data.data.errors },
+          });
+          toast.error(data.data.message);
+        }
+        return Promise.resolve();
+      },
+      (error) => {
+        console.log("error ", error);
+        dispatch({
+          type: EDIT_PROFILE_PICTURE_FAIL,
         });
         return Promise.reject();
       }

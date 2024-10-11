@@ -41,11 +41,11 @@ const Header = () => {
   const renderUserProfileContent = () => (
     <div className="flex flex-col justify-center items-center p-5 bg-white">
       <div className="flex items-center justify-center mb-3">
-        {user.profile_image ? (
+        {user.profile_picture ? (
           <img
-            src={user.profile_image}
+            src={user.profile_picture}
             alt="Profile"
-            className="w-20 h-20 rounded-full object-cover border-4 border-blue-500"
+            className="w-20 h-20 rounded-full object-cover border-2 border-white"
           />
         ) : (
           <FaUserCircle size={60} className="text-gray-500" />
@@ -95,11 +95,11 @@ const Header = () => {
           {user.first_name}
         </span>
       </Tippy>
-      {user.profile_image && (
+      {user.profile_picture && (
         <img
-          src={user.profile_image}
+          src={user.profile_picture}
           alt="Profile"
-          className="w-10 h-10 rounded-full object-cover"
+          className="w-8 h-8 rounded-full object-cover border-2 border-gray-400"
         />
       )}
     </>

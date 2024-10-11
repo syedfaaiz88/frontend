@@ -15,7 +15,7 @@ const Feedback = () => {
   };
 
   return (
-    <div className="bg-white p-16 rounded-xl">
+    <div className="bg-white px-4 md:px-16 py-4 rounded-xl">
       <form onSubmit={handleSendFeedback}>
         {/* Name field with user icon */}
         <InputField

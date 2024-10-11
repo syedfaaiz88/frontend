@@ -17,6 +17,13 @@ class UserServices {
   async getProfileDetails() {
     return axiosInstance.get(API_URL + "get-profile-details/");
   }
+  async editProfilePicture(body) {
+    return axiosInstance.post(API_URL + "edit-profile-picture/", body, {
+      headers: {
+          'Content-Type': 'multipart/form-data',
+      },
+  });
+  }
 }
 
 const userServicesInstance = new UserServices();

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux"; // Import dispatch and selector hooks
+import { useDispatch, useSelector } from "react-redux";
 import {
   FaUser,
   FaCog,
@@ -8,14 +8,16 @@ import {
   FaCamera,
 } from "react-icons/fa";
 import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css"; // Import Tippy.js styles
-import moment from "moment"; // For formatting date
+import "tippy.js/dist/tippy.css";
+import moment from "moment";
 import HorizontalTabBar from "../UI/HorizontalTabBar";
 import { Outlet } from "react-router-dom";
 import { MdFeedback } from "react-icons/md";
-import Skeleton from "react-loading-skeleton"; // Skeleton loader
-import "react-loading-skeleton/dist/skeleton.css"; // Import skeleton styles
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { getProfileDetails } from "../../Redux/Actions/UserActions";
+import Modal from "../UI/Modal";
+import EditProfileImage from "./EditProfileImage";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -27,10 +29,16 @@ const UserProfile = () => {
     (state) => state.get_profile_details_reducer.isLoading
   );
   const [activeTab, setActiveTab] = useState("Profile");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    dispatch(getProfileDetails()); // Dispatch action to get profile details
+    dispatch(getProfileDetails());
   }, [dispatch]);
+
+ 
+  const handleModalClose = () => {
+    setIsModalOpen(false)
+  }
 
   const tabs = [
     { label: "Profile", icon: <FaUser />, path: "/user-profile/details" },
@@ -47,7 +55,6 @@ const UserProfile = () => {
       {/* Profile Header */}
       <div className="relative p-6 flex items-center mb-4">
         {isLoading ? (
-          // Display skeleton loader while loading
           <>
             <Skeleton circle={true} height={96} width={96} />
             <div className="ml-6">
@@ -57,13 +64,12 @@ const UserProfile = () => {
             </div>
           </>
         ) : (
-          // Render profile data once loaded
           <>
             <div className="relative flex-shrink-0 w-24 h-24 cursor-pointer group">
               <img
                 src={
-                  user?.profile_image
-                    ? user.profile_image
+                  user?.profile_picture
+                    ? user.profile_picture
                     : user?.gender
                     ? user.gender === 1
                       ? "/images/male_profile.svg"
@@ -71,10 +77,15 @@ const UserProfile = () => {
                     : "images/male_profile.svg"
                 }
                 alt="Profile"
-                className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
+                className="w-full h-full rounded-full object-cover border-2 border-white shadow-md"
               />
               {/* Icon that appears on hover */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div
+                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                onClick={() => {
+                  setIsModalOpen(true);
+                }}
+              >
                 <FaCamera className="text-white text-2xl" />
               </div>
             </div>
@@ -113,16 +124,23 @@ const UserProfile = () => {
           </>
         )}
       </div>
+
       {/* Horizontal Navigation Bar */}
       <HorizontalTabBar
         items={tabs}
         activeTab={activeTab}
         onTabClick={(item) => setActiveTab(item.label)}
       />
+
       {/* Render Selected Section */}
       <div className="pb-10">
         <Outlet />
       </div>
+
+      {/* Modal for image upload */}
+      <Modal isOpen={isModalOpen} onClose={handleModalClose}>
+        <EditProfileImage />
+      </Modal>
     </div>
   );
 };
