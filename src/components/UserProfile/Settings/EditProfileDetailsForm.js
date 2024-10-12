@@ -4,19 +4,19 @@ import { FaUser, FaMapMarkerAlt, FaInfoCircle } from "react-icons/fa"; // Import
 import InputField from "../../UI/InputField";
 import Button from "../../UI/Button";
 import { AiOutlineUser } from "react-icons/ai";
-import {
-  editProfileDetails,
-} from "../../../Redux/Actions/UserActions";
+import { editProfileDetails } from "../../../Redux/Actions/UserActions";
 import { useDispatch, useSelector } from "react-redux";
+import useUsernameAvailability from "../../../hooks/useUsernameAvailability";
+import { ImSpinner2 } from "react-icons/im";
 
 const EditProfileDetailsForm = () => {
+  const [storedUser, setStoredUser] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [address, setAddress] = useState("");
   const [bio, setBio] = useState("");
   const [errors, setErrors] = useState({});
-
   const dispatch = useDispatch();
 
   const profileErrors = useSelector(
@@ -29,12 +29,16 @@ const EditProfileDetailsForm = () => {
     (state) => state.edit_profile_details_reducer.editProfileDetails
   );
 
+  // Use the custom hook for username availability
+  const { disabled, availabilityMessage, showLoader } = useUsernameAvailability(username);
+
   useEffect(() => {
     setErrors(profileErrors);
   }, [profileErrors]);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user")) || {};
+    setStoredUser(user)
     setFirstName(user.first_name);
     setLastName(user.last_name);
     setUsername(user.username);
@@ -82,21 +86,37 @@ const EditProfileDetailsForm = () => {
             error={errors?.last_name}
             Icon={<FaUser />} // User icon
           />
+          <div className="flex flex-col">
+            {/* Username field with edit user icon */}
+            <InputField
+              label="Username"
+              type="text"
+              name="username"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                setErrors((prevErrors) => ({ ...prevErrors, username: "" }));
+              }}
+              error={errors?.username}
+              Icon={<AiOutlineUser />} // Edit user icon
+            />
 
-          {/* Username field with edit user icon */}
-          <InputField
-            label="Username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={(e) => {
-              setUsername(e.target.value);
-              setErrors((prevErrors) => ({ ...prevErrors, username: "" }));
-            }}
-            error={errors?.username}
-            Icon={<AiOutlineUser />} // Edit user icon
-          />
-
+            {username !== "" && username !== storedUser?.username && (
+              <div className="flex items-center space-x-2 text-sm">
+                {showLoader ? (
+                  <ImSpinner2 className="animate-spin text-gray-400 text-base" />
+                ) : availabilityMessage?.status === "available" ? (
+                  <div className="text-green-500 font-medium">
+                    {availabilityMessage.message}
+                  </div>
+                ) : (
+                  <div className="text-red-500 font-medium">
+                    {availabilityMessage?.message}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
           {/* Address field with map marker icon */}
           <InputField
             label="Address"
@@ -125,7 +145,7 @@ const EditProfileDetailsForm = () => {
             Icon={<FaInfoCircle />} // Info circle icon
           />
         </div>
-        <Button isLoading={isLoading} type="submit">
+        <Button isLoading={isLoading} type="submit" disabled={username !== storedUser?.username && disabled}>
           Update Profile
         </Button>
       </form>

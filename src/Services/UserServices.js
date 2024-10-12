@@ -24,6 +24,9 @@ class UserServices {
       },
   });
   }
+  async isUsernameAvailable(body) {
+    return axiosInstance.post(API_URL + "is-username-available/", body);
+  }
 }
 
 const userServicesInstance = new UserServices();

@@ -6,6 +6,7 @@ import change_password_reducer from "./ChangePasswordReducer";
 import edit_profile_details_reducer from "./EditProfileDetailsReducer";
 import get_profile_details_reducer from "./GetProfileDetailsReducer";
 import edit_profile_picture_reducer from "./EditProfilePictureReducer";
+import is_username_available_reducer from "./IsUsernameAvailableReducer";
 
 export default combineReducers({
   signup_reducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   change_password_reducer,
   edit_profile_details_reducer,
   get_profile_details_reducer,
-  edit_profile_picture_reducer
+  edit_profile_picture_reducer,
+  is_username_available_reducer
 });

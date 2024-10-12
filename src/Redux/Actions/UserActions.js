@@ -2,18 +2,27 @@ import {
   EDIT_PROFILE_DETAILS_FAIL,
   EDIT_PROFILE_DETAILS_PENDING,
   EDIT_PROFILE_DETAILS_SUCCESS,
+
   EDIT_PROFILE_PICTURE_FAIL,
   EDIT_PROFILE_PICTURE_PENDING,
   EDIT_PROFILE_PICTURE_SUCCESS,
+
   GET_PROFILE_DETAILS_FAIL,
   GET_PROFILE_DETAILS_PENDING,
   GET_PROFILE_DETAILS_SUCCESS,
+
   CHANGE_PASSWORD_FAIL,
   CHANGE_PASSWORD_PENDING,
   CHANGE_PASSWORD_SUCCESS,
+
+  IS_USERNAME_AVAILABLE_FAIL,
+  IS_USERNAME_AVAILABLE_PENDING,
+  IS_USERNAME_AVAILABLE_SUCCESS,
+
   GENDERS_FAIL,
   GENDERS_PENDING,
   GENDERS_SUCCESS,
+
   SET_MESSAGE,
 } from "./Types";
 import UserServices from "../../Services/UserServices";
@@ -207,5 +216,49 @@ export const editProfilePicture = (body) => async (dispatch) => {
     )
     .catch((error) => {
       if (error) console.log(error);
+    });
+};
+
+export const isUsernameAvailable = (body) => async (dispatch) => {
+  dispatch({
+    type: IS_USERNAME_AVAILABLE_PENDING,
+    payload: { isLoading: true },
+  });
+  return await UserServices.isUsernameAvailable(body)
+    .then(
+      (data) => {
+        if (data.data.status === true) {
+          dispatch({
+            type: IS_USERNAME_AVAILABLE_SUCCESS,
+            payload: { isUsernameAvailable: data.data },
+          });
+        } else {
+          dispatch({
+            type: IS_USERNAME_AVAILABLE_FAIL,
+            payload: { errors: data.data.errors }
+          });
+        }
+        return Promise.resolve();
+      },
+      (error) => {
+        console.log("error ", error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        dispatch({
+          type: IS_USERNAME_AVAILABLE_FAIL,
+        });
+        dispatch({
+          type: SET_MESSAGE,
+          payload: message,
+        });
+        return Promise.reject();
+      }
+    )
+    .catch((error) => {
+      console.log(error);
     });
 };

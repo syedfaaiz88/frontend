@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import InputField from "../UI/InputField";
 import { signUp } from "../../Redux/Actions/AuthAction/SignUpAction";
 import Button from "../UI/Button";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import {
   FaUser,
   FaEnvelope,
@@ -13,8 +15,8 @@ import {
   FaPen,
 } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import { ImSpinner2 } from "react-icons/im";
+import useUsernameAvailability from "../../hooks/useUsernameAvailability";
 
 const SignupForm = () => {
   const initialState = {
@@ -29,12 +31,18 @@ const SignupForm = () => {
     first_name: "",
     last_name: "",
   };
+
   const [formData, setFormData] = useState(initialState);
   const [errors, setErrors] = useState({});
   const dispatch = useDispatch();
 
   const signupErrors = useSelector((state) => state.signup_reducer.errors);
   const isLoading = useSelector((state) => state.signup_reducer.isLoading);
+
+  // Use the custom hook for username availability
+  const { disabled, availabilityMessage, showLoader } = useUsernameAvailability(
+    formData.username
+  );
 
   useEffect(() => {
     setErrors(signupErrors);
@@ -78,14 +86,33 @@ const SignupForm = () => {
           error={errors?.last_name}
           Icon={<FaUser />}
         />
-        <InputField
-          label="Username"
-          name="username"
-          placeholder="Username"
-          onChange={handleChange}
-          error={errors?.username}
-          Icon={<AiOutlineUser />}
-        />
+        <div className="flex flex-col">
+          <InputField
+            label="Username"
+            name="username"
+            placeholder="Username"
+            onChange={handleChange}
+            error={errors?.username}
+            Icon={<AiOutlineUser />}
+          />
+
+          {formData.username !== "" && (
+            <div className="flex items-center space-x-2 text-sm mt-1">
+              {showLoader ? (
+                <ImSpinner2 className="animate-spin text-gray-400 text-base" />
+              ) : availabilityMessage?.status === "available" ? (
+                <div className="text-green-500 font-medium">
+                  {availabilityMessage.message}
+                </div>
+              ) : (
+                <div className="text-red-500 font-medium">
+                  {availabilityMessage?.message}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
         <InputField
           label="Email"
           name="email"
@@ -167,7 +194,7 @@ const SignupForm = () => {
           Icon={<FaPen />}
         />
       </div>
-      <Button type="submit" isLoading={isLoading}>
+      <Button type="submit" isLoading={isLoading} disabled={disabled}>
         Signup
       </Button>
     </form>
