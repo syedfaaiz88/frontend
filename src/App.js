@@ -21,11 +21,10 @@ import Social from "./components/Connect/Social";
 import Contact from "./components/Connect/Contact";
 import Location from "./components/Connect/Location";
 import "react-toastify/dist/ReactToastify.css";
-import ProfileDetails from "./components/UserProfile/ProfileDetails";
-import Settings from "./components/UserProfile/Settings/Settings";
 import Feedback from "./components/UserProfile/Feedback";
 import ChangePasswordForm from "./components/UserProfile/Settings/ChangePasswordForm";
 import EditProfileDetailsForm from "./components/UserProfile/Settings/EditProfileDetailsForm";
+import AccountSettingsLayout from "./components/Layout/AccountSettingsLayout";
 
 function App() {
   return (
@@ -50,14 +49,10 @@ function App() {
           <Route path="/powerlifting" element={<PrivateRoute element={<Layout element={<Powerlifting/>}/>} />} />
           <Route path="/academics" element={<PrivateRoute element={<Layout element={<Education/>}/>} />} />
           <Route path="/skills" element={<PrivateRoute element={<Layout element={<Skills/>}/>} />} />
-          <Route path="/user-profile" element={<PrivateRoute element={<Layout element={<UserProfile/>}/>} />} >
-            <Route path="details" element={<PrivateRoute element={<ProfileDetails/>}/>} />
-            <Route path="settings" element={<PrivateRoute element={<Settings/>}/>} >
-              <Route path="change-password" element={<PrivateRoute element={<ChangePasswordForm/>}/>} />
-              <Route path="edit-profile-details" element={<PrivateRoute element={<EditProfileDetailsForm/>}/>} />
-            </Route>
-            <Route path="give-feedback" element={<PrivateRoute element={<Feedback/>}/>} />
-          </Route>
+          <Route path="/user-profile" element={<PrivateRoute element={<AccountSettingsLayout element={<UserProfile/>}/>} />} />
+          <Route path="/change-password" element={<PrivateRoute element={<AccountSettingsLayout element={<ChangePasswordForm/>}/>} />} />
+          <Route path="/edit-profile-details" element={<PrivateRoute element={<AccountSettingsLayout element={<EditProfileDetailsForm/>}/>} />} />
+          <Route path="/give-feedback" element={<PrivateRoute element={<AccountSettingsLayout element={<Feedback/>}/>} />} />
           <Route path="/timeline" element={<PrivateRoute element={<Layout element={<Timeline/>}/>} />} />
           <Route path="/poem" element={<PrivateRoute element={<Layout element={<Poem/>}/>} />} />
           <Route path="/8ballpool" element={<PrivateRoute element={<Layout element={<EightBallPool />} />} />} />

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
@@ -41,15 +40,21 @@ const Header = () => {
   const renderUserProfileContent = () => (
     <div className="flex flex-col justify-center items-center p-5 bg-white">
       <div className="flex items-center justify-center mb-3">
-        {user.profile_picture ? (
+        {
           <img
-            src={user.profile_picture}
+            src={
+              user?.profile_picture
+              ? user.profile_picture
+              : user?.gender
+              ? user.gender === 1
+                ? "/images/male_profile.svg"
+                : "/images/female_profile.svg"
+              : "images/male_profile.svg"
+            }
             alt="Profile"
             className="w-20 h-20 rounded-full object-cover border-2 border-white"
           />
-        ) : (
-          <FaUserCircle size={60} className="text-gray-500" />
-        )}
+        }
       </div>
       <div className="text-center">
         <p className="text-xl font-semibold text-gray-800 mb-1">
@@ -64,7 +69,7 @@ const Header = () => {
         </p>
         <div className="flex flex-col space-y-4">
           <Link
-            to="/user-profile/details"
+            to="/user-profile"
             className="flex items-center justify-center p-3 w-full text-white bg-green-500 border border-gray-300 rounded-lg hover:bg-green-600 shadow-md transition-colors duration-300"
           >
             <BiSolidUserRectangle className="text-2xl" />
@@ -91,17 +96,20 @@ const Header = () => {
         interactive={true}
         theme="light"
       >
-        <span className="text-lg text-gray-100 cursor-pointer">
-          {user.first_name}
-        </span>
-      </Tippy>
-      {user.profile_picture && (
-        <img
-          src={user.profile_picture}
+        {<img
+          src={
+            user?.profile_picture
+            ? user.profile_picture
+            : user?.gender
+            ? user.gender === 1
+              ? "/images/male_profile.svg"
+              : "/images/female_profile.svg"
+            : "images/male_profile.svg"
+          }
           alt="Profile"
-          className="w-8 h-8 rounded-full object-cover border-2 border-gray-400"
-        />
-      )}
+          className="w-10 h-10 rounded-full object-cover border-2 border-gray-400 cursor-pointer"
+        />}
+      </Tippy>
     </>
   );
 

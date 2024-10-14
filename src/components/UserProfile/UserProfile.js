@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  FaUser,
-  FaCog,
   FaCheckCircle,
   FaExclamationCircle,
   FaCamera,
+  FaBirthdayCake,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaTransgender,
+  FaUserTag,
 } from "react-icons/fa";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import moment from "moment";
-import HorizontalTabBar from "../UI/HorizontalTabBar";
-import { Outlet } from "react-router-dom";
-import { MdFeedback } from "react-icons/md";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { getProfileDetails } from "../../Redux/Actions/UserActions";
@@ -28,7 +29,6 @@ const UserProfile = () => {
   const isLoading = useSelector(
     (state) => state.get_profile_details_reducer.isLoading
   );
-  const [activeTab, setActiveTab] = useState("Profile");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -39,16 +39,6 @@ const UserProfile = () => {
   const handleModalClose = () => {
     setIsModalOpen(false)
   }
-
-  const tabs = [
-    { label: "Profile", icon: <FaUser />, path: "/user-profile/details" },
-    { label: "Settings", icon: <FaCog />, path: "/user-profile/settings" },
-    {
-      label: "Feedback",
-      icon: <MdFeedback />,
-      path: "/user-profile/give-feedback",
-    },
-  ];
 
   return (
     <div className="max-w-full min-h-screen mx-10 bg-white border rounded-lg overflow-hidden mt-10">
@@ -124,19 +114,46 @@ const UserProfile = () => {
           </>
         )}
       </div>
-
-      {/* Horizontal Navigation Bar */}
-      <HorizontalTabBar
-        items={tabs}
-        activeTab={activeTab}
-        onTabClick={(item) => setActiveTab(item.label)}
-      />
-
-      {/* Render Selected Section */}
-      <div className="pb-10">
-        <Outlet />
+      <div className="m-10">
+      <div className="flex items-center text-gray-700 mb-4">
+        <FaUserTag className="text-gray-500 mr-3" />
+        <p className="font-medium">
+          <strong className="text-gray-900">Username:</strong> {user?.username}
+        </p>
       </div>
-
+      <div className="flex items-center text-gray-700 mb-4">
+        <FaEnvelope className="text-gray-500 mr-3" />
+        <p className="font-medium">
+          <strong className="text-gray-900">Email:</strong> {user?.email}
+        </p>
+      </div>
+      <div className="flex items-center text-gray-700 mb-4">
+        <FaPhone className="text-gray-500 mr-3" />
+        <p className="font-medium">
+          <strong className="text-gray-900">Phone:</strong> {user?.phone_number}
+        </p>
+      </div>
+      <div className="flex items-center text-gray-700 mb-4">
+        <FaMapMarkerAlt className="text-gray-500 mr-3" />
+        <p className="font-medium">
+          <strong className="text-gray-900">Address:</strong> {user?.address}
+        </p>
+      </div>
+      <div className="flex items-center text-gray-700 mb-4">
+        <FaBirthdayCake className="text-gray-500 mr-3" />
+        <p className="font-medium">
+          <strong className="text-gray-900">Date of Birth:</strong>{" "}
+          {moment(user?.date_of_birth).format("MMMM Do, YYYY")}
+        </p>
+      </div>
+      <div className="flex items-center text-gray-700">
+        <FaTransgender className="text-gray-500 mr-3" />
+        <p className="font-medium">
+          <strong className="text-gray-900">Gender:</strong>{" "}
+          {user?.gender === 1 ? "Male" : "Female"}
+        </p>
+      </div>
+    </div>
       {/* Modal for image upload */}
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
         <EditProfileImage />

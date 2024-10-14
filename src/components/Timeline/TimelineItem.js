@@ -8,7 +8,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 const TimelineItem = React.memo(({ date, title, description, icon, photos }) => {
   const [expandedPhotoIndex, setExpandedPhotoIndex] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const openModal = useCallback((index) => {
     setExpandedPhotoIndex(index);
@@ -20,9 +20,9 @@ const TimelineItem = React.memo(({ date, title, description, icon, photos }) => 
     setExpandedPhotoIndex(null);
   }, []);
 
-  const handleImageLoad = () => {
-    setLoading(false);
-  };
+  // const handleImageLoad = () => {
+  //   setLoading(false);
+  // };
 
   return (
     <div className="mb-10 ml-4">
@@ -46,15 +46,18 @@ const TimelineItem = React.memo(({ date, title, description, icon, photos }) => 
             onClick={() => openModal(0)}
             className="relative overflow-hidden cursor-pointer max-h-28 group rounded-lg"
           >
-            {loading && (
+            {/* {loading && (
               <Skeleton height={200} className="w-full h-full rounded-lg" />
-            )}
+            )} */}
             <img
               src={photos[0]}
               alt="See All Photos"
-              className={`object-cover w-full h-full rounded-lg shadow-md transition-transform duration-300 group-hover:scale-110 ${loading ? 'hidden' : 'block'}`}
+              className={`object-cover w-full h-full rounded-lg shadow-md transition-transform duration-300 group-hover:scale-110 
+                
+              `}
+              // ${loading ? 'hidden' : 'block'}
               loading="lazy"
-              onLoad={handleImageLoad}
+              // onLoad={handleImageLoad}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold bg-black bg-opacity-50 rounded-lg transition-opacity duration-300">
               <HiPhoto size={30} />
