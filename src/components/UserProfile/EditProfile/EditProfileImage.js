@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Button from "../UI/Button";
+import Button from "../../UI/Button";
 import { FaCamera } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { editProfilePicture } from "../../Redux/Actions/UserActions";
+import { editProfilePicture } from "../../../Redux/Actions/UserActions";
 
 const EditProfileImage = () => {
   const [selectedImage, setSelectedImage] = useState(null); // State to hold selected image
@@ -37,7 +37,7 @@ const EditProfileImage = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md mx-auto">
+    <div className="bg-white rounded-lg p-2 md:p-6 w-full max-w-md mx-auto">
       <h2 className="text-2xl font-semibold mb-6 text-gray-800 text-center">
         Upload Profile Image
       </h2>
@@ -53,6 +53,7 @@ const EditProfileImage = () => {
             <FaCamera className="text-gray-400 text-4xl" />
           </div>
         )}
+        <div>
         <input
           type="file"
           accept="image/*"
@@ -60,6 +61,7 @@ const EditProfileImage = () => {
           className="mb-4 w-full text-gray-500 file:border-0 file:mr-4 file:py-1.5 file:px-3 file:cursor-pointer cursor-pointer"
         />
         <Button onClick={handleImageUpload} isLoading={isLoading}>Upload</Button>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 // ChangePasswordForm.js
 import React, { useEffect, useState } from "react";
 import { FaLock } from "react-icons/fa"; // Import the lock icon
-import InputField from "../../UI/InputField";
-import Button from "../../UI/Button";
+import InputField from "../UI/InputField";
+import Button from "../UI/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { changePassword } from "../../../Redux/Actions/UserActions";
+import { changePassword } from "../../Redux/Actions/UserActions";
 
 const ChangePasswordForm = () => {
   const [old_password, setCurrentPassword] = useState("");

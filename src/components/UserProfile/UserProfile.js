@@ -18,7 +18,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { getProfileDetails } from "../../Redux/Actions/UserActions";
 import Modal from "../UI/Modal";
-import EditProfileImage from "./EditProfileImage";
+import EditProfileImage from "./EditProfile/EditProfileImage";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -35,19 +35,18 @@ const UserProfile = () => {
     dispatch(getProfileDetails());
   }, [dispatch]);
 
- 
   const handleModalClose = () => {
-    setIsModalOpen(false)
-  }
+    setIsModalOpen(false);
+  };
 
   return (
-    <div className="max-w-full min-h-screen mx-10 bg-white border rounded-lg overflow-hidden mt-10">
+    <div className="max-w-full min-h-screen mx-2 md:mx-10 px-4 md:px-6 lg:px-10 bg-white border rounded-lg overflow-hidden mt-10">
       {/* Profile Header */}
-      <div className="relative p-6 flex items-center mb-4">
+      <div className="relative p-6 flex flex-col sm:flex-row sm:items-center mb-4">
         {isLoading ? (
           <>
             <Skeleton circle={true} height={96} width={96} />
-            <div className="ml-6">
+            <div className="mt-4 sm:ml-6 sm:mt-0">
               <Skeleton width={180} height={24} />
               <Skeleton width={250} height={18} className="mt-2" />
               <Skeleton width={180} height={14} className="mt-2" />
@@ -55,7 +54,7 @@ const UserProfile = () => {
           </>
         ) : (
           <>
-            <div className="relative flex-shrink-0 w-24 h-24 cursor-pointer group">
+            <div className="relative flex-shrink-0 w-24 h-24 mx-auto sm:mx-0 cursor-pointer group">
               <img
                 src={
                   user?.profile_picture
@@ -79,22 +78,21 @@ const UserProfile = () => {
                 <FaCamera className="text-white text-2xl" />
               </div>
             </div>
-            <div className="ml-6">
+            <div className="mt-4 sm:ml-6 sm:mt-0 text-center sm:text-left">
               <h1 className="text-2xl font-semibold text-gray-900">
                 {user?.first_name} {user?.last_name}
               </h1>
-              <p className="text-gray-700 mt-1 italic">{user?.bio}</p>
+              <p className="text-gray-700 mt-1">{user?.bio}</p>
               <p className="text-sm text-gray-500 mt-1">
                 Member since {moment(user?.date_joined).format("MMMM YYYY")}
               </p>
             </div>
-            <div className="absolute top-6 right-6">
+            <div className="absolute top-6 right-6 hidden sm:block">
               {user?.is_verified ? (
                 <Tippy
                   content={
                     <div className="flex items-center gap-2">
-                      Email is verified{" "}
-                      <FaCheckCircle className="text-green-500" />
+                      Email is verified <FaCheckCircle className="text-green-500" />
                     </div>
                   }
                   theme="light"
@@ -114,46 +112,23 @@ const UserProfile = () => {
           </>
         )}
       </div>
-      <div className="m-10">
-      <div className="flex items-center text-gray-700 mb-4">
-        <FaUserTag className="text-gray-500 mr-3" />
-        <p className="font-medium">
-          <strong className="text-gray-900">Username:</strong> {user?.username}
-        </p>
+      <div className="m-4 sm:m-10">
+        {[
+          { icon: FaUserTag, label: "Username", value: user?.username },
+          { icon: FaEnvelope, label: "Email", value: user?.email },
+          { icon: FaPhone, label: "Phone", value: user?.phone_number },
+          { icon: FaMapMarkerAlt, label: "Address", value: user?.address },
+          { icon: FaBirthdayCake, label: "Date of Birth", value: moment(user?.date_of_birth).format("MMMM Do, YYYY") },
+          { icon: FaTransgender, label: "Gender", value: user?.gender === 1 ? "Male" : "Female" },
+        ].map((item, index) => (
+          <div key={index} className="flex items-center text-gray-700 mb-4">
+            <item.icon className="text-gray-500 mr-3" />
+            <p className="font-medium">
+              <strong className="text-gray-900">{item.label}:</strong> {item.value}
+            </p>
+          </div>
+        ))}
       </div>
-      <div className="flex items-center text-gray-700 mb-4">
-        <FaEnvelope className="text-gray-500 mr-3" />
-        <p className="font-medium">
-          <strong className="text-gray-900">Email:</strong> {user?.email}
-        </p>
-      </div>
-      <div className="flex items-center text-gray-700 mb-4">
-        <FaPhone className="text-gray-500 mr-3" />
-        <p className="font-medium">
-          <strong className="text-gray-900">Phone:</strong> {user?.phone_number}
-        </p>
-      </div>
-      <div className="flex items-center text-gray-700 mb-4">
-        <FaMapMarkerAlt className="text-gray-500 mr-3" />
-        <p className="font-medium">
-          <strong className="text-gray-900">Address:</strong> {user?.address}
-        </p>
-      </div>
-      <div className="flex items-center text-gray-700 mb-4">
-        <FaBirthdayCake className="text-gray-500 mr-3" />
-        <p className="font-medium">
-          <strong className="text-gray-900">Date of Birth:</strong>{" "}
-          {moment(user?.date_of_birth).format("MMMM Do, YYYY")}
-        </p>
-      </div>
-      <div className="flex items-center text-gray-700">
-        <FaTransgender className="text-gray-500 mr-3" />
-        <p className="font-medium">
-          <strong className="text-gray-900">Gender:</strong>{" "}
-          {user?.gender === 1 ? "Male" : "Female"}
-        </p>
-      </div>
-    </div>
       {/* Modal for image upload */}
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
         <EditProfileImage />

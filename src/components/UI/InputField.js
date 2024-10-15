@@ -22,7 +22,7 @@ const InputField = ({ label, error, Icon, type = 'text', options = [], ...props 
                 {type === 'textarea' ? (
                     <textarea
                         id={props.name}
-                        rows={1}
+                        rows={2}
                         className="w-full px-1 py-2 border-0 focus:ring-0 focus:outline-none"
                         {...props}
                     />
