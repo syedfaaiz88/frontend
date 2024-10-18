@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import TippyIcon from "./TippyIcon";
 import { PersonalInfo } from "./PersonalInfo";
 import { Link } from "react-router-dom";
 import Modal from "../UI/Modal";
 import { MdVerified } from "react-icons/md";
+import TippyIcon from "../UI/TippyIcon";
 
 const Personal = () => {
   const [isModalOpen, setModalOpen] = useState(false);

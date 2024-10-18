@@ -81,7 +81,7 @@ const Sidebar = ({ items, collapsable, bgColor }) => {
 
             {/* Render sublinks with sliding animation */}
             <div
-              className={`mt-2 ml-8 space-y-1 transition-all duration-500 overflow-hidden ${
+              className={`mt-2 ml-8 space-y-2 transition-all duration-500 overflow-hidden ${
                 openSections[item.text]
                   ? "max-h-96 opacity-100"
                   : "max-h-0 opacity-0"

@@ -46,15 +46,17 @@ function AccountSettingsLayout({ element }) {
       <div className="flex flex-row h-full overflow-hidden">
         {/* Sidebar */}
         <div className="hidden md:block">
-          <Sidebar items={items} bgColor={"bg-gray-100"}/>
+          <Sidebar items={items} bgColor={"bg-gray-100"} />
         </div>
 
         {/* Content area */}
         <div className="flex-1 overflow-y-auto">
           <div className="flex flex-col justify-between min-h-full">
-            {/* Main content */}
-            <main>{element}</main>
-
+            <div className="flex justify-center min-h-screen">
+              <div className="p-6 md:p-10 w-full max-w-3xl mx-4">
+                <main>{element}</main>
+              </div>
+            </div>
             {/* Footer */}
             <Footer />
           </div>

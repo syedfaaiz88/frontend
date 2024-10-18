@@ -30,11 +30,7 @@ const EditProfile = () => {
   ];
 
   return (
-    <div className="flex justify-center min-h-screen">
-      <div className="p-2 md:p-10 w-full max-w-2xl mx-4"> {/* You can control left/right margin with mx-4 */}
-        <InfoCard items={cardItems} />
-      </div>
-    </div>
+      <InfoCard items={cardItems} />
   );
 };
 

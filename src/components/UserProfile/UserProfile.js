@@ -19,6 +19,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { getProfileDetails } from "../../Redux/Actions/UserActions";
 import Modal from "../UI/Modal";
 import EditProfileImage from "./EditProfile/EditProfileImage";
+import InfoItem from "../UI/InfoItem";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -40,18 +41,18 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="max-w-full min-h-screen mx-2 md:mx-10 px-4 md:px-6 lg:px-10 bg-white border rounded-lg overflow-hidden mt-10">
+    <div>
       {/* Profile Header */}
-      <div className="relative p-6 flex flex-col sm:flex-row sm:items-center mb-4">
+      <div className="relative flex flex-col sm:flex-row sm:items-center mb-4">
         {isLoading ? (
-          <>
+          <div className="flex flex-col items-center sm:flex-row sm:items-center">
             <Skeleton circle={true} height={96} width={96} />
             <div className="mt-4 sm:ml-6 sm:mt-0">
-              <Skeleton width={180} height={24} />
-              <Skeleton width={250} height={18} className="mt-2" />
-              <Skeleton width={180} height={14} className="mt-2" />
+              <Skeleton width={150} height={24} />
+              <Skeleton width={220} height={18} className="mt-2" />
+              <Skeleton width={150} height={14} className="mt-2" />
             </div>
-          </>
+          </div>
         ) : (
           <>
             <div className="relative flex-shrink-0 w-24 h-24 mx-auto sm:mx-0 cursor-pointer group">
@@ -70,7 +71,7 @@ const UserProfile = () => {
               />
               {/* Icon that appears on hover */}
               <div
-                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-full opacity-0 group-hover:opacity-100"
                 onClick={() => {
                   setIsModalOpen(true);
                 }}
@@ -92,7 +93,8 @@ const UserProfile = () => {
                 <Tippy
                   content={
                     <div className="flex items-center gap-2">
-                      Email is verified <FaCheckCircle className="text-green-500" />
+                      Email is verified{" "}
+                      <FaCheckCircle className="text-green-500" />
                     </div>
                   }
                   theme="light"
@@ -112,21 +114,16 @@ const UserProfile = () => {
           </>
         )}
       </div>
-      <div className="m-4 sm:m-10">
-        {[
-          { icon: FaUserTag, label: "Username", value: user?.username },
-          { icon: FaEnvelope, label: "Email", value: user?.email },
-          { icon: FaPhone, label: "Phone", value: user?.phone_number },
-          { icon: FaMapMarkerAlt, label: "Address", value: user?.address },
-          { icon: FaBirthdayCake, label: "Date of Birth", value: moment(user?.date_of_birth).format("MMMM Do, YYYY") },
-          { icon: FaTransgender, label: "Gender", value: user?.gender === 1 ? "Male" : "Female" },
+      <div className="text-xs md:text-sm space-y-4 grid grid-cols-1 mt-10">
+      {[
+          { icon: FaUserTag, tooltip: "Username", value: user?.username },
+          { icon: FaEnvelope, tooltip: "Email", value: user?.email },
+          { icon: FaPhone, tooltip: "Phone", value: user?.phone_number },
+          { icon: FaMapMarkerAlt, tooltip: "Address", value: user?.address },
+          { icon: FaBirthdayCake, tooltip: "Date of Birth", value: moment(user?.date_of_birth).format("MMMM Do, YYYY") },
+          { icon: FaTransgender, tooltip: "Gender", value: user?.gender === 1 ? "Male" : "Female" },
         ].map((item, index) => (
-          <div key={index} className="flex items-center text-gray-700 mb-4">
-            <item.icon className="text-gray-500 mr-3" />
-            <p className="font-medium">
-              <strong className="text-gray-900">{item.label}:</strong> {item.value}
-            </p>
-          </div>
+          <InfoItem key={index} icon={item.icon} tooltip={item.tooltip} value={item.value} isLoading={isLoading}/>
         ))}
       </div>
       {/* Modal for image upload */}

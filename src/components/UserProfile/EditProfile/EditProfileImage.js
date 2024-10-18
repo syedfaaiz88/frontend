@@ -14,7 +14,7 @@ const EditProfileImage = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    if (file && file.size <= 5 * 1024 * 1024) {
+    if (file && file.size <= 15 * 1024 * 1024) {
       const fileType = file.type.split("/")[1];
       if (["png", "jpg", "jpeg"].includes(fileType)) {
         setSelectedImage(file);

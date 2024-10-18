@@ -10,6 +10,8 @@ const EditProfileDetails = () => {
   const [address, setAddress] = useState("");
   const [bio, setBio] = useState("");
   const [errors, setErrors] = useState({});
+  const [storedUser, setStoredUsername] = useState("")
+
   const dispatch = useDispatch();
 
   const profileErrors = useSelector(
@@ -25,6 +27,7 @@ const EditProfileDetails = () => {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user")) || {};
+    setStoredUsername(user)
     setAddress(user.address);
     setBio(user.bio);
   }, []);
@@ -36,6 +39,8 @@ const EditProfileDetails = () => {
     if (bio.trim()) body.bio = bio;
     dispatch(editProfileDetails(body));
   };
+
+  const disabled = storedUser && storedUser.bio === bio && storedUser.address === address
 
   return (
     <div className="bg-white px-2 md:px-16 py-4 rounded-xl">
@@ -67,7 +72,7 @@ const EditProfileDetails = () => {
             error={errors?.bio}
             Icon={<FaInfoCircle />} // Info circle icon
           />
-        <Button isLoading={isLoading} type="submit">
+        <Button isLoading={isLoading} type="submit" disabled={disabled}>
           Update Profile
         </Button>
       </form>
