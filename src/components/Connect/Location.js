@@ -30,7 +30,7 @@ const RecenterMap = ({ lat, lng }) => {
   return (
     <button
       onClick={recenterMap}
-      className="absolute top-2 right-2 z-50 bg-blue-500 text-white px-4 py-2 rounded shadow"
+      className="absolute top-2 right-2 z-10 bg-blue-500 text-white px-4 py-2 rounded shadow"
     >
       Recenter Map
     </button>

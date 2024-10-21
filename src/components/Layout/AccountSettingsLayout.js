@@ -2,8 +2,8 @@ import React from "react";
 import Sidebar from "../UI/SidebarV2";
 import { FaCog, FaLock, FaUser, FaUserEdit } from "react-icons/fa";
 import Footer from "./Footer";
-import Header from "./Header";
 import { MdFeedback } from "react-icons/md";
+import Header from "./Header/Header";
 
 function AccountSettingsLayout({ element }) {
   const items = {

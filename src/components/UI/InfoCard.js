@@ -41,7 +41,7 @@ const InfoCard = ({ items }) => {
             className="flex justify-between items-center border-b border-gray-300 py-3 px-4 cursor-pointer hover:bg-gray-100"
           >
             <div>
-              <p className="text-gray-600 font-medium">{item.title}</p>
+              <p className="text-gray-600 text-base">{item.title}</p>
               <p className="text-black">{item.content}</p>
             </div>
             {item.icon && <div className="text-gray-400">{item.icon}</div>}

@@ -10,7 +10,6 @@ import {
 import Footer from "./Footer";
 import { FcMenu } from "react-icons/fc";
 import { BsPersonRaisedHand } from "react-icons/bs";
-import Header from "./Header";
 import { TbTimelineEventText } from "react-icons/tb";
 import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
 import {
@@ -21,6 +20,7 @@ import {
 import { MdPermContactCalendar, MdSportsEsports } from "react-icons/md";
 import { RiBilliardsFill } from "react-icons/ri";
 import { TiLocation } from "react-icons/ti";
+import Header from "./Header/Header";
 
 function Layout({ element }) {
   const items = {

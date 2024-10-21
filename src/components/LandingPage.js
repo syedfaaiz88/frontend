@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./Layout/Header"; // Adjust the path as needed
 import { Link } from "react-router-dom";
 import Footer from "./Layout/Footer";
+import Header from "./Layout/Header/Header";
 
 const LandingPage = () => {
   return (
