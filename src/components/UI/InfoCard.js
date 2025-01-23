@@ -13,7 +13,7 @@ const InfoCard = ({ items }) => {
   };
 
   return (
-    <div className="w-auto mx-auto bg-white border rounded-lg overflow-hidden">
+    <div className="w-auto mx-auto bg-white border rounded-2xl overflow-hidden">
       {selectedItem ? (
         // Render selected item content with a back button
         <div className="p-4">
@@ -38,11 +38,11 @@ const InfoCard = ({ items }) => {
           <div
             key={index}
             onClick={() => handleItemClick(item)}
-            className="flex justify-between items-center border-b border-gray-300 py-3 px-4 cursor-pointer hover:bg-gray-100"
+            className={`flex justify-between items-center border-gray-300 py-3 px-4 cursor-pointer hover:bg-gray-100 ${ index == items.length -1 ? "": " border-b" }`}
           >
             <div>
-              <p className="text-gray-600 text-base">{item.title}</p>
-              <p className="text-black">{item.content}</p>
+              <p className="text-black">{item.title}</p>
+              <p className="text-gray-600 text-sm">{item.content}</p>
             </div>
             {item.icon && <div className="text-gray-400">{item.icon}</div>}
             <IoIosArrowForward />

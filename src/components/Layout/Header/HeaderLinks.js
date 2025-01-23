@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProfileContent from "./ProfileContent";
 import Dropdown from "../../UI/Dropdown";
-import ProfileSettings from "./ProfileSettings";
-import { IoMdSettings } from "react-icons/io";
 
 const HeaderLinks = () => {
   const [user, setUser] = useState({});
@@ -12,10 +10,6 @@ const HeaderLinks = () => {
     setUser(storedUser || {});
   }, []);
   const links = [
-    {
-      link: <IoMdSettings />,
-      component: <ProfileSettings />,
-    },
     {
       link: (
         <img
@@ -34,8 +28,9 @@ const HeaderLinks = () => {
       component: <ProfileContent />,
     },
   ];
-  return links.map((item) => (
+  return links.map((item, index) => (
     <Dropdown
+      key={index} // Adding the key prop with a unique value
       triggerComponent={
         <div className="w-10 h-10 rounded-full border-2 border-gray-300 bg-gray-200 cursor-pointer text-2xl flex items-center justify-center overflow-hidden">
           {item.link}

@@ -26,6 +26,7 @@ import AccountSettingsLayout from "./components/Layout/AccountSettingsLayout";
 import ChangePasswordForm from "./components/UserProfile/ChangePasswordForm";
 import EditProfileDetails from "./components/UserProfile/EditProfile/EditProfileDetails";
 import EditProfile from "./components/UserProfile/EditProfile/EditProfile";
+import AuthenticationLayout from "./components/Layout/AuthenticationLayout";
 
 function App() {
   return (
@@ -34,8 +35,8 @@ function App() {
         <Routes>
 
           {/* Grouped Public Routes */}
-          <Route path="/signup" element={<SignupForm />} />
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<AuthenticationLayout element={<SignupForm />}/>} />
+          <Route path="/login" element={<AuthenticationLayout element={<LoginForm />}/>} />
           <Route path="/verify-email/:token" element={<VerifyEmail />} />
           <Route path="/" element={<LandingPage />} />
           

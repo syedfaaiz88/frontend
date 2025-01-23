@@ -18,10 +18,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Thumb color */
+  background: #b8b8b8; /* Thumb color */
   border-radius: 4px; /* Rounded corners for the thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Thumb color on hover */
+  background: #757575; /* Thumb color on hover */
 }

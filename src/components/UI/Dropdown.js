@@ -36,7 +36,7 @@ const Dropdown = ({ triggerComponent, dropdownContent }) => {
 
       {isOpen && (
         <div
-          className="absolute min-w-[210px] right-0 left-auto bg-white border border-gray-300 shadow-lg rounded-lg z-100 mt-1 overflow-hidden"
+          className="absolute min-w-[210px] right-0 left-auto bg-white border border-gray-300 shadow-lg rounded-md z-50 mt-1 overflow-hidden"
         >
           {dropdownContent}
         </div>

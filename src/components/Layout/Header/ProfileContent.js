@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineMail, AiOutlineUser } from "react-icons/ai";
 import { BiSolidUserRectangle } from "react-icons/bi";
 import { VscSignOut } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../../Redux/Actions/AuthAction/LogoutAction";
+import Button from "../../UI/Button";
 
 const ProfileContent = () => {
   const [user, setUser] = useState({});
@@ -41,31 +41,20 @@ const ProfileContent = () => {
         }
       </div>
       <div className="text-center">
-        <p className="text-xl font-semibold text-gray-800 mb-1">
+        <p className="text-base text-gray-800 mb-2">
           {user.first_name} {user.last_name}
         </p>
-        <p className="text-lg text-gray-600 mb-1">
-          <AiOutlineUser className="inline mr-1" />@{user.username}
-        </p>
-        <p className="text-md text-gray-500 mb-4">
-          <AiOutlineMail className="inline mr-1" />
-          {user.email}
-        </p>
-        <div className="flex flex-col space-y-4">
-          <Link
-            to="/user-profile"
-            className="flex items-center justify-center p-2 w-full text-white bg-green-500 border border-gray-300 rounded-lg hover:bg-green-600 shadow-md transition-colors duration-300"
-          >
+        <div className="flex flex-col space-y-2">
+          <Button>
             <BiSolidUserRectangle className="text-lg" />
-            <span className="ml-2 text-sm">View Profile</span>
-          </Link>
-          <button
-            className="flex items-center justify-center p-2 w-full text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 shadow-md transition-colors duration-300"
-            onClick={handleLogout}
-          >
+            <Link to="/user-profile" className="ml-2 text-sm">
+              View Profile
+            </Link>
+          </Button>
+          <Button onClick={handleLogout}>
             <VscSignOut className="text-lg text-red-600" />
             <span className="ml-2 text-sm">Logout</span>
-          </button>
+          </Button>
         </div>
       </div>
     </div>

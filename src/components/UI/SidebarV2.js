@@ -41,7 +41,7 @@ const Sidebar = ({ items, collapsable, bgColor }) => {
         isCollapsed ? "w-28" : "w-52"
       } ${bgColor}`}
     >
-      <div className="p-4 w-full space-y-1">
+      <div className="p-4 w-full flex flex-col overflow-y-scroll">
         {/* Toggle button for the sidebar */}
         { collapsable &&
           <button
@@ -81,7 +81,7 @@ const Sidebar = ({ items, collapsable, bgColor }) => {
 
             {/* Render sublinks with sliding animation */}
             <div
-              className={`mt-2 ml-8 space-y-2 transition-all duration-500 overflow-hidden ${
+              className={`mb-2 mt-2 ml-8 space-y-2 transition-all duration-500 overflow-hidden ${
                 openSections[item.text]
                   ? "max-h-96 opacity-100"
                   : "max-h-0 opacity-0"

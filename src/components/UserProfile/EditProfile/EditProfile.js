@@ -9,22 +9,22 @@ const EditProfile = () => {
   const cardItems = [
     {
       title: "Name",
-      content: "",
+      content: "You can edit your first name and last name.",
       component: EditName
     },
     {
       title: "Username",
-      content: "",
+      content: "You can change your username but it must be unique.",
       component: EditUsername
     },
     {
       title: "Profile Picture",
-      content: "",
+      content: "You can change your profile picture but Size must be less than 5MB.",
       component: EditProfileImage
     },
     {
       title: "Profile Details",
-      content: "",
+      content: "See your profile details like name, username, profile picture etc.",
       component: EditProfileDetails
     },
   ];

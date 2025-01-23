@@ -53,7 +53,7 @@ function AccountSettingsLayout({ element }) {
         <div className="flex-1 overflow-y-auto">
           <div className="flex flex-col justify-between min-h-full">
             <div className="flex justify-center min-h-screen">
-              <div className="p-6 md:p-10 w-full max-w-3xl mx-4">
+              <div className="p-6 md:p-10 w-full mx-4">
                 <main>{element}</main>
               </div>
             </div>
